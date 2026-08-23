@@ -34,6 +34,16 @@ LazyCode owns organizational semantics:
 - future permission leases and escalation routing;
 - durable `.lazycode/` artifacts.
 
+## Deployment stance
+
+The initial LazyCode runtime executes completely on the operator's machine. It does not require a hosted LazyCode control plane, persistence service, or collaboration server.
+
+Reusable workflow definitions, role behavior, model/provider configuration, and other non-project-specific LazyCode state belong to the local LazyCode installation. Project definitions, architecture, conventions, commands, deliveries, features, decisions, and operating instructions belong in the repository alongside the product they govern.
+
+Model inference is the expected external boundary. Models may run locally, but remote model APIs will commonly be used.
+
+A hosted LazyCode runtime may be introduced later so work can continue independently of the operator's machine and remote users can connect to it. That future option must preserve the repository as the source of project-specific truth and must not become a dependency of the local-first product.
+
 ## First vertical slice
 
 The bundle overrides the root deployment persona with a Project Manager and registers `delegate_exploration`. A call creates a fresh in-process Explorer through the Harness `spawn` provider.

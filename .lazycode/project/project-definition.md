@@ -38,6 +38,24 @@ The central abstraction is:
 
 An agent therefore represents a reconstructable responsibility, not merely a persistent conversation with a model.
 
+## Target user and operating context
+
+LazyCode primarily serves technically capable solo developers and developer/analysts working within small software agencies. Its central agency use case is enabling one capable operator to manage and deliver a substantial software product with the organizational and execution capacity normally associated with a larger development team.
+
+The primary operator must already possess the technical ability to build the product without LazyCode. LazyCode accelerates, organizes, and amplifies that developer's work; it does not replace the judgment required to understand architecture, inspect code, review agent output, interpret tests and failures, or make product-specific technical decisions.
+
+Product-oriented participants may contribute to high-level planning, feature definitions, delivery priorities, and acceptance criteria. Complete operation of the development system still requires technical participation.
+
+Long-running product development is the primary workflow. Quick fixes, production issues, and small isolated changes must also be handled gracefully without forcing trivial work through the complete delivery hierarchy.
+
+New and early-stage products are the preferred adoption point because LazyCode's definitions and workflows can be established from the beginning. Mature products remain supported through either incremental adoption in selected areas or a deliberate comprehensive effort to import the existing architecture, conventions, workflows, and project state.
+
+The framework is intended to organize any software-engineering project that produces and maintains a software product. LazyCode's organizational concepts should not depend on a language, framework, repository size, or application category. Project-specific knowledge—such as build and test commands, architecture, conventions, deployment procedures, validation requirements, and operating constraints—belongs in the project repository.
+
+The preferred operating model is one primary developer. A small number of developers may work concurrently, but multi-developer collaboration is a supported secondary case rather than the organizing center of the first product.
+
+The first version runs locally on the operator's machine. LazyCode-owned workflow definitions and reusable configuration remain in the local LazyCode installation, while project definitions and operational knowledge are versioned with the repository. AI models may run locally but will commonly be remote APIs. A future hosted LazyCode runtime may allow projects to continue without depending on an operator's machine, but no hosted LazyCode service is required for the initial product.
+
 ## Intended user experience
 
 A human should eventually be able to give LazyCode project-level intent, such as “add subscription billing to this application,” and have the system:
@@ -251,13 +269,17 @@ The project currently has:
 - a native DeepSeek Harness bundle;
 - automated tests, type checking, build verification, and profile-composition verification.
 
-The next activity is to refine this definition before designing the first complete organizational workflow. Planned delivery sequencing remains provisional in the [Roadmap](roadmap.md).
+The next activity is to refine this definition using the ordered [Project Definition Workbook](project-definition-workbook.md) before designing the first complete organizational workflow. Planned delivery sequencing remains provisional in the [Roadmap](roadmap.md).
 
 ## Decision state
 
 ### Established for the current version
 
 - LazyCode is the working name.
+- The primary user is a technically capable solo developer or developer/analyst in a small agency.
+- Long-running product development is primary; quick fixes must have a lightweight path.
+- LazyCode is technology agnostic, while project-specific operating knowledge belongs in the repository.
+- The initial runtime is local-first and requires no hosted LazyCode service.
 - The repository and `.lazycode/` artifacts are durable project memory.
 - DeepSeek Harness is the v1 execution substrate.
 - LazyCode is an out-of-tree bundle, not a Harness fork.
