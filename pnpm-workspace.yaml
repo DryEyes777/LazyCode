@@ -1,0 +1,8 @@
+allowBuilds:
+  # Match the reviewed native build choices made by DeepSeek Harness itself.
+  '@deepseek-ai/dsh-subprocess-local': true
+  koffi: true
+  node-pty: true
+  # These transitive lifecycle scripts are not required by Harness.
+  '@google/genai': false
+  protobufjs: false

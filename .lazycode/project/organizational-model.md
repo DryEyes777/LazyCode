@@ -1,0 +1,77 @@
+# Organizational Model
+
+## Primary hierarchy
+
+```text
+Human
+  -> Project Manager
+    -> Delivery Manager
+      -> Team Lead
+        -> Feature Lead
+          -> Implementation Agent
+            -> Subagent
+              -> Leaf Agent
+```
+
+The hierarchy describes responsibility and escalation. It is not a requirement that every task instantiate every level.
+
+## Roles
+
+### Project Manager
+
+Owns canonical project documentation, architectural direction, roadmap state, project-wide decisions, and knowledge promoted from completed deliveries. It normally changes project artifacts rather than implementation code.
+
+### Delivery Manager
+
+Groups planned features into a delivery that can be integrated and verified together. It owns delivery documentation, progress, dependencies, and acceptance criteria.
+
+### Team Lead
+
+Owns one delivery's execution. It breaks the delivery into features, coordinates Feature Leads, resolves cross-feature dependencies, integrates results, and verifies delivery-level acceptance.
+
+### Feature Lead
+
+Owns one feature contract. It designs interfaces and tests, delegates independently implementable components, implements integration logic against those contracts, and requests independent review and testing.
+
+### Implementation and Leaf Agents
+
+Implementation agents recursively decompose meaningful helper contracts. Delegation stops when further decomposition would add coordination cost without creating a useful independent boundary; that work becomes a leaf task.
+
+## Specialized roles
+
+- **Explorer:** investigates repository or dependency questions and returns evidence.
+- **Reviewer:** evaluates a completed change against its contract and constraints without inheriting the implementer's reasoning.
+- **Tester:** independently verifies acceptance criteria and reports actionable failures.
+- **Oracle:** answers focused architecture, repository, history, decision, or dependency questions from read-only evidence.
+
+## Delegation contract
+
+A parent delegates when a component has a meaningful, independently verifiable contract. A child receives its role, task, relevant interfaces and files, constraints, allowed resources, expected result, and escalation route. It does not automatically receive ancestral conversations.
+
+Parents continue against the agreed contract and integrate the returned result. Detailed child reasoning stays at the child level unless it exposes a durable constraint or unresolved risk.
+
+## Context reconstruction
+
+A persistent identity can be reconstructed from:
+
+- its role definition;
+- current project, delivery, or feature artifacts;
+- relevant architecture and decisions;
+- repository state and selected source files;
+- open work and the latest child reports.
+
+This permits long-lived ownership while allowing model contexts to reset frequently.
+
+## Information compression
+
+Workers return implementation facts to Feature Leads. Feature Leads return feature-level outcomes to Team Leads. Team Leads return delivery outcomes to Delivery Managers. Project Managers promote only project-level consequences and durable knowledge.
+
+## Escalation
+
+The intended path is Oracle, direct parent, successive organizational parents, then human. An escalation must carry a reason, a precise question, blocking status, attempted evidence, and the authority required to resolve it. Runtime policy chooses the next recipient.
+
+## Permissions
+
+Capabilities such as filesystem access, shell execution, network use, agent creation, documentation changes, and Git operations must be granted by runtime policy and may be scoped to resources. Planned grants include one action, task, session, delivery, and permanent leases.
+
+The first spike proves only a read-only Explorer tool restriction. General capability leases and permission escalation are deferred.
