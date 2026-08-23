@@ -54,7 +54,7 @@ Output: recorded in [Project Definition — Target user and operating context](p
 
 #### PD-02 — Core product promise
 
-Status: not started
+Status: established
 
 - What should LazyCode do better than a normal coding agent?
 - Is its primary value autonomy, scalability, reliability, organization, auditability, context efficiency, or a specific combination?
@@ -63,7 +63,17 @@ Status: not started
 - What should LazyCode never claim to do?
 - How will we recognize that the product promise has been fulfilled?
 
-Output: a concise product promise and measurable success criteria.
+Decision summary:
+
+- LazyCode provides a structured, observable, and deeply controllable organization of workers for long-running software products.
+- Durable project knowledge and reconstructed bounded contexts replace dependence on indefinitely growing conversations.
+- Product priorities are code quality first, affordability second, and speed third.
+- Smaller and cheaper models should handle appropriate bounded responsibilities; speed should emerge from sound parallelization.
+- LazyCode organizes workers rather than defining intelligence. A compatible worker may be an AI model, human, service, or external agent.
+- The operator must be able to inspect active workers, ownership, models, runtime, location, activity, permissions, usage, blockers, and results.
+- LazyCode is a tool: it does not guarantee good projects, correct code, accurate results, or sound decisions, and it does not replace developer accountability.
+
+Output: recorded in [Project Definition — Product promise](project-definition.md#product-promise), [Project Definition — Definition of success](project-definition.md#definition-of-success), and [Organizational Model — Worker abstraction](organizational-model.md#worker-abstraction).
 
 #### PD-03 — Primary end-to-end workflow
 

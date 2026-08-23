@@ -15,6 +15,14 @@ Human
 
 The hierarchy describes responsibility and escalation. It is not a requirement that every task instantiate every level.
 
+## Worker abstraction
+
+LazyCode organizes accountable workers rather than assuming every responsibility is performed by an AI model. A worker may be an AI agent, human developer, deterministic service, external coding agent, or another compatible execution system.
+
+Replacing one worker type with another should not fundamentally change the project, delivery, feature, task, ownership, reporting, escalation, or verification contracts. Worker-specific capabilities, context delivery, communication, and execution adapters may differ, but organizational semantics remain stable.
+
+LazyCode does not treat assignment to an AI worker as a guarantee of correct execution. The same acceptance and verification obligations apply regardless of worker type.
+
 ## Roles
 
 ### Project Manager

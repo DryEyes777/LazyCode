@@ -56,6 +56,38 @@ The preferred operating model is one primary developer. A small number of develo
 
 The first version runs locally on the operator's machine. LazyCode-owned workflow definitions and reusable configuration remain in the local LazyCode installation, while project definitions and operational knowledge are versioned with the repository. AI models may run locally but will commonly be remote APIs. A future hosted LazyCode runtime may allow projects to continue without depending on an operator's machine, but no hosted LazyCode service is required for the initial product.
 
+## Product promise
+
+LazyCode gives a developer a structured, observable, and deeply controllable organization of workers for building long-running software products.
+
+It preserves important project knowledge outside transient conversations, keeps individual worker contexts bounded and reconstructable, makes recursive delegation practical, and gives the developer clear supervision over ongoing work. Its intended result is higher-quality software at an affordable AI cost. Increased development speed is desirable but should emerge from good organization and safe parallelization rather than sacrificing quality.
+
+When goals conflict, LazyCode prioritizes:
+
+1. **Code quality.** The purpose is to build maintainable, correct, and coherent products.
+2. **Affordability.** Smaller and cheaper models should handle appropriate bounded responsibilities instead of using the most expensive model for every task.
+3. **Speed.** Faster delivery should result from parallel work, reduced repeated investigation, and better coordination—not reduced quality.
+
+LazyCode should improve conventional coding-agent workflows through structured delegation, explicit ownership, bounded context, durable project memory, role-appropriate model selection, independent verification, clear human supervision, reduced repeated reasoning, and accessible project knowledge.
+
+It specifically aims to reduce context rot, bloated general-purpose agent conversations, constant context compaction, circular agent behavior, shallow subagent control, duplicated investigation, architectural knowledge loss, unnecessary use of expensive models, and poor visibility into delegated work.
+
+The operator should be able to inspect the active organization and understand:
+
+- how many workers are running;
+- each worker's identity, role, parent, and children;
+- the model or provider being used;
+- runtime duration, current status, and progress;
+- the current task and objective;
+- the repository, worktree, files, or project area involved;
+- owned resources, permissions, and constraints;
+- token and cost usage when available;
+- blockers, failures, escalations, completed outputs, and evidence.
+
+Supervision should not require reading every worker's complete conversation.
+
+LazyCode remains a tool. It does not guarantee a good project, correct code, accurate model output, sound plans, or appropriate architectural decisions. It does not remove the need for review, testing, technical judgment, or developer accountability, and it does not transform an unqualified operator into a software engineer.
+
 ## Intended user experience
 
 A human should eventually be able to give LazyCode project-level intent, such as “add subscription billing to this application,” and have the system:
@@ -253,6 +285,10 @@ LazyCode will be successful if it can complete substantial software-development 
 - verifying results independently;
 - escalating unresolved decisions predictably;
 - maintaining clear, durable project state;
+- using smaller and cheaper models for responsibilities they can perform without lowering project quality;
+- reducing repeated investigation, unproductive loops, unnecessary compaction, and wasted AI usage;
+- keeping project documentation accessible and useful to project-aware workers;
+- allowing the operator to understand and supervise active work without reading every conversation;
 - avoiding dependence on one model provider;
 - producing outcomes a human can understand and audit.
 
@@ -280,6 +316,9 @@ The next activity is to refine this definition using the ordered [Project Defini
 - Long-running product development is primary; quick fixes must have a lightweight path.
 - LazyCode is technology agnostic, while project-specific operating knowledge belongs in the repository.
 - The initial runtime is local-first and requires no hosted LazyCode service.
+- Product priorities are code quality, affordability, then speed.
+- LazyCode organizes workers independently of whether they are AI models, humans, services, or external agents.
+- LazyCode provides structure and supervision without guaranteeing correct results or replacing developer accountability.
 - The repository and `.lazycode/` artifacts are durable project memory.
 - DeepSeek Harness is the v1 execution substrate.
 - LazyCode is an out-of-tree bundle, not a Harness fork.

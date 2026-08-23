@@ -22,6 +22,8 @@ An agent is a reconstructable responsibility, not merely a persistent chat sessi
 - Enforce permissions in runtime code instead of prompt prose alone.
 - Select models and context policies by role without binding the organization to one model provider.
 - Use independent reviewers and testers with fresh, purpose-built context.
+- Prioritize code quality over affordability, and affordability over speed.
+- Allow the same organizational contracts to coordinate AI models, humans, services, or external agents.
 
 ## Core principles
 
@@ -35,6 +37,7 @@ An agent is a reconstructable responsibility, not merely a persistent chat sessi
 8. Verification uses independent context.
 9. Temporary agents are expected and inexpensive to recreate.
 10. Models and execution providers are replaceable behind stable organizational contracts.
+11. LazyCode is a tool, not a guarantee of correctness or a replacement for developer accountability.
 
 ## Long-term outcome
 
