@@ -226,7 +226,7 @@ The user participates at these boundaries:
 8. Approve or reject the Delivery candidate.
 9. Authorize merge through final approval.
 
-Detailed autonomy and approval mechanics are refined in `PD-04 — Human control and autonomy`.
+Detailed autonomy and approval mechanics are established in [Human Control and Autonomy](human-control-and-autonomy.md).
 
 ## Deferred mechanics
 

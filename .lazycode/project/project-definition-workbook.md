@@ -125,7 +125,7 @@ Output: recorded in [Primary End-to-End Workflow](primary-workflow.md) and summa
 
 #### PD-04 — Human control and autonomy
 
-Status: not started
+Status: established
 
 - Does the user approve projects, deliveries, features, tasks, plans, or individual actions?
 - When may LazyCode proceed autonomously?
@@ -136,7 +136,22 @@ Status: not started
 - Can the user change the autonomy level during active work?
 - What happens to ongoing child work when the user intervenes?
 
-Output: the human-oversight, autonomy, and approval model.
+Decision summary:
+
+- LazyCode initially has one autonomy model: continuous execution between established human gates.
+- Routine actions inside approved scope do not require individual user approval.
+- Work stops only for user intervention, an escalation requiring human authority, an established review gate, or terminal completion.
+- A human escalation blocks affected and dependent work while unrelated work continues.
+- The user can enter any visible worker's chat and redirect it; effects propagate downward and a summary propagates upward.
+- Graceful pause propagates downward, checkpoints at leaf safe points, cleans owned resources, and completes upward.
+- Resume begins at the top owner, propagates downward, and requires each worker to tour durable and runtime state before continuing.
+- Logical worker identity survives pause even when a fresh model session must be reconstructed.
+- Forced stop terminates worker threads and owned execution environments immediately, then requires state reconciliation before resume.
+- Parent cancellation or replacement cascades to descendants; children normally settle before the parent stops.
+- Arbitrary usage ceilings are not part of the initial model. Loop and no-progress detection alert the direct parent for remediation and possible escalation.
+- The user must be able to identify and directly supervise every active worker.
+
+Output: recorded in [Human Control and Autonomy](human-control-and-autonomy.md) and referenced by the [Primary End-to-End Workflow](primary-workflow.md#human-approval-gates).
 
 #### PD-05 — Interaction surface
 

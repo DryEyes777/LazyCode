@@ -98,6 +98,18 @@ The user may approve the Delivery and authorize merge into the configured integr
 
 Quick fixes use a lighter definition path but still pass through a Delivery, verification, user approval, and the configured merge boundary. The complete established journey is defined in [Primary End-to-End Workflow](primary-workflow.md).
 
+## Human control and autonomy
+
+LazyCode initially uses one continuous-until-complete autonomy model. After the user approves and starts work, LazyCode proceeds independently until the next established human gate, a direct user intervention, a human-blocking escalation, or terminal completion. Routine actions inside approved scope do not require individual approval.
+
+Escalations block only affected and dependent work; unrelated work continues. The user may enter any visible worker's chat and redirect that worker directly, with affected changes flowing downward and an intervention summary flowing upward.
+
+Graceful pause is a bottom-up checkpoint and resource-cleanup protocol. Forced stop is an immediate runtime-supervised termination followed by mandatory state reconciliation. Logical worker identity and ownership survive context or model-session reconstruction.
+
+LazyCode initially avoids arbitrary usage limits that terminate useful work. Instead, loop and no-progress safeguards alert the responsible parent for remediation and escalation.
+
+The complete intervention and lifecycle contract is defined in [Human Control and Autonomy](human-control-and-autonomy.md).
+
 ## Product boundary
 
 The organizational system is the product. DeepSeek Harness is the initial execution substrate.
@@ -316,6 +328,8 @@ The next activity is to refine this definition using the ordered [Project Defini
 - Delivery is the canonical grouping and merge unit; release is not a separate LazyCode concept.
 - Users review and approve a combined Delivery branch rather than every completed Feature.
 - Quick fixes retain the Delivery verification and merge boundary.
+- Continuous-until-complete is the single initial autonomy mode between established human gates.
+- Users may directly redirect any visible worker; graceful pause, forced stop, cancellation, and replacement follow ownership-tree semantics.
 - The repository and `.lazycode/` artifacts are durable project memory.
 - DeepSeek Harness is the v1 execution substrate.
 - LazyCode is an out-of-tree bundle, not a Harness fork.
