@@ -90,21 +90,13 @@ LazyCode remains a tool. It does not guarantee a good project, correct code, acc
 
 ## Intended user experience
 
-A human should eventually be able to give LazyCode project-level intent, such as “add subscription billing to this application,” and have the system:
+The user creates a LazyCode project, links a repository, and collaborates with the Project Manager to turn a product idea into confirmed project documents. The Project Manager identifies major product areas as Epics; confirmed Epics are decomposed into user-approved, user-story-like Features; developer-led technical planning makes those Features implementation-ready.
 
-1. Interpret the request against current project state.
-2. Identify unresolved product or architectural questions.
-3. Update the project plan.
-4. Group the work into a coherent delivery.
-5. Decompose the delivery into features and contracts.
-6. Delegate bounded implementation work.
-7. Coordinate dependencies and integrate results.
-8. Request independent review and testing.
-9. Escalate decisions that require greater authority.
-10. Promote durable discoveries into project documentation.
-11. Return a concise, evidence-backed completion report.
+Implementation-ready Features are grouped into a user-approved Delivery and implemented in parallel or dependency order on one Delivery branch. Internal review, Feature tests, integration, and Delivery-level verification occur before the user receives a combined review package and testing instructions.
 
-The human should not need to manage every individual agent or preserve the project history in one conversation.
+The user may approve the Delivery and authorize merge into the configured integration branch, or reject it with actionable feedback that returns the Delivery to implementation and verification. After merge, LazyCode reconciles Delivery, Feature, Epic, roadmap, and project documentation and returns a final completion report.
+
+Quick fixes use a lighter definition path but still pass through a Delivery, verification, user approval, and the configured merge boundary. The complete established journey is defined in [Primary End-to-End Workflow](primary-workflow.md).
 
 ## Product boundary
 
@@ -319,6 +311,11 @@ The next activity is to refine this definition using the ordered [Project Defini
 - Product priorities are code quality, affordability, then speed.
 - LazyCode organizes workers independently of whether they are AI models, humans, services, or external agents.
 - LazyCode provides structure and supervision without guaranteeing correct results or replacing developer accountability.
+- Project definition proceeds from confirmed project documents to Epics, product-defined Features, technical Feature plans, and Deliveries.
+- Product Owner is not a separate role; its discovery and definition responsibilities belong to the Project Manager.
+- Delivery is the canonical grouping and merge unit; release is not a separate LazyCode concept.
+- Users review and approve a combined Delivery branch rather than every completed Feature.
+- Quick fixes retain the Delivery verification and merge boundary.
 - The repository and `.lazycode/` artifacts are durable project memory.
 - DeepSeek Harness is the v1 execution substrate.
 - LazyCode is an out-of-tree bundle, not a Harness fork.

@@ -46,6 +46,7 @@ pnpm dsh --profile lazycode "Delegate an exploration of .lazycode/project/vision
 
 - [Project definition](.lazycode/project/project-definition.md)
 - [Project definition workbook](.lazycode/project/project-definition-workbook.md)
+- [Primary end-to-end workflow](.lazycode/project/primary-workflow.md)
 - [Vision](.lazycode/project/vision.md)
 - [Organizational model](.lazycode/project/organizational-model.md)
 - [Architecture](.lazycode/project/architecture.md)

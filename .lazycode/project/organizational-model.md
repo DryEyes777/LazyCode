@@ -27,11 +27,11 @@ LazyCode does not treat assignment to an AI worker as a guarantee of correct exe
 
 ### Project Manager
 
-Owns canonical project documentation, architectural direction, roadmap state, project-wide decisions, and knowledge promoted from completed deliveries. It normally changes project artifacts rather than implementation code.
+Owns product discovery, canonical project documentation, architectural direction, roadmap state, Epics, project-wide decisions, and knowledge promoted from completed Deliveries. Product Owner is not a separate role: the Project Manager helps the user define the product, records that intent, identifies major product areas, and coordinates their decomposition into product-defined Features. It normally changes project artifacts rather than implementation code.
 
 ### Delivery Manager
 
-Groups planned features into a delivery that can be integrated and verified together. It owns delivery documentation, progress, dependencies, and acceptance criteria.
+Owns one user-approved Delivery from start through merge and closure. It coordinates implementation-ready Features, dependencies, the Delivery branch, integration, Delivery-level verification, review-package preparation, corrective loops after rejection, documentation reconciliation, and the final merge into the configured integration branch.
 
 ### Team Lead
 

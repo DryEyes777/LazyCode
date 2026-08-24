@@ -77,7 +77,7 @@ Output: recorded in [Project Definition — Product promise](project-definition.
 
 #### PD-03 — Primary end-to-end workflow
 
-Status: not started
+Status: established
 
 Use one realistic request and define the complete golden path:
 
@@ -106,7 +106,22 @@ For every stage:
 - What evidence allows the workflow to advance?
 - How are failure, interruption, or uncertainty represented?
 
-Output: the primary user journey and its state transitions.
+Decision summary:
+
+- The user creates a LazyCode project, links a repository, and defines the product collaboratively with the Project Manager.
+- The Project Manager includes product-owner responsibilities and writes the definition, vision, feasibility findings, roadmap, and related project artifacts for user confirmation.
+- Major product areas are Epics. Each Epic must be refined and confirmed before decomposition into Features.
+- Each Feature receives an approved user-story-like product definition before developer-led technical planning makes it implementation-ready.
+- The user may request dependency-aware Delivery recommendations or directly select Features for a Delivery.
+- A Delivery groups Features that can be implemented, integrated, and tested together; the user approves and explicitly starts it.
+- Features pass internal review and tests before automatic integration into one Delivery branch; the user reviews the combined Delivery, not each Feature.
+- Discoveries propagate from Feature to Delivery to project documentation according to affected scope.
+- The user receives an evidence-backed review package and can test the Delivery branch before approval.
+- Rejection creates actionable corrective work inside the active Delivery and repeats implementation and verification.
+- Approval authorizes merge into the configured integration branch. Completion then updates Delivery, Feature, Epic, roadmap, and project state.
+- Quick fixes use a lightweight definition but still enter an active or dedicated Delivery and follow the same verification and merge boundary.
+
+Output: recorded in [Primary End-to-End Workflow](primary-workflow.md) and summarized in [Project Definition — Intended user experience](project-definition.md#intended-user-experience).
 
 #### PD-04 — Human control and autonomy
 
