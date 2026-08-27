@@ -110,6 +110,18 @@ LazyCode initially avoids arbitrary usage limits that terminate useful work. Ins
 
 The complete intervention and lifecycle contract is defined in [Human Control and Autonomy](human-control-and-autonomy.md).
 
+## Interaction surface
+
+LazyCode's first user-facing surface is a locally hosted web application. A project launcher shows known projects and attention state; inside a project, the default view is a Delivery list with permanent navigation for Alerts, Deliveries, Epics, Features, Project Documentation, and Project Settings.
+
+The interface is Delivery-centered and hierarchy-aware. Delivery, Epic, Feature, and worker pages emphasize their owned definitions, acceptance criteria, progress, authority, evidence, and alerts. Raw worker conversation and execution history remain available as expandable detail rather than the primary supervision view.
+
+Alerts provide a dedicated attention queue, and Delivery candidate review provides the evidence, testing instructions, comments, agent-assisted correction requests, approval, and rejection workflow.
+
+The web application may allow direct document editing, but agent-assisted editing remains primary. Direct edits are Git-backed and reconcile with isolated worker snapshots at integration rather than silently mutating active context.
+
+The complete established information architecture is defined in [Interaction Surface](interaction-surface.md).
+
 ## Product boundary
 
 The organizational system is the product. DeepSeek Harness is the initial execution substrate.
@@ -330,6 +342,7 @@ The next activity is to refine this definition using the ordered [Project Defini
 - Quick fixes retain the Delivery verification and merge boundary.
 - Continuous-until-complete is the single initial autonomy mode between established human gates.
 - Users may directly redirect any visible worker; graceful pause, forced stop, cancellation, and replacement follow ownership-tree semantics.
+- The first user-facing surface is a local web application centered on Deliveries, contextual worker supervision, and an Alerts queue.
 - The repository and `.lazycode/` artifacts are durable project memory.
 - DeepSeek Harness is the v1 execution substrate.
 - LazyCode is an out-of-tree bundle, not a Harness fork.

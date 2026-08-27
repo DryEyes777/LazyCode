@@ -163,6 +163,8 @@ LazyCode presents a review package containing:
 
 All Delivery changes must be available together on one branch so the user can test the combined result.
 
+The established candidate-review workspace is defined in [Interaction Surface — Delivery candidate review](interaction-surface.md#delivery-candidate-review).
+
 ## 11. Handle rejection
 
 If the user rejects the Delivery, the user describes what is wrong and the required outcome.

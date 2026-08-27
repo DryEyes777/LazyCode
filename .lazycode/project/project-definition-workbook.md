@@ -155,7 +155,7 @@ Output: recorded in [Human Control and Autonomy](human-control-and-autonomy.md) 
 
 #### PD-05 — Interaction surface
 
-Status: not started
+Status: established
 
 - Which surfaces are required: CLI, terminal UI, web application, IDE integration, or several?
 - What is the smallest useful interface for the first version?
@@ -165,7 +165,23 @@ Status: not started
 - How are questions, escalations, plans, approvals, and completion reports presented?
 - Which operations must be possible without a graphical interface?
 
-Output: a product interaction model without detailed visual design.
+Decision summary:
+
+- The first product surface is a locally hosted web application. The same service may be hosted remotely later.
+- No separate interactive CLI is required for the initial product.
+- A project launcher lists known projects and shows project name, active Delivery, active-worker count, and alert count.
+- Deliveries is the default project view. Permanent navigation includes Alerts, Deliveries, Epics, Features, Project Documentation, and Project Settings.
+- Delivery rows show state, runtime, active workers, Feature progress, and attention status.
+- Alerts have unconsulted, consulted-but-unresolved, and resolved states; resolved alerts are hidden by default behind a toggle.
+- Epic and Feature pages emphasize definitions and acceptance criteria before lower-level activity.
+- Worker pages emphasize task, plan, authority, progress, checkpoint knowledge, findings, divergence, and alerts.
+- Raw worker chat, tool activity, command output, and execution history remain available in expandable detail rather than dominating the page.
+- Documentation is changed primarily through responsible workers, with optional direct editing.
+- Direct edits are Git-backed and reconcile with isolated work at integration rather than live-mutating worker context.
+- Delivery candidate review lives on the Delivery page and includes evidence, testing instructions, comments, approval, rejection, and an assisting review worker.
+- Persistence format, frontend technology, visual design, authentication, and detailed Git mechanics remain deferred.
+
+Output: recorded in [Interaction Surface](interaction-surface.md) and referenced by [Human Control and Autonomy — User visibility requirement](human-control-and-autonomy.md#user-visibility-requirement).
 
 ### Phase 2 — Work representation and planning
 

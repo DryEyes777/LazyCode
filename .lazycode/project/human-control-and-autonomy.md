@@ -230,4 +230,4 @@ The interaction surface must eventually show enough information to distinguish:
 - runtime duration;
 - status, progress, blockers, and recent activity.
 
-Detailed presentation is deferred to `PD-05 — Interaction surface`.
+Detailed presentation is established in [Interaction Surface](interaction-surface.md).
