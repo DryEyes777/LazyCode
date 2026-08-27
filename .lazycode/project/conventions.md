@@ -7,6 +7,7 @@
 - `.lazycode/project/primary-workflow.md` is the canonical end-to-end user journey and approval-gate definition.
 - `.lazycode/project/human-control-and-autonomy.md` is the canonical worker intervention, pause, resume, cancellation, and continuous-execution contract.
 - `.lazycode/project/interaction-surface.md` is the canonical first-version information architecture and user interaction contract.
+- `.lazycode/project/project-lifecycle.md` is the canonical project registration, initialization, reconciliation, archive, removal, and portability contract.
 - `.lazycode/project/` contains project-wide durable knowledge and decisions.
 - `.lazycode/deliveries/<id>/` contains delivery intent, acceptance, and status.
 - `.lazycode/features/<id>/` contains feature behavior, contracts, and status.

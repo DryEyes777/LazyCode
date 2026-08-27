@@ -187,7 +187,7 @@ Output: recorded in [Interaction Surface](interaction-surface.md) and referenced
 
 #### PD-06 — Project lifecycle
 
-Status: not started
+Status: established
 
 - How is LazyCode initialized in a repository?
 - What information must exist before work can begin?
@@ -198,7 +198,23 @@ Status: not started
 - Can one installation manage multiple projects or workspaces?
 - What does it mean to archive, transfer, or remove a project?
 
-Output: project initialization, maintenance, and lifecycle rules.
+Decision summary:
+
+- A project combines a local LazyCode registry entry with repository-owned `.lazycode/` state.
+- Project creation initially asks only for a name and repository location.
+- Existing `.lazycode/` state opens optimistically; incompatibilities appear as actionable errors at the affected boundary.
+- New projects create only the empty storage required by the eventual persistence model, then rely on the Project Manager workflow to populate knowledge.
+- Mature products use user-chosen comprehensive or progressive reconciliation; LazyCode never launches broad analysis automatically.
+- Workers consult LazyCode project documentation before repository docs, source and tests, or external research.
+- Undocumented project areas need no explicit coverage markers; they are investigated when approved work makes them relevant.
+- Git history is the source for detecting outside changes and validating potentially stale premises during open, resume, integration, candidate preparation, merge, and recovery.
+- One local installation may actively run several independent projects at once.
+- Relocation changes only the local repository pointer and revalidates project identity.
+- Archive hides a project while preserving its local registration and repository state.
+- Remove unregisters the project locally without deleting the repository or `.lazycode/` state.
+- No transfer workflow is required because repository-owned state provides portability; credentials and machine-specific configuration remain local.
+
+Output: recorded in [Project Lifecycle](project-lifecycle.md) and reflected by [Interaction Surface — Project launcher](interaction-surface.md#project-launcher).
 
 #### PD-07 — Work hierarchy and terminology
 

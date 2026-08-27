@@ -42,11 +42,15 @@ The initial user-facing surface is a web application served by that local runtim
 
 Reusable workflow definitions, role behavior, model/provider configuration, and other non-project-specific LazyCode state belong to the local LazyCode installation. Project definitions, architecture, conventions, commands, deliveries, features, decisions, and operating instructions belong in the repository alongside the product they govern.
 
+The local runtime may register and actively run several projects concurrently. Each project remains isolated in repository state, workers, Deliveries, alerts, settings, and runtime resources.
+
 Model inference is the expected external boundary. Models may run locally, but remote model APIs will commonly be used.
 
 A hosted LazyCode runtime may be introduced later so work can continue independently of the operator's machine and remote users can connect to it. That future option must preserve the repository as the source of project-specific truth and must not become a dependency of the local-first product.
 
 The established information architecture is defined in [Interaction Surface](interaction-surface.md).
+
+Project registration and repository-state ownership are defined in [Project Lifecycle](project-lifecycle.md).
 
 ## First vertical slice
 

@@ -22,6 +22,8 @@ Repository creation assistance may be added later. The initial workflow may requ
 
 LazyCode creates or discovers the project-specific memory structure in the linked repository. Project-specific definitions and operating knowledge remain versioned with that product.
 
+Initialization, mature-product reconciliation, relocation, archive, removal, and portability are established in [Project Lifecycle](project-lifecycle.md).
+
 ## 2. Define the product
 
 The user begins a conversation with the Project Manager and explains the product idea.

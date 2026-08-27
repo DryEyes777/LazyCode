@@ -30,7 +30,8 @@ The launcher allows the user to:
 - create a LazyCode project;
 - link or open an existing project;
 - resume a known project;
-- identify projects requiring attention.
+- identify projects requiring attention;
+- view and restore archived projects.
 
 Each project row shows:
 
@@ -40,6 +41,8 @@ Each project row shows:
 - alert count.
 
 Selecting a project opens its Deliveries view.
+
+Project initialization, registration, reconciliation, relocation, archive, and removal behavior are established in [Project Lifecycle](project-lifecycle.md).
 
 ## Project navigation
 

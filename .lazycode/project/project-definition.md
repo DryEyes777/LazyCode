@@ -122,6 +122,18 @@ The web application may allow direct document editing, but agent-assisted editin
 
 The complete established information architecture is defined in [Interaction Surface](interaction-surface.md).
 
+## Project lifecycle
+
+A LazyCode project combines a local application registration with repository-owned `.lazycode/` state. Creating or opening a project initially requires only a project name and repository location. Existing LazyCode state opens normally and reports incompatibilities when encountered; new projects create only the empty persistence structure before the Project Manager begins defining the product.
+
+Mature products may use comprehensive reconciliation or progressively document only the areas needed for approved work. The user chooses the strategy; LazyCode does not automatically analyze the complete codebase.
+
+Workers consult LazyCode project knowledge before repository documentation, source and tests, or external research. Git history identifies outside changes and potentially stale premises. One local installation may actively run several independent projects.
+
+Archiving and removal affect local discovery without deleting repository-owned state. Project portability comes from the repository itself, while secrets and machine-specific configuration remain local.
+
+The complete established lifecycle is defined in [Project Lifecycle](project-lifecycle.md).
+
 ## Product boundary
 
 The organizational system is the product. DeepSeek Harness is the initial execution substrate.
@@ -343,6 +355,7 @@ The next activity is to refine this definition using the ordered [Project Defini
 - Continuous-until-complete is the single initial autonomy mode between established human gates.
 - Users may directly redirect any visible worker; graceful pause, forced stop, cancellation, and replacement follow ownership-tree semantics.
 - The first user-facing surface is a local web application centered on Deliveries, contextual worker supervision, and an Alerts queue.
+- Projects combine local registration with repository-owned state, support user-directed mature-codebase reconciliation, and remain portable through Git.
 - The repository and `.lazycode/` artifacts are durable project memory.
 - DeepSeek Harness is the v1 execution substrate.
 - LazyCode is an out-of-tree bundle, not a Harness fork.
