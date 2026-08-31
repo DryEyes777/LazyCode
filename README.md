@@ -50,6 +50,7 @@ pnpm dsh --profile lazycode "Delegate an exploration of .lazycode/project/vision
 - [Human control and autonomy](.lazycode/project/human-control-and-autonomy.md)
 - [Interaction surface](.lazycode/project/interaction-surface.md)
 - [Project lifecycle](.lazycode/project/project-lifecycle.md)
+- [Work hierarchy and terminology](.lazycode/project/work-hierarchy-and-terminology.md)
 - [Vision](.lazycode/project/vision.md)
 - [Organizational model](.lazycode/project/organizational-model.md)
 - [Architecture](.lazycode/project/architecture.md)

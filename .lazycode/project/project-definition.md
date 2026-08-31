@@ -1,7 +1,7 @@
 # LazyCode Project Definition
 
 Status: draft for refinement
-Last updated: 2026-08-23
+Last updated: 2026-08-31
 
 ## Project name
 
@@ -182,6 +182,12 @@ Role responsibilities and delegation behavior are defined in the [Organizational
 
 ## Work and delegation model
 
+Features are self-contained, acceptance-driven work units, including fixes, migrations, upgrades, and maintenance. A Feature may belong to several Epics, but once scheduled it belongs to only one Delivery. Work spanning Deliveries becomes separate, linked Features. Deliveries are coherent batches of work, not timeboxes.
+
+The roadmap combines a historical implementation timeline, a decided future timeline, and an unscheduled backlog with dependencies and priorities. Informal requests do not automatically become work objects; LazyCode helps the user identify their kind and checks that the description fits.
+
+A Task belongs to a Feature or another Task and forms a verifiable contract between workers. Each Task has a worker; further subdivision creates child Tasks with new workers. The complete reference is [Work Hierarchy and Terminology](work-hierarchy-and-terminology.md).
+
 Delegation should occur at meaningful, independently verifiable software boundaries. A delegated task should state:
 
 - the role and objective;
@@ -211,6 +217,8 @@ A responsibility may persist for weeks while its model context is rebuilt for ea
 The repository is the canonical organizational memory. `.lazycode/` stores project, delivery, feature, decision, research, contract, acceptance, and status artifacts.
 
 DeepSeek Harness sessions are useful execution evidence, but they are not the source of project truth. Durable discoveries should be promoted into the smallest appropriate project artifact.
+
+Decisions persist with their rationale, alternatives, evidence, and affected scope. Reports associated with a Feature persist at Feature level; Reports without an owning Feature, including Delivery-wide summaries, persist at Project level. Project-level research and POC outcomes require user approval, with Git-tracked artifacts in `.lazycode/` and associated SQLite project metadata. Their exact storage relationship remains for PD-21.
 
 Detailed artifact ownership and writing rules are defined in [Project Conventions](conventions.md).
 
@@ -350,6 +358,10 @@ The next activity is to refine this definition using the ordered [Project Defini
 - Project definition proceeds from confirmed project documents to Epics, product-defined Features, technical Feature plans, and Deliveries.
 - Product Owner is not a separate role; its discovery and definition responsibilities belong to the Project Manager.
 - Delivery is the canonical grouping and merge unit; release is not a separate LazyCode concept.
+- A Feature may belong to several Epics but only one Delivery; cross-Delivery work becomes separate, linked Features.
+- Deliveries have no timebox, and Tasks are worker-owned, verifiable subdivisions of Features or other Tasks.
+- Decisions retain rationale; Reports persist with their Feature or, when no Feature owns them, at Project level.
+- Project-level research and POC outcomes require user approval.
 - Users review and approve a combined Delivery branch rather than every completed Feature.
 - Quick fixes retain the Delivery verification and merge boundary.
 - Continuous-until-complete is the single initial autonomy mode between established human gates.
@@ -367,7 +379,7 @@ The next activity is to refine this definition using the ordered [Project Defini
 
 - the full management hierarchy;
 - exact role boundaries and lifecycle;
-- delivery and feature semantics;
+- detailed Delivery and Feature lifecycle and readiness rules;
 - artifact and state schemas;
 - delegation stopping rules;
 - permission leases and escalation routing;

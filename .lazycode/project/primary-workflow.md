@@ -1,7 +1,7 @@
 # Primary End-to-End Workflow
 
 Status: established
-Last updated: 2026-08-24
+Last updated: 2026-08-31
 
 ## Purpose
 
@@ -11,8 +11,10 @@ This document defines the primary user journey from creating a LazyCode project 
 
 - **Project Manager** includes the product-owner responsibilities. Product Owner is not a separate role.
 - **Epic** represents a major product area that requires separate refinement before it can be decomposed into Features.
-- **Feature** is defined first as a user-story-like product contract, then receives a technical implementation plan.
-- **Delivery** groups implementation-ready Features that can be implemented, integrated, and tested together. Release is not a separate LazyCode concept.
+- **Feature** is a self-contained work unit defined first as a user-story-like contract, then given a technical implementation plan. It includes fixes and maintenance, not only new functionality.
+- **Delivery** groups implementation-ready Features that can be implemented, integrated, and tested together without a timebox. Release is not a separate LazyCode concept.
+
+Relationships and supporting terms are defined in [Work Hierarchy and Terminology](work-hierarchy-and-terminology.md).
 
 ## 1. Create the project
 
@@ -60,6 +62,8 @@ Every Epic must be individually confirmed by the user before LazyCode derives Fe
 
 Approved Epics are decomposed into Features.
 
+A Feature may have multiple Epic parents; each references the same canonical definition and completion state.
+
 A Feature's initial definition resembles a User Story and describes:
 
 - intended user or system outcome;
@@ -93,6 +97,8 @@ Exact Feature readiness rules are refined in `PD-10 — Feature definition`.
 ## 6. Define a Delivery
 
 A Delivery groups implementation-ready Features that can be integrated and tested coherently.
+
+A scheduled Feature belongs to only one Delivery. Work that must span Deliveries is split into separate, linked Features.
 
 Delivery composition may begin through system assistance:
 
@@ -144,6 +150,8 @@ Feature documentation
 Promotion may happen during implementation. Before presenting the Delivery candidate, the Delivery Manager performs a final reconciliation so higher-level documentation reflects every consequence relevant to its scope.
 
 Detailed evidence remains at the Feature level while higher levels receive the decisions and effects they need.
+
+Decisions retain their rationale. Feature-associated Reports persist with the Feature; Reports without an owning Feature, including Delivery-wide summaries, persist at Project level and are referenced from the relevant Delivery.
 
 ## 9. Verify the Delivery
 

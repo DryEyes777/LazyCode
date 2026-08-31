@@ -1,7 +1,7 @@
 # Project Definition Workbook
 
 Status: in progress
-Last updated: 2026-08-23
+Last updated: 2026-08-31
 
 ## Purpose
 
@@ -218,7 +218,7 @@ Output: recorded in [Project Lifecycle](project-lifecycle.md) and reflected by [
 
 #### PD-07 — Work hierarchy and terminology
 
-Status: not started
+Status: established
 
 Define exact meanings and relationships for:
 
@@ -245,7 +245,23 @@ Report
 - When does a task become a delegated child task?
 - Are initiative, milestone, epic, experiment, and incident concepts needed?
 
-Output: the canonical work ontology and project glossary.
+Decision summary:
+
+- Informal requests remain conversation until the user identifies their kind; LazyCode guides and checks that classification rather than silently creating an intake object.
+- The roadmap combines an implemented-work timeline, a decided future timeline, and an unscheduled dependency- and priority-aware backlog.
+- A Feature is a self-contained, acceptance-driven work unit, including fixes, migrations, upgrades, and maintenance.
+- A Feature may have several Epic parents but retains one canonical identity and definition.
+- A scheduled Feature belongs to one Delivery. Work spanning Deliveries becomes separate, linked Features.
+- Deliveries are coherent batches of work without a timebox.
+- A Task belongs to a Feature or another Task and is a verifiable contract between workers. Each Task has a worker; child Tasks receive new workers.
+- Components are architectural building blocks, while Delegation assigns a Task and its contract.
+- Findings are evidence-backed observations, Decisions are accepted choices, Escalations are unresolved questions or authority requests, and Reports describe progress or results.
+- Decisions persist with their rationale, alternatives, evidence, and affected scope.
+- Feature-associated Reports persist with the Feature; Reports without a Feature, including Delivery summaries and project research, persist at Project level.
+- Research and POCs remain project-level work with Git-tracked `.lazycode/` artifacts and SQLite project metadata. Their outcomes require user approval.
+- Exact schemas, lifecycle states, ownership-transfer rules, and storage synchronization remain deferred.
+
+Output: recorded in [Work Hierarchy and Terminology](work-hierarchy-and-terminology.md).
 
 #### PD-08 — Request intake and project planning
 
@@ -486,6 +502,8 @@ Output: model policy, routing, fallback, and budget rules.
 #### PD-21 — Persistence and schemas
 
 Status: not started
+
+Input from PD-07: research and POC artifacts are Git-tracked in `.lazycode/`, with associated metadata in the project's SQLite database. Define their canonical-data, synchronization, and portability relationship without assuming two independent sources of truth.
 
 - Which artifacts are Markdown, YAML, JSON, database records, or generated projections?
 - What is canonical versus derived?

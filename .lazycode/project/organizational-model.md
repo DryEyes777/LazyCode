@@ -54,6 +54,10 @@ Implementation agents recursively decompose meaningful helper contracts. Delegat
 
 ## Delegation contract
 
+A Task belongs to a Feature or another Task and is the definable, testable, and verifiable contract between assigning and receiving workers. Each Task has an assigned worker. If that worker subdivides the Task, every new child Task receives a new worker. Task planning is ordinarily between workers, while Feature definition is agreed with the user.
+
+Components describe software building blocks rather than work assignments. A Task may implement or modify a Component; Delegation assigns the Task and its contract. See [Work Hierarchy and Terminology](work-hierarchy-and-terminology.md).
+
 A parent delegates when a component has a meaningful, independently verifiable contract. A child receives its role, task, relevant interfaces and files, constraints, allowed resources, expected result, and escalation route. It does not automatically receive ancestral conversations.
 
 Parents continue against the agreed contract and integrate the returned result. Detailed child reasoning stays at the child level unless it exposes a durable constraint or unresolved risk.
@@ -73,6 +77,8 @@ This permits long-lived ownership while allowing model contexts to reset frequen
 ## Information compression
 
 Workers return implementation facts to Feature Leads. Feature Leads return feature-level outcomes to Team Leads. Team Leads return delivery outcomes to Delivery Managers. Project Managers promote only project-level consequences and durable knowledge.
+
+Report routing and persistence are distinct: Feature-associated Reports are stored with the Feature, while Reports without a Feature are stored at Project level, including Delivery-wide summaries. Decisions retain their rationale and supporting evidence independently of transient worker conversations.
 
 ## Escalation
 

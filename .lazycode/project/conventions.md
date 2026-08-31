@@ -8,12 +8,17 @@
 - `.lazycode/project/human-control-and-autonomy.md` is the canonical worker intervention, pause, resume, cancellation, and continuous-execution contract.
 - `.lazycode/project/interaction-surface.md` is the canonical first-version information architecture and user interaction contract.
 - `.lazycode/project/project-lifecycle.md` is the canonical project registration, initialization, reconciliation, archive, removal, and portability contract.
+- `.lazycode/project/work-hierarchy-and-terminology.md` is the canonical work-object, relationship, and terminology reference.
 - `.lazycode/project/` contains project-wide durable knowledge and decisions.
 - `.lazycode/deliveries/<id>/` contains delivery intent, acceptance, and status.
 - `.lazycode/features/<id>/` contains feature behavior, contracts, and status.
 - DeepSeek Harness session storage contains execution history; it is not canonical product documentation.
 
 Use stable identifiers such as `D001-foundation`, `F001-read-only-delegation`, and `ADR-0001`. Update status artifacts when work changes state. Promote only durable conclusions into project documents.
+
+Persist Decisions with their rationale, alternatives, evidence, and affected scope. Store Feature-associated Reports at Feature level. Store Reports without an owning Feature at Project level, including Delivery-wide completion summaries and project research Reports; other objects reference these records rather than duplicate them.
+
+Research and POC artifacts are Git-tracked under `.lazycode/`, with associated metadata in the project's SQLite database. The exact storage and synchronization model is deferred to PD-21; this is a product contract, not an existing database implementation.
 
 ## Documentation modes
 
