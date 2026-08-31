@@ -265,7 +265,7 @@ Output: recorded in [Work Hierarchy and Terminology](work-hierarchy-and-terminol
 
 #### PD-08 — Request intake and project planning
 
-Status: not started
+Status: established
 
 - How does informal human intent become planned work?
 - Who investigates and interprets a new request?
@@ -276,7 +276,20 @@ Status: not started
 - Can planning be recorded without scheduling implementation?
 - How are rejected, postponed, or duplicate requests represented?
 
-Output: the contract between human intent and project planning.
+Decision summary:
+
+- A project-facing read-only exploration agent is the default entry point for understanding the project and locating the appropriate planning resource.
+- Handoff starts a new conversation with an authorized agent, using a self-contained first message containing intent, findings, existing Decisions, related work, and open questions.
+- The exploration agent cannot persist planning changes, edit artifacts, create or link work items, or pause Deliveries; authorized agents perform those actions.
+- The user identifies the work category, with agent guidance and validation rather than automatic classification.
+- Planning investigates Epic placement, similar Features, active-Delivery impact, dependencies, and relevant Decisions.
+- An editable and annotatable planning report explains intent, current and desired state, anticipated logic/schema/architecture changes, alternatives, and unresolved questions at documentation-level detail without code.
+- Decision conflicts require revision of the proposal or Decision and validation against existing implementation; any necessary corrective work joins the plan.
+- Matching requests lead the user to existing Feature definitions before refining them or creating related work.
+- Confirmed plans update affected artifacts but may remain unscheduled; Feature readiness, Delivery approval, and explicit start remain required.
+- Postponed or rejected planning retains branch-backed progress until explicit deletion or a separately defined cleanup process. Drafts are not accepted project direction.
+
+Output: recorded in [Request Intake and Project Planning](request-intake-and-project-planning.md).
 
 #### PD-09 — Delivery planning
 
@@ -440,6 +453,8 @@ Output: authority, permission-lease, and escalation models.
 #### PD-17 — Repository, workspace, and Git strategy
 
 Status: not started
+
+Input from PD-08: postponed and rejected planning retains draft reports and progress on a branch. Define retention and cleanup safeguards, planning-artifact integration, and reconciliation with active work without treating rejection as deletion.
 
 - Do agents share a working tree or use isolated worktrees?
 - How is file ownership represented and enforced?

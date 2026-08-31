@@ -208,6 +208,14 @@ After the merge:
 
 A Delivery is not complete merely because implementation has stopped. It must be fully verified, approved, merged, reconciled with project memory, and closed.
 
+## Ongoing requests and planning
+
+The default entry point for exploring an existing project or bringing a new request is a project-facing read-only exploration agent. It guides the user toward the appropriate resource and hands off relevant context as the first message of a new conversation with an authorized agent. Direct access to existing worker conversations remains available.
+
+The receiving agent investigates related Epics, Features, Decisions, and active Deliveries and refines a planning report with the user. Approved planning does not itself schedule or start implementation. Matching work, Decision conflicts, and postponed or rejected drafts follow [Request Intake and Project Planning](request-intake-and-project-planning.md).
+
+The initial new-product Project Manager workflow above and the existing Feature and Delivery approval gates remain unchanged.
+
 ## Quick-fix path
 
 A quick fix uses a lighter planning process but does not bypass the Delivery boundary.

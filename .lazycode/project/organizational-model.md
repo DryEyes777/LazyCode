@@ -29,6 +29,8 @@ LazyCode does not treat assignment to an AI worker as a guarantee of correct exe
 
 Owns product discovery, canonical project documentation, architectural direction, roadmap state, Epics, project-wide decisions, and knowledge promoted from completed Deliveries. Product Owner is not a separate role: the Project Manager helps the user define the product, records that intent, identifies major product areas, and coordinates their decomposition into product-defined Features. It normally changes project artifacts rather than implementation code.
 
+The Project Manager normally receives request-intake handoffs that require project-changing authority. It refines planning reports with the user and coordinates updates to affected work, Decisions, and project documentation within its permissions.
+
 ### Delivery Manager
 
 Owns one user-approved Delivery from start through merge and closure. It coordinates implementation-ready Features, dependencies, the Delivery branch, integration, Delivery-level verification, review-package preparation, corrective loops after rejection, documentation reconciliation, and the final merge into the configured integration branch.
@@ -46,6 +48,8 @@ Owns one feature contract. It designs interfaces and tests, delegates independen
 Implementation agents recursively decompose meaningful helper contracts. Delegation stops when further decomposition would add coordination cost without creating a useful independent boundary; that work becomes a leaf task.
 
 ## Specialized roles
+
+The project-facing exploration function is a read-only first point of contact for project understanding and incoming requests. It identifies relevant resources and prepares a self-contained handoff into a new conversation with an authorized agent; it does not edit artifacts, create or link work items, persist planning changes, or pause Deliveries. Its formal role name remains deferred. See [Request Intake and Project Planning](request-intake-and-project-planning.md).
 
 - **Explorer:** investigates repository or dependency questions and returns evidence.
 - **Reviewer:** evaluates a completed change against its contract and constraints without inheriting the implementer's reasoning.

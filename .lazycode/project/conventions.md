@@ -9,6 +9,7 @@
 - `.lazycode/project/interaction-surface.md` is the canonical first-version information architecture and user interaction contract.
 - `.lazycode/project/project-lifecycle.md` is the canonical project registration, initialization, reconciliation, archive, removal, and portability contract.
 - `.lazycode/project/work-hierarchy-and-terminology.md` is the canonical work-object, relationship, and terminology reference.
+- `.lazycode/project/request-intake-and-project-planning.md` is the canonical read-only intake, authorized planning handoff, report refinement, and draft-retention contract.
 - `.lazycode/project/` contains project-wide durable knowledge and decisions.
 - `.lazycode/deliveries/<id>/` contains delivery intent, acceptance, and status.
 - `.lazycode/features/<id>/` contains feature behavior, contracts, and status.

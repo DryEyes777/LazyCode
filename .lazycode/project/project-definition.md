@@ -98,6 +98,16 @@ The user may approve the Delivery and authorize merge into the configured integr
 
 Quick fixes use a lighter definition path but still pass through a Delivery, verification, user approval, and the configured merge boundary. The complete established journey is defined in [Primary End-to-End Workflow](primary-workflow.md).
 
+## Request intake and project planning
+
+A project-facing exploration agent is the default entry point for understanding an existing project and finding the appropriate planning resource. It is read-only toward project state. LazyCode opens a new conversation with the authorized receiving agent and provides the user's intent, relevant findings, existing Decisions, related work, and open questions in a self-contained first message.
+
+The authorized planning agent works with the user on an editable, annotatable report explaining current and desired state and anticipated logic, schema, and architecture impacts at documentation-level detail without implementation code. It checks Epic placement, matching Features, active-Delivery impact, and consistency with Decisions.
+
+Conflicting Decisions require revision and validation against implemented behavior. Matching requests return the user to existing Feature definitions before creating duplicate work. Confirmed plans can remain unscheduled, and postponed or rejected drafts retain their branch-backed progress until explicit deletion or separately defined cleanup.
+
+The complete intake contract is defined in [Request Intake and Project Planning](request-intake-and-project-planning.md).
+
 ## Human control and autonomy
 
 LazyCode initially uses one continuous-until-complete autonomy model. After the user approves and starts work, LazyCode proceeds independently until the next established human gate, a direct user intervention, a human-blocking escalation, or terminal completion. Routine actions inside approved scope do not require individual approval.
@@ -356,6 +366,8 @@ The next activity is to refine this definition using the ordered [Project Defini
 - LazyCode organizes workers independently of whether they are AI models, humans, services, or external agents.
 - LazyCode provides structure and supervision without guaranteeing correct results or replacing developer accountability.
 - Project definition proceeds from confirmed project documents to Epics, product-defined Features, technical Feature plans, and Deliveries.
+- Project exploration is read-only and hands off into a new authorized planning conversation; planning reports are user-refined and checked against existing work and Decisions.
+- Accepting a plan does not schedule implementation, and postponing or rejecting an idea does not discard its draft progress.
 - Product Owner is not a separate role; its discovery and definition responsibilities belong to the Project Manager.
 - Delivery is the canonical grouping and merge unit; release is not a separate LazyCode concept.
 - A Feature may belong to several Epics but only one Delivery; cross-Delivery work becomes separate, linked Features.

@@ -17,6 +17,8 @@ An informal user request does not automatically become a new work object.
 
 LazyCode guides the user toward identifying what they are describing and checks that the chosen category fits the description. It should not silently classify the request or create an unnecessary intermediate entity.
 
+Exploration, authorized planning handoff, matching work, and draft retention are defined in [Request Intake and Project Planning](request-intake-and-project-planning.md).
+
 ## Roadmap
 
 The roadmap describes what has been implemented, the current product state, and what remains to be implemented.
