@@ -1,7 +1,7 @@
 # Interaction Surface
 
 Status: established
-Last updated: 2026-08-27
+Last updated: 2026-09-02
 
 ## Purpose
 
@@ -77,17 +77,16 @@ The project-wide Features tab shows the complete Feature inventory. Epic and Del
 
 Deliveries is the default project screen.
 
-It separates or filters Deliveries by state, including:
+It separates or filters Deliveries by canonical lifecycle state:
 
 - draft;
-- not started;
 - active;
 - paused;
-- blocked;
-- awaiting approval;
 - completed;
-- rejected;
-- interrupted.
+- merged;
+- abandoned.
+
+Blocked, awaiting-approval, interrupted, and candidate-ready are derived conditions and attention indicators rather than additional lifecycle states. Rejection returns a Completed Delivery to Active.
 
 Each Delivery row shows:
 

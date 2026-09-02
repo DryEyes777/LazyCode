@@ -1,7 +1,7 @@
 # Project Definition Workbook
 
 Status: in progress
-Last updated: 2026-08-31
+Last updated: 2026-09-02
 
 ## Purpose
 
@@ -293,7 +293,7 @@ Output: recorded in [Request Intake and Project Planning](request-intake-and-pro
 
 #### PD-09 — Delivery planning
 
-Status: not started
+Status: established
 
 - Why and when are features grouped into a delivery?
 - Who creates, modifies, approves, pauses, and closes a delivery?
@@ -304,7 +304,21 @@ Status: not started
 - What constitutes delivery completion?
 - What information is promoted to project-level memory afterward?
 
-Output: the delivery contract, lifecycle, and document standard.
+Decision summary:
+
+- A Delivery is an untimed, user-approved batch of implementation-ready Features grouped for efficient independent verification or explicit integration of overlapping changes.
+- A Delivery Manager owns Feature startup, orchestration, dependencies, integration, Delivery-specific subagents, verification, knowledge propagation, candidate preparation, corrections, and final merge preparation.
+- The lean definition requires identity, outcome, Feature references, dependencies, parallel/sequential groups, branch information, verification plan, and lifecycle state. Predecessor, overlap, conflict, and risk fields are conditional.
+- A Delivery starts only with user approval, explicit start, implementation-ready Features, understood sequencing, and satisfied dependency/readiness constraints.
+- Feature workers incorporate relevant Delivery-branch changes into their branches; the Delivery Manager owns the correct combined state.
+- Multiple Deliveries may be Active. A functional dependency on Active work prevents start, while a Completed unmerged predecessor permits stacked work with enforced merge order.
+- Pure code overlap may run concurrently, but later base-branch integration requires a user-started, reviewed, and approved conflict-resolution plan and is never automatic.
+- Scope change pauses the Delivery, revises definitions and plan, reconciles partial code, notifies workers, and then resumes valid work.
+- Canonical states are Draft, Active, Paused, Completed, Merged, and Abandoned. Completed means every Feature is complete and merged into the Delivery branch; Merged means user-approved integration into the target branch.
+- Completed may return to Active for verification failure, rejection, or rework. Any non-Merged Delivery may be Abandoned; Merged is terminal and cannot be Abandoned.
+- Delivery-wide verification and user review occur from Completed. Successful approved integration produces Merged and promotes affected project, Epic, Feature, roadmap, Report, and Decision state.
+
+Output: recorded in [Delivery Planning](delivery-planning.md).
 
 #### PD-10 — Feature definition
 
@@ -455,6 +469,8 @@ Output: authority, permission-lease, and escalation models.
 Status: not started
 
 Input from PD-08: postponed and rejected planning retains draft reports and progress on a branch. Define retention and cleanup safeguards, planning-artifact integration, and reconciliation with active work without treating rejection as deletion.
+
+Input from PD-09: Feature workers incorporate Delivery-branch changes into Feature branches. Completed Deliveries may form the base of later Deliveries before merge, enforcing merge order. Overlapping Deliveries require a user-started and approved conflict-resolution plan before later integration; it is never automatic.
 
 - Do agents share a working tree or use isolated worktrees?
 - How is file ownership represented and enforced?

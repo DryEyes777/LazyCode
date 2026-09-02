@@ -1,7 +1,7 @@
 # Work Hierarchy and Terminology
 
 Status: established
-Last updated: 2026-08-31
+Last updated: 2026-09-02
 
 ## Purpose
 
@@ -63,11 +63,13 @@ Multiple Epic parents do not duplicate a Feature's identity, definition, or comp
 
 ## Delivery
 
-A Delivery is a coherent group of implementation-ready Features that are implemented, integrated, tested, and approved together.
+A Delivery is a coherent group of implementation-ready Features that are implemented, integrated, tested, and approved together. Features may be grouped for efficient independent verification or because their overlap requires a shared integration plan.
 
 It resembles a sprint as a batch of work, but has no timebox. Completion is determined by fulfilling the agreed scope and acceptance criteria, not elapsed time.
 
 Every implementation change to the product, including a quick fix, passes through a Delivery. Project-level research and POCs remain distinct from accepted product implementation.
+
+Canonical states are Draft, Active, Paused, Completed, Merged, and Abandoned. Completed means every Feature is complete and merged into the Delivery branch. Merged means the user-approved Delivery has been integrated into the configured target branch. A Merged Delivery cannot be Abandoned. The complete contract is [Delivery Planning](delivery-planning.md).
 
 ## Task
 

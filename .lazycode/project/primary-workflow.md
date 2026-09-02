@@ -1,7 +1,7 @@
 # Primary End-to-End Workflow
 
 Status: established
-Last updated: 2026-08-31
+Last updated: 2026-09-02
 
 ## Purpose
 
@@ -100,6 +100,8 @@ A Delivery groups implementation-ready Features that can be integrated and teste
 
 A scheduled Feature belongs to only one Delivery. Work that must span Deliveries is split into separate, linked Features.
 
+Features may be grouped because they are small and independently testable or because they overlap enough to require one explicit integration plan. The lean definition, readiness rules, concurrent-Delivery constraints, and lifecycle are established in [Delivery Planning](delivery-planning.md).
+
 Delivery composition may begin through system assistance:
 
 ```text
@@ -137,6 +139,8 @@ Feature implementation
 
 A Feature is not complete until its implementation, review, tests, and integration obligations pass.
 
+Feature workers incorporate relevant Delivery-branch changes into their Feature branches. The Delivery Manager remains responsible for the correct combined Delivery state.
+
 ## 8. Propagate discoveries
 
 New technical decisions and implementation discoveries are recorded at the lowest affected level first:
@@ -153,9 +157,9 @@ Detailed evidence remains at the Feature level while higher levels receive the d
 
 Decisions retain their rationale. Feature-associated Reports persist with the Feature; Reports without an owning Feature, including Delivery-wide summaries, persist at Project level and are referenced from the relevant Delivery.
 
-## 9. Verify the Delivery
+## 9. Complete and verify the Delivery
 
-A Delivery cannot become a candidate until every included Feature is complete.
+When every included Feature is complete and merged into the Delivery branch, the Delivery enters `Completed`. It is not yet merged into the target branch.
 
 LazyCode then runs Delivery-level integration and acceptance testing across the complete Delivery branch. The user reviews the Delivery as a coherent whole rather than reviewing isolated Features.
 
@@ -190,7 +194,7 @@ User feedback
   -> user receives revised review package
 ```
 
-The Delivery remains active throughout this loop. Rejection does not discard completed work or create an unrelated Delivery.
+Rejection returns the Delivery from Completed to Active. It does not discard completed work or create an unrelated Delivery.
 
 ## 12. Approve and merge
 
@@ -199,14 +203,14 @@ User approval authorizes LazyCode to merge the Delivery branch into the reposito
 After the merge:
 
 - post-merge checks run;
-- the Delivery is marked complete;
+- the Delivery is marked Merged;
 - included Features are marked complete;
 - affected Epics record which Features are complete;
 - the roadmap reflects implemented product areas;
 - Delivery-level knowledge is promoted into project documentation where necessary;
 - the user receives a final completion report.
 
-A Delivery is not complete merely because implementation has stopped. It must be fully verified, approved, merged, reconciled with project memory, and closed.
+A Delivery is not Merged merely because implementation has stopped or every Feature reached the Delivery branch. It must be verified, approved, integrated into the configured target branch, reconciled with project memory, and closed.
 
 ## Ongoing requests and planning
 

@@ -1,7 +1,7 @@
 # LazyCode Project Definition
 
 Status: draft for refinement
-Last updated: 2026-08-31
+Last updated: 2026-09-02
 
 ## Project name
 
@@ -194,6 +194,8 @@ Role responsibilities and delegation behavior are defined in the [Organizational
 
 Features are self-contained, acceptance-driven work units, including fixes, migrations, upgrades, and maintenance. A Feature may belong to several Epics, but once scheduled it belongs to only one Delivery. Work spanning Deliveries becomes separate, linked Features. Deliveries are coherent batches of work, not timeboxes.
 
+A Delivery may group independently testable Features or overlapping Features that need an explicit combined-state plan. Multiple Deliveries may run concurrently under functional-dependency and merge-order constraints. Canonical Delivery states distinguish Completed work on the Delivery branch from Merged integration into the target branch. The complete contract is [Delivery Planning](delivery-planning.md).
+
 The roadmap combines a historical implementation timeline, a decided future timeline, and an unscheduled backlog with dependencies and priorities. Informal requests do not automatically become work objects; LazyCode helps the user identify their kind and checks that the description fits.
 
 A Task belongs to a Feature or another Task and forms a verifiable contract between workers. Each Task has a worker; further subdivision creates child Tasks with new workers. The complete reference is [Work Hierarchy and Terminology](work-hierarchy-and-terminology.md).
@@ -372,6 +374,7 @@ The next activity is to refine this definition using the ordered [Project Defini
 - Delivery is the canonical grouping and merge unit; release is not a separate LazyCode concept.
 - A Feature may belong to several Epics but only one Delivery; cross-Delivery work becomes separate, linked Features.
 - Deliveries have no timebox, and Tasks are worker-owned, verifiable subdivisions of Features or other Tasks.
+- Deliveries support controlled concurrency and use Draft, Active, Paused, Completed, Merged, and Abandoned as their canonical lifecycle states.
 - Decisions retain rationale; Reports persist with their Feature or, when no Feature owns them, at Project level.
 - Project-level research and POC outcomes require user approval.
 - Users review and approve a combined Delivery branch rather than every completed Feature.

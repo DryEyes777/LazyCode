@@ -33,7 +33,9 @@ The Project Manager normally receives request-intake handoffs that require proje
 
 ### Delivery Manager
 
-Owns one user-approved Delivery from start through merge and closure. It coordinates implementation-ready Features, dependencies, the Delivery branch, integration, Delivery-level verification, review-package preparation, corrective loops after rejection, documentation reconciliation, and the final merge into the configured integration branch.
+Owns one user-approved Delivery from start through merge and closure. It starts and coordinates Feature workers, dependencies, Delivery-specific Tasks and subagents, the Delivery branch, integration, Delivery-level verification, review-package preparation, corrective loops after rejection, knowledge propagation, and the final merge into the configured integration branch.
+
+Feature workers incorporate relevant Delivery-branch changes into their Feature branches. The Delivery Manager remains accountable for the intended combined state and for any user-approved conflict-resolution plan across overlapping Deliveries. See [Delivery Planning](delivery-planning.md).
 
 ### Team Lead
 
