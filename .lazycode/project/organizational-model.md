@@ -43,7 +43,9 @@ Owns one delivery's execution. It breaks the delivery into features, coordinates
 
 ### Feature Lead
 
-Owns one feature contract. It designs interfaces and tests, delegates independently implementable components, implements integration logic against those contracts, and requests independent review and testing.
+Owns execution of one approved Feature contract. It verifies the definition and specification, decomposes work into Tasks, assigns and manages implementation workers, coordinates independent review and testing workers, integrates child work into the Feature branch, and proves every acceptance criterion before reporting completion to the Delivery Manager.
+
+The Feature Lead ordinarily does not implement code itself. It is accountable for orchestration, integration, verification evidence, and fidelity to the approved Feature. See [Feature Definition](feature-definition.md).
 
 ### Implementation and Leaf Agents
 

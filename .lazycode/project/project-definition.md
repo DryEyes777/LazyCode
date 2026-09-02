@@ -200,6 +200,8 @@ The roadmap combines a historical implementation timeline, a decided future time
 
 A Task belongs to a Feature or another Task and forms a verifiable contract between workers. Each Task has a worker; further subdivision creates child Tasks with new workers. The complete reference is [Work Hierarchy and Terminology](work-hierarchy-and-terminology.md).
 
+Feature definition uses separate product and technical approval gates. The Project Manager helps the user define and specify the Feature; after approval, a Feature Lead orchestrates implementation workers, reviewers, testers, and integration without ordinarily coding. Completion requires every acceptance criterion to pass on the Feature branch before Delivery integration. The complete contract is [Feature Definition](feature-definition.md).
+
 Delegation should occur at meaningful, independently verifiable software boundaries. A delegated task should state:
 
 - the role and objective;
@@ -375,6 +377,7 @@ The next activity is to refine this definition using the ordered [Project Defini
 - A Feature may belong to several Epics but only one Delivery; cross-Delivery work becomes separate, linked Features.
 - Deliveries have no timebox, and Tasks are worker-owned, verifiable subdivisions of Features or other Tasks.
 - Deliveries support controlled concurrency and use Draft, Active, Paused, Completed, Merged, and Abandoned as their canonical lifecycle states.
+- Features use separate product and technical approvals; Feature Leads orchestrate rather than ordinarily code, and Feature completion precedes Delivery-branch integration.
 - Decisions retain rationale; Reports persist with their Feature or, when no Feature owns them, at Project level.
 - Project-level research and POC outcomes require user approval.
 - Users review and approve a combined Delivery branch rather than every completed Feature.

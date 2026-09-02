@@ -53,6 +53,7 @@ pnpm dsh --profile lazycode "Delegate an exploration of .lazycode/project/vision
 - [Work hierarchy and terminology](.lazycode/project/work-hierarchy-and-terminology.md)
 - [Request intake and project planning](.lazycode/project/request-intake-and-project-planning.md)
 - [Delivery planning](.lazycode/project/delivery-planning.md)
+- [Feature definition](.lazycode/project/feature-definition.md)
 - [Vision](.lazycode/project/vision.md)
 - [Organizational model](.lazycode/project/organizational-model.md)
 - [Architecture](.lazycode/project/architecture.md)

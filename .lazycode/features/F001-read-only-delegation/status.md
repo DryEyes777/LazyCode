@@ -1,7 +1,9 @@
 # F001 Status
 
-State: implemented; live smoke pending
-Last updated: 2026-08-19
+State: Completed
+Last updated: 2026-09-02
+
+Retrospective lifecycle mapping: this spike predates the PD-10 state contract. Its accepted implementation and automated verification meet Feature completion; the optional live smoke remains pending because no API key was available.
 
 ## Verification record
 

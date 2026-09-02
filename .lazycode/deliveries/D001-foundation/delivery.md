@@ -1,6 +1,6 @@
 # D001: Foundation
 
-Status: active
+Status: Merged
 
 ## Outcome
 

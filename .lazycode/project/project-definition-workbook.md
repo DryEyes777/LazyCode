@@ -322,7 +322,7 @@ Output: recorded in [Delivery Planning](delivery-planning.md).
 
 #### PD-10 — Feature definition
 
-Status: not started
+Status: established
 
 Determine whether every feature must define:
 
@@ -351,9 +351,25 @@ Status
 - Can a feature be split, merged, cancelled, or reopened?
 - What distinguishes feature completion from delivery integration?
 
-Output: the canonical feature-planning template and feature lifecycle.
+Decision summary:
+
+- A Feature is defined through product definition and technical specification, each with a separate user approval gate.
+- The concise product definition covers identity, Epic parents, current and desired state, UI where applicable, functionality, logic, scope, non-goals, acceptance criteria, related Features, and dependencies.
+- The technical specification covers logic and data/schema changes, Components, interfaces, dependencies, Task decomposition, orchestration, and verification; migration, integration, permissions, and risks are conditional.
+- The Project Manager and user define and approve the Feature. The Feature Lead then verifies sufficiency and orchestrates implementation, review, testing, and child integration without ordinarily coding.
+- Canonical states are Draft, Defined, Specced, Approved, Scheduled, Active, Paused, Completed, and Abandoned.
+- Defined means product behavior is approved; Specced means technical planning is finished but unapproved; Approved means implementation-ready; Scheduled means assigned to a Delivery.
+- Completed means every acceptance criterion passed on the integrated Feature branch, with review, tests, evidence, and Feature Report. Delivery-branch integration happens afterward.
+- Product-definition changes invalidate the full approval chain and return to Draft. Technical-specification changes preserve product approval and return to Specced. In-scope implementation corrections need reconciliation but no reapproval.
+- Completed Features are immutable work history. Further behavior becomes a new linked Feature.
+- Splitting or combining creates new Draft Features requiring full reapproval; originals retain history, become Abandoned, and link to replacements.
+- Abandoned Features are soft-deleted and restorable only after definition, approval, branch, conflict, and implementation-plan reconciliation.
+
+Output: recorded in [Feature Definition](feature-definition.md).
 
 ### Phase 3 — Organization and coordination
+
+Input from PD-10: the Feature Lead is an orchestration owner that ordinarily does not code. Refine how this responsibility relates to other roles, worker replacement, reviewer/tester independence, and ownership transfer.
 
 #### PD-11 — Roles and ownership
 
@@ -472,6 +488,8 @@ Input from PD-08: postponed and rejected planning retains draft reports and prog
 
 Input from PD-09: Feature workers incorporate Delivery-branch changes into Feature branches. Completed Deliveries may form the base of later Deliveries before merge, enforcing merge order. Overlapping Deliveries require a user-started and approved conflict-resolution plan before later integration; it is never automatic.
 
+Input from PD-10: the Feature Lead integrates Task branches into the Feature branch. Feature completion occurs before the Delivery Manager merges the Feature branch. Restoration, approval-invalidating changes, and split/combined replacement Features require branch inventory and reconciliation.
+
 - Do agents share a working tree or use isolated worktrees?
 - How is file ownership represented and enforced?
 - Can agents write concurrently?
@@ -501,6 +519,8 @@ Output: execution scheduling and recovery semantics.
 #### PD-19 — Review, testing, integration, and completion
 
 Status: not started
+
+Input from PD-10: Feature completion requires every acceptance criterion to pass on the Feature branch after child integration, required review and tests, recorded evidence, and a persisted Feature Report. Delivery-level integration and QA happen afterward.
 
 - What verification is required for tasks, features, and deliveries?
 - How independent must Reviewers and Testers be?

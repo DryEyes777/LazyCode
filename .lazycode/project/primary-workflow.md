@@ -76,6 +76,8 @@ A Feature's initial definition resembles a User Story and describes:
 
 The user reviews and confirms the Feature's product behavior before technical implementation planning begins.
 
+This product approval moves the Feature from Draft to Defined.
+
 ## 5. Plan Feature implementation
 
 After the product contract is confirmed, the developer and technical workers define:
@@ -90,9 +92,9 @@ After the product contract is confirmed, the developer and technical workers def
 - review requirements;
 - testing and verification approach.
 
-Once the product and technical definitions are sufficiently complete, the Feature becomes implementation-ready.
+When technical planning is complete, the Feature is Specced. Once the user approves that specification, it becomes Approved and implementation-ready.
 
-Exact Feature readiness rules are refined in `PD-10 — Feature definition`.
+The complete template, state machine, invalidation rules, and completion boundary are established in [Feature Definition](feature-definition.md).
 
 ## 6. Define a Delivery
 
@@ -138,6 +140,8 @@ Feature implementation
 ```
 
 A Feature is not complete until its implementation, review, tests, and integration obligations pass.
+
+The Feature Lead ordinarily does not code. It decomposes the Feature into Tasks, coordinates implementation, review, and testing workers, integrates their work into the Feature branch, and proves every acceptance criterion. The Feature becomes Completed on its branch before the Delivery Manager integrates it into the Delivery branch.
 
 Feature workers incorporate relevant Delivery-branch changes into their Feature branches. The Delivery Manager remains responsible for the correct combined Delivery state.
 
@@ -242,8 +246,8 @@ The user participates at these boundaries:
 
 1. Confirm the initial project definition.
 2. Confirm each Epic.
-3. Confirm each Feature's product behavior.
-4. Participate in technical Feature planning as the responsible developer.
+3. Approve each Feature's product definition.
+4. Participate in and approve each Feature's technical specification.
 5. Approve the Delivery composition.
 6. Explicitly start the Delivery.
 7. Verify the Delivery branch.

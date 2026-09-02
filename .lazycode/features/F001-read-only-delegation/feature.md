@@ -1,6 +1,6 @@
 # F001: Read-only Exploration Delegation
 
-Status: active
+Status: Completed
 
 ## User outcome
 

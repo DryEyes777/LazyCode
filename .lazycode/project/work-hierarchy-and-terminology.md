@@ -57,6 +57,8 @@ It may represent:
 
 The user collaborates with LazyCode to define the Feature's expected outcome and acceptance criteria. Its approved definition then supports technical implementation planning.
 
+A Feature passes through Draft, Defined, Specced, Approved, Scheduled, Active, Paused, Completed, or Abandoned. Product and technical approvals are separate. Completion means every acceptance criterion passes on the Feature branch; Delivery integration happens afterward. See [Feature Definition](feature-definition.md).
+
 Once scheduled, a Feature belongs to only one Delivery. Work spanning two Deliveries must be split into two separately defined Features. Those Features may remain linked through dependencies or related-work references.
 
 Multiple Epic parents do not duplicate a Feature's identity, definition, or completion state.

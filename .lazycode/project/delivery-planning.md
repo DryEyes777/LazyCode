@@ -80,6 +80,8 @@ The Delivery Manager starts and coordinates the Feature workers.
 
 Each Feature worker owns its Feature branch. As the Delivery branch evolves, Feature workers incorporate relevant Delivery-branch changes into their branches and reconcile their work before returning it.
 
+A Feature reaches Completed when its Feature Lead has integrated all Task work and every Feature acceptance criterion passes. The Delivery Manager then merges that completed Feature branch into the Delivery branch; this later integration is not part of Feature completion. See [Feature Definition](feature-definition.md).
+
 The Delivery Manager remains responsible for ensuring the combined Delivery branch reaches the intended state.
 
 Exact Git operations and conflict mechanics remain for `PD-17 — Repository, workspace, and Git strategy`.

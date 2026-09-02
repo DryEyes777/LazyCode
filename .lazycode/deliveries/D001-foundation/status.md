@@ -1,7 +1,9 @@
 # D001 Status
 
-State: implemented; live smoke pending
-Last updated: 2026-08-23
+State: Merged
+Last updated: 2026-09-02
+
+Retrospective lifecycle mapping: the foundation was integrated into `main` before PD-09 established Delivery states. It maps to Merged; the optional live smoke remains pending because no API key was available.
 
 ## Completed
 

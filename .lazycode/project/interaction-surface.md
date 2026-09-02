@@ -210,6 +210,8 @@ A Feature page emphasizes:
 
 The Feature definition and acceptance criteria remain the primary reference for determining whether work is correct.
 
+The page distinguishes product approval, technical-specification approval, Delivery scheduling, active work, pause, completion on the Feature branch, and soft-deleted abandonment according to [Feature Definition](feature-definition.md).
+
 ## Worker page
 
 A worker page is a supervision and recovery surface.
