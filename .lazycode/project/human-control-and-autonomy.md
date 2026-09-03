@@ -1,7 +1,7 @@
 # Human Control and Autonomy
 
 Status: established
-Last updated: 2026-08-24
+Last updated: 2026-09-03
 
 ## Purpose
 
@@ -34,8 +34,8 @@ The established human gates are:
 
 1. Confirm the project definition.
 2. Confirm each Epic.
-3. Confirm each Feature's product behavior.
-4. Participate in technical Feature planning.
+3. Approve each Feature's product definition.
+4. Participate in and approve each Feature's technical specification.
 5. Approve the Delivery composition.
 6. Explicitly start the Delivery.
 7. Verify the Delivery candidate.
@@ -231,3 +231,5 @@ The interaction surface must eventually show enough information to distinguish:
 - status, progress, blockers, and recent activity.
 
 Detailed presentation is established in [Interaction Surface](interaction-surface.md).
+
+Role identity, allowed children, decision authority, independent verification ownership, and same-role replacement are established in [Roles and Ownership](roles-and-ownership.md).

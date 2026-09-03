@@ -1,7 +1,7 @@
 # LazyCode Project Definition
 
 Status: draft for refinement
-Last updated: 2026-09-02
+Last updated: 2026-09-03
 
 ## Project name
 
@@ -100,7 +100,7 @@ Quick fixes use a lighter definition path but still pass through a Delivery, ver
 
 ## Request intake and project planning
 
-A project-facing exploration agent is the default entry point for understanding an existing project and finding the appropriate planning resource. It is read-only toward project state. LazyCode opens a new conversation with the authorized receiving agent and provides the user's intent, relevant findings, existing Decisions, related work, and open questions in a self-contained first message.
+The Project Guide is the default entry point for understanding an existing project and finding the appropriate planning resource. It is read-only toward project state. LazyCode opens a new conversation with the authorized receiving agent and provides the user's intent, relevant findings, existing Decisions, related work, and open questions in a self-contained first message.
 
 The authorized planning agent works with the user on an editable, annotatable report explaining current and desired state and anticipated logic, schema, and architecture impacts at documentation-level detail without implementation code. It checks Epic placement, matching Features, active-Delivery impact, and consistency with Decisions.
 
@@ -173,22 +173,22 @@ The detailed boundary and current runtime flow are defined in [Architecture](arc
 
 ## Organizational model
 
-The proposed primary hierarchy is:
+The established primary hierarchy is:
 
 ```text
 Human
-  -> Project Manager
-    -> Delivery Manager
-      -> Team Lead
-        -> Feature Lead
-          -> Implementation Agents
-            -> Subagents
-              -> Leaf Agents
+├── Project Manager
+│   └── Delivery Manager
+│       └── Feature Lead
+│           └── Implementation Worker
+│               └── Implementation Worker
+│                   └── ...
+└── Project Guide
 ```
 
-Explorer, Oracle, Reviewer, and Tester roles operate alongside the management hierarchy. The hierarchy describes ownership and escalation; it does not require every task to instantiate every level.
+Explorer, Oracle, Reviewer, and Tester roles attach where their specialized work is required. Subagent and leaf describe tree relationships rather than roles. Team Lead is removed, and one worker may hold only one role.
 
-Role responsibilities and delegation behavior are defined in the [Organizational Model](organizational-model.md). Their runtime contracts remain proposals except for the current Project Manager and Explorer slice.
+The nine fixed roles and delegation matrix are defined in [Roles and Ownership](roles-and-ownership.md). Their runtime implementation remains future work except for the current Project Manager and Explorer spike.
 
 ## Work and delegation model
 
@@ -200,7 +200,7 @@ The roadmap combines a historical implementation timeline, a decided future time
 
 A Task belongs to a Feature or another Task and forms a verifiable contract between workers. Each Task has a worker; further subdivision creates child Tasks with new workers. The complete reference is [Work Hierarchy and Terminology](work-hierarchy-and-terminology.md).
 
-Feature definition uses separate product and technical approval gates. The Project Manager helps the user define and specify the Feature; after approval, a Feature Lead orchestrates implementation workers, reviewers, testers, and integration without ordinarily coding. Completion requires every acceptance criterion to pass on the Feature branch before Delivery integration. The complete contract is [Feature Definition](feature-definition.md).
+Feature definition uses separate product and technical approval gates. The Project Manager helps the user define and specify the Feature; after approval, a Feature Lead orchestrates Implementation Workers, Reviewers, and integration without coding. Delivery Managers alone commission tightly scoped Tester workers for isolated QA. Completion requires every acceptance criterion to pass on the Feature branch before Delivery integration. The complete contract is [Feature Definition](feature-definition.md).
 
 Delegation should occur at meaningful, independently verifiable software boundaries. A delegated task should state:
 
@@ -241,11 +241,10 @@ Detailed artifact ownership and writing rules are defined in [Project Convention
 Detailed information should become progressively more concise as it moves upward:
 
 ```text
-Implementation Agent -> implementation result
-Feature Lead         -> feature outcome
-Team Lead            -> integration and delivery status
-Delivery Manager     -> delivery outcome
-Project Manager      -> durable project impact
+Implementation Worker -> implementation result
+Feature Lead          -> feature outcome
+Delivery Manager      -> delivery outcome
+Project Manager       -> durable project impact
 ```
 
 The detailed evidence should remain available for inspection without being copied into every parent context.
@@ -378,6 +377,7 @@ The next activity is to refine this definition using the ordered [Project Defini
 - Deliveries have no timebox, and Tasks are worker-owned, verifiable subdivisions of Features or other Tasks.
 - Deliveries support controlled concurrency and use Draft, Active, Paused, Completed, Merged, and Abandoned as their canonical lifecycle states.
 - Features use separate product and technical approvals; Feature Leads orchestrate rather than ordinarily code, and Feature completion precedes Delivery-branch integration.
+- Nine fixed, single-role worker types use an explicit delegation matrix. Only Implementation Workers code; parents commission and evaluate independent verification, and only Delivery Managers commission isolated QA Testers.
 - Decisions retain rationale; Reports persist with their Feature or, when no Feature owns them, at Project level.
 - Project-level research and POC outcomes require user approval.
 - Users review and approve a combined Delivery branch rather than every completed Feature.
@@ -395,8 +395,7 @@ The next activity is to refine this definition using the ordered [Project Defini
 
 ### Proposed and subject to refinement
 
-- the full management hierarchy;
-- exact role boundaries and lifecycle;
+- agent identity and runtime lifecycle;
 - detailed Delivery and Feature lifecycle and readiness rules;
 - artifact and state schemas;
 - delegation stopping rules;

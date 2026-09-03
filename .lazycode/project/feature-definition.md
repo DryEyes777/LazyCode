@@ -1,7 +1,7 @@
 # Feature Definition
 
 Status: established
-Last updated: 2026-09-02
+Last updated: 2026-09-03
 
 ## Purpose
 
@@ -82,13 +82,13 @@ It:
 - decomposes the Feature into Tasks;
 - assigns Tasks to implementation workers;
 - manages Task dependencies and child workers;
-- starts independent review and testing workers;
+- starts independent Reviewers and directs Implementation Workers to run required Feature tests;
 - integrates child results into the Feature branch;
 - ensures implementation matches the approved Feature;
 - gathers evidence for every acceptance criterion;
 - reports completion to the Delivery Manager.
 
-The Feature Lead ordinarily does not write implementation code itself. It manages implementers, testers, reviewers, and integration.
+The Feature Lead does not write implementation code. It manages implementers, Reviewers, Feature-level test execution, and integration. Independent human-like Tester workers are reserved for Delivery-level QA and may only be commissioned by a Delivery Manager.
 
 ## Implementation workers
 

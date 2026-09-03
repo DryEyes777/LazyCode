@@ -1,7 +1,7 @@
 # Delivery Planning
 
 Status: established
-Last updated: 2026-09-02
+Last updated: 2026-09-03
 
 ## Purpose
 
@@ -30,6 +30,7 @@ Every Delivery has a Delivery Manager responsible for:
 - planning integration order;
 - resolving Feature overlap;
 - ensuring appropriate review and testing;
+- commissioning tightly scoped Tester workers in isolated environments for Delivery-level QA;
 - integrating Feature results;
 - propagating discoveries;
 - preparing the Delivery candidate;

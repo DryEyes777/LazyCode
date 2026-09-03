@@ -1,7 +1,7 @@
 # Interaction Surface
 
 Status: established
-Last updated: 2026-09-02
+Last updated: 2026-09-03
 
 ## Purpose
 
@@ -256,6 +256,8 @@ The default worker view emphasizes:
 - recovery state.
 
 The user can open the chat to inspect details or redirect the worker directly.
+
+Role identity, ownership, allowed children, and verification relationships follow [Roles and Ownership](roles-and-ownership.md).
 
 ## Project documentation
 

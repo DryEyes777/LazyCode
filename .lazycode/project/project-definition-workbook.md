@@ -1,7 +1,7 @@
 # Project Definition Workbook
 
 Status: in progress
-Last updated: 2026-09-02
+Last updated: 2026-09-03
 
 ## Purpose
 
@@ -373,9 +373,9 @@ Input from PD-10: the Feature Lead is an orchestration owner that ordinarily doe
 
 #### PD-11 — Roles and ownership
 
-Status: not started
+Status: established
 
-Refine the proposed Project Manager, Delivery Manager, Team Lead, Feature Lead, Implementation Agent, Explorer, Oracle, Reviewer, and Tester roles.
+Refine the proposed Project Guide, Project Manager, Delivery Manager, Feature Lead, Implementation Worker, Explorer, Oracle, Reviewer, and Tester roles.
 
 For every role, define:
 
@@ -398,11 +398,26 @@ Completion conditions
 - When may a hierarchy level be skipped?
 - How is ownership transferred?
 
-Output: a role catalog with explicit, non-overlapping responsibilities.
+Decision summary:
+
+- LazyCode has nine fixed core roles: Project Guide, Project Manager, Delivery Manager, Feature Lead, Implementation Worker, Explorer, Oracle, Reviewer, and Tester. Team Lead is removed.
+- Projects may configure role instructions, models, context, tools, permissions, and specialization, but a worker holds exactly one role and role ownership semantics remain fixed.
+- Subagent and leaf describe worker-tree relationships, not roles. Product Owner and Project Owner responsibilities belong to Project Manager.
+- Every Delivery has a logical Delivery Manager and every Active Feature has a logical Feature Lead, but manager conversations may become dormant and be woken or reconstructed by child events.
+- Multiple Project Managers may work concurrently in separate branches or worktrees; later merges reconcile earlier changes.
+- Project Managers, Delivery Managers, and Feature Leads do not write implementation code. Only Implementation Workers modify implementation.
+- The fixed delegation matrix limits which child roles each parent may create. Only Delivery Managers may create Testers; Testers are tightly scoped leaf workers in isolated QA environments.
+- A worker never selects its own Reviewer or Tester. The parent commissions verification, evaluates Findings, may consult Oracles, and returns valid corrections to the implementer.
+- Management and implementation workers may decide within user-approved artifacts and Decisions. New precedent escalates toward the user. Specialized roles provide evidence but create no accepted Decisions.
+- The direct parent authorizes replacement or ownership transfer. The same-role replacement receives the contract, branch/worktree, permissions, context, children, and unresolved state and tours it before continuing.
+
+Output: recorded in [Roles and Ownership](roles-and-ownership.md).
 
 #### PD-12 — Agent identity and lifecycle
 
 Status: not started
+
+Input from PD-11: logical ownership survives dormant or reconstructed conversations; child events may wake a parent. Several Project Managers may exist concurrently. A replacement must retain the same role and tour transferred ownership state.
 
 - What makes an agent logically persistent?
 - Is an agent created for a project, delivery, feature, task, or invocation?
@@ -468,6 +483,8 @@ Output: the context-builder contract and memory policy.
 
 Status: not started
 
+Input from PD-11: role identity and allowed child roles are fixed while instructions, models, context, tools, permissions, and specialization are configurable. Only Implementation Workers modify implementation. Specialized roles provide evidence rather than accepted Decisions.
+
 - Which capabilities exist?
 - How are they scoped to files, commands, tools, services, repositories, and agents?
 - What authority does each role receive by default?
@@ -489,6 +506,8 @@ Input from PD-08: postponed and rejected planning retains draft reports and prog
 Input from PD-09: Feature workers incorporate Delivery-branch changes into Feature branches. Completed Deliveries may form the base of later Deliveries before merge, enforcing merge order. Overlapping Deliveries require a user-started and approved conflict-resolution plan before later integration; it is never automatic.
 
 Input from PD-10: the Feature Lead integrates Task branches into the Feature branch. Feature completion occurs before the Delivery Manager merges the Feature branch. Restoration, approval-invalidating changes, and split/combined replacement Features require branch inventory and reconciliation.
+
+Input from PD-11: concurrent Project Managers use isolated branches or worktrees, and the later merge reconciles earlier changes. Ownership transfer moves the same-role worker's branch or worktree and responsibility state.
 
 - Do agents share a working tree or use isolated worktrees?
 - How is file ownership represented and enforced?
@@ -522,6 +541,8 @@ Status: not started
 
 Input from PD-10: Feature completion requires every acceptance criterion to pass on the Feature branch after child integration, required review and tests, recorded evidence, and a persisted Feature Report. Delivery-level integration and QA happen afterward.
 
+Input from PD-11: the parent, never the implementer, commissions independent verification and evaluates Findings. Reviewers report only and may delegate evidence work. Only Delivery Managers commission tightly scoped leaf Testers in isolated environments for human-like Delivery QA before user verification.
+
 - What verification is required for tasks, features, and deliveries?
 - How independent must Reviewers and Testers be?
 - Who may reject work or require repair?
@@ -539,6 +560,8 @@ Output: quality gates, integration ownership, and completion protocol.
 #### PD-20 — Models and provider routing
 
 Status: not started
+
+Input from PD-11: the nine role identities are fixed, but each role's model policy and specialization are configurable. Dormant logical managers may resume an existing model context or be reconstructed when children wake them.
 
 - Which roles need high reasoning quality, coding ability, retrieval, speed, low cost, or model independence?
 - Can users configure model policies?

@@ -1,7 +1,7 @@
 # Primary End-to-End Workflow
 
 Status: established
-Last updated: 2026-09-02
+Last updated: 2026-09-03
 
 ## Purpose
 
@@ -141,7 +141,7 @@ Feature implementation
 
 A Feature is not complete until its implementation, review, tests, and integration obligations pass.
 
-The Feature Lead ordinarily does not code. It decomposes the Feature into Tasks, coordinates implementation, review, and testing workers, integrates their work into the Feature branch, and proves every acceptance criterion. The Feature becomes Completed on its branch before the Delivery Manager integrates it into the Delivery branch.
+The Feature Lead does not code. It decomposes the Feature into Tasks, coordinates Implementation Workers and Reviewers, directs Feature-level test execution, integrates child work into the Feature branch, and proves every acceptance criterion. The Feature becomes Completed on its branch before the Delivery Manager integrates it into the Delivery branch.
 
 Feature workers incorporate relevant Delivery-branch changes into their Feature branches. The Delivery Manager remains responsible for the correct combined Delivery state.
 
@@ -218,7 +218,7 @@ A Delivery is not Merged merely because implementation has stopped or every Feat
 
 ## Ongoing requests and planning
 
-The default entry point for exploring an existing project or bringing a new request is a project-facing read-only exploration agent. It guides the user toward the appropriate resource and hands off relevant context as the first message of a new conversation with an authorized agent. Direct access to existing worker conversations remains available.
+The default entry point for exploring an existing project or bringing a new request is the read-only Project Guide. It guides the user toward the appropriate resource and hands off relevant context as the first message of a new conversation with an authorized agent. Direct access to existing worker conversations remains available.
 
 The receiving agent investigates related Epics, Features, Decisions, and active Deliveries and refines a planning report with the user. Approved planning does not itself schedule or start implementation. Matching work, Decision conflicts, and postponed or rejected drafts follow [Request Intake and Project Planning](request-intake-and-project-planning.md).
 

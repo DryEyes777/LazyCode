@@ -1,7 +1,7 @@
 # Project Lifecycle
 
 Status: established
-Last updated: 2026-08-27
+Last updated: 2026-09-03
 
 ## Purpose
 
@@ -177,6 +177,8 @@ Each project maintains independent:
 The project launcher summarizes attention and active work across all registered projects.
 
 Cross-project scheduling and resource allocation remain implementation details for later definition.
+
+A Project may have several Project Managers concurrently. Each works in a separate branch or worktree, and later merges must reconcile earlier project-planning changes as defined in [Roles and Ownership](roles-and-ownership.md).
 
 ## Project relocation
 

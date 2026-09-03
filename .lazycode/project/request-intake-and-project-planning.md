@@ -1,7 +1,7 @@
 # Request Intake and Project Planning
 
 Status: established
-Last updated: 2026-08-31
+Last updated: 2026-09-03
 
 ## Purpose
 
@@ -9,7 +9,7 @@ This document defines how a user's request becomes an agreed project plan: read-
 
 ## First point of contact
 
-A project-facing exploration agent helps the user understand the project and find the appropriate resource for continuing their work.
+The Project Guide helps the user understand the project and find the appropriate resource for continuing their work.
 
 It explores code and documentation, provides a high-level view, and guides the user toward the relevant Epic, Feature, Decision, Delivery, or authorized planning agent.
 
@@ -17,7 +17,7 @@ This is the default entry point for exploration and new requests; it does not re
 
 ## Read-only exploration
 
-The exploration agent is read-only toward project state.
+The Project Guide is read-only toward project state.
 
 It cannot:
 
@@ -45,7 +45,7 @@ The first message contains a self-contained handoff:
 
 The receiving agent processes that message before continuing refinement with the user.
 
-The handoff transfers relevant knowledge rather than copying the entire previous conversation. Starting the receiving conversation is a runtime handoff operation, not authority for the exploration agent to modify project artifacts.
+The handoff transfers relevant knowledge rather than copying the entire previous conversation. Starting the receiving conversation is a runtime handoff operation, not authority for the Project Guide to modify project artifacts.
 
 ## Classifying and investigating the request
 
@@ -62,7 +62,7 @@ The responsible agent investigates:
 
 Decisions are consulted as questions arise during drafting. The completed proposal is also checked for conflicts with established Decisions.
 
-Affected active work may need to pause until it is safe to continue. Unrelated work remains active under [Human Control and Autonomy](human-control-and-autonomy.md). The read-only exploration agent may identify the impact, but any intervention belongs to an authorized agent.
+Affected active work may need to pause until it is safe to continue. Unrelated work remains active under [Human Control and Autonomy](human-control-and-autonomy.md). The Project Guide may identify the impact, but any intervention belongs to an authorized agent.
 
 ## Planning report
 
@@ -131,7 +131,6 @@ They remain available until the user explicitly requests deletion or a separatel
 Later topics will define:
 
 - exact handoff message and report schemas;
-- the exploration agent's formal role name;
 - detailed planning-agent permissions;
 - Feature readiness checks;
 - approval and merge mechanics for planning artifacts;

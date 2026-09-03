@@ -29,6 +29,6 @@ Status: active
 
 ## D005 — Delivery workflow
 
-- Implement Delivery Manager, Team Lead, and Feature Lead contracts.
+- Implement Delivery Manager and Feature Lead contracts.
 - Coordinate recursive implementation, integration, independent review, and testing.
 - Evaluate multiple model adapters and external subagent providers.
