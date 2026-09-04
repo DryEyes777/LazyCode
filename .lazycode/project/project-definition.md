@@ -1,7 +1,7 @@
 # LazyCode Project Definition
 
 Status: draft for refinement
-Last updated: 2026-09-03
+Last updated: 2026-09-04
 
 ## Project name
 
@@ -226,6 +226,10 @@ A responsibility may persist for weeks while its model context is rebuilt for ea
 - **context:** what the model needs now;
 - **conversation:** one temporary execution trace.
 
+Each logical worker has a stable ID, one role, owned scope, hierarchy, branch/worktree, permissions, plan, progress, checkpoint, Findings, Reports, escalations, and lifecycle state. Model processes and conversations are activations of that identity and may be replaced without changing it.
+
+Canonical worker states are Active, Waiting, Paused, Blocked, Completed, Failed, and Disposed. There is no Dormant state. Worker lifecycle is separate from Task, Feature, and Delivery lifecycle; the parent accepts results and advances the owned work. The complete contract is [Worker Identity and Lifecycle](worker-identity-and-lifecycle.md).
+
 ## Durable project memory
 
 The repository is the canonical organizational memory. `.lazycode/` stores project, delivery, feature, decision, research, contract, acceptance, and status artifacts.
@@ -378,6 +382,7 @@ The next activity is to refine this definition using the ordered [Project Defini
 - Deliveries support controlled concurrency and use Draft, Active, Paused, Completed, Merged, and Abandoned as their canonical lifecycle states.
 - Features use separate product and technical approvals; Feature Leads orchestrate rather than ordinarily code, and Feature completion precedes Delivery-branch integration.
 - Nine fixed, single-role worker types use an explicit delegation matrix. Only Implementation Workers code; parents commission and evaluate independent verification, and only Delivery Managers commission isolated QA Testers.
+- Stable logical worker identity survives activation and model replacement. Seven visible worker states separate execution status from work-object lifecycle, and Disposed workers are soft-deleted by default.
 - Decisions retain rationale; Reports persist with their Feature or, when no Feature owns them, at Project level.
 - Project-level research and POC outcomes require user approval.
 - Users review and approve a combined Delivery branch rather than every completed Feature.
@@ -395,7 +400,7 @@ The next activity is to refine this definition using the ordered [Project Defini
 
 ### Proposed and subject to refinement
 
-- agent identity and runtime lifecycle;
+- runtime lifecycle implementation and persistence schemas;
 - detailed Delivery and Feature lifecycle and readiness rules;
 - artifact and state schemas;
 - delegation stopping rules;

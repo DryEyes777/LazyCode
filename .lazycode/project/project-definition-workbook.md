@@ -1,7 +1,7 @@
 # Project Definition Workbook
 
 Status: in progress
-Last updated: 2026-09-03
+Last updated: 2026-09-04
 
 ## Purpose
 
@@ -403,7 +403,7 @@ Decision summary:
 - LazyCode has nine fixed core roles: Project Guide, Project Manager, Delivery Manager, Feature Lead, Implementation Worker, Explorer, Oracle, Reviewer, and Tester. Team Lead is removed.
 - Projects may configure role instructions, models, context, tools, permissions, and specialization, but a worker holds exactly one role and role ownership semantics remain fixed.
 - Subagent and leaf describe worker-tree relationships, not roles. Product Owner and Project Owner responsibilities belong to Project Manager.
-- Every Delivery has a logical Delivery Manager and every Active Feature has a logical Feature Lead, but manager conversations may become dormant and be woken or reconstructed by child events.
+- Every Delivery has a logical Delivery Manager and every Active Feature has a logical Feature Lead. Waiting or Completed managers may release their activation and be reactivated or reconstructed by child events.
 - Multiple Project Managers may work concurrently in separate branches or worktrees; later merges reconcile earlier changes.
 - Project Managers, Delivery Managers, and Feature Leads do not write implementation code. Only Implementation Workers modify implementation.
 - The fixed delegation matrix limits which child roles each parent may create. Only Delivery Managers may create Testers; Testers are tightly scoped leaf workers in isolated QA environments.
@@ -413,26 +413,42 @@ Decision summary:
 
 Output: recorded in [Roles and Ownership](roles-and-ownership.md).
 
-#### PD-12 — Agent identity and lifecycle
+#### PD-12 — Worker identity and lifecycle
 
-Status: not started
+Status: established
 
-Input from PD-11: logical ownership survives dormant or reconstructed conversations; child events may wake a parent. Several Project Managers may exist concurrently. A replacement must retain the same role and tour transferred ownership state.
+Input from PD-11: logical ownership survives reconstructed conversations; child events may wake a parent. Several Project Managers may exist concurrently. A replacement must retain the same role and tour transferred ownership state.
 
-- What makes an agent logically persistent?
-- Is an agent created for a project, delivery, feature, task, or invocation?
+- What makes a worker logically persistent?
+- Is a worker created for a project, delivery, feature, task, or invocation?
 - Which identity and state survive process or model replacement?
 - When does an agent become active, waiting, blocked, completed, failed, or disposed?
 - Can responsibility transfer between agents?
 - What state belongs to the agent versus its owned work?
-- How is an agent reconstructed after restart?
-- How are abandoned, superseded, or failed agents represented?
+- How is a worker reconstructed after restart?
+- How are abandoned, superseded, or failed workers represented?
 
-Output: the durable agent identity and lifecycle model.
+Decision summary:
+
+- A logical worker is a stable identity distinct from model activations and conversation history. Replacement, restart, provider change, and context reconstruction preserve the same worker ID.
+- Project Guides and Project Managers are created per conversation; Delivery Managers per Delivery, Feature Leads per Feature, Implementation Workers per Task, and specialized workers per bounded assignment.
+- Project Manager branches isolate concurrent changes without reducing role or documentation authority. Later merges reconcile earlier accepted changes.
+- Durable worker state includes role, hierarchy, owned contract/scope, branch/worktree, permissions, approved context, plan, progress, checkpoint, children, Findings, Reports, escalations, premise divergence, and lifecycle state.
+- Canonical worker states are Active, Waiting, Paused, Blocked, Completed, Failed, and Disposed. There is no Dormant state; whether an activation is loaded is runtime detail.
+- Waiting means active children exist and no useful independent work remains. Blocked is reserved for required human input. Completed workers report upward but may return to Active for new or corrective work.
+- Failed records an external or mandatory-process failure that cannot be repaired in the current attempt; repair, retry, or replacement returns the same identity to Active.
+- Worker state is separate from Task, Feature, and Delivery state; parents accept results and advance owned work.
+- Reconstruction tours durable and actual state before Active work resumes. Child events can wake or reconstruct Waiting parents.
+- Disposed follows a no-longer-needed Task or scope and is a soft delete by default. Restoration keeps the same identity and requires reconciliation before returning Active.
+- Permanent deletion may remove worker-exclusive conversations, notes, checkpoints, and unreferenced artifacts. Project knowledge and de-associated aggregate timing, usage, error-rate, and reliability data may remain.
+
+Output: recorded in [Worker Identity and Lifecycle](worker-identity-and-lifecycle.md).
 
 #### PD-13 — Delegation rules
 
 Status: not started
+
+Input from PD-12: every delegated Task has a stable worker identity whose progress and checkpoint survive activation replacement. Parent events wake Waiting workers, and disposal follows removal of the owned Task or scope.
 
 - When should an agent delegate rather than implement directly?
 - Who defines and validates the child contract?
@@ -466,6 +482,8 @@ Output: report schemas and upward information-compression rules.
 #### PD-15 — Context and memory
 
 Status: not started
+
+Input from PD-12: context is reconstructed for the same logical worker from durable role, ownership, approved definitions, plan, progress, child Reports, Findings, escalations, branch/worktree, and permissions rather than requiring the previous conversation.
 
 - What context does each role receive?
 - How are relevant files, documents, decisions, tests, and reports selected?
@@ -524,6 +542,8 @@ Output: workspace isolation, concurrency, ownership, and Git rules.
 
 Status: not started
 
+Input from PD-12: canonical worker states distinguish Waiting for children, user-requested Paused, human-input Blocked, reusable Completed, recoverable Failed, and soft-deleted Disposed. Activation loading is not a state; reconstruction must tour actual and durable state.
+
 - How are ready tasks selected and scheduled?
 - How are dependencies and concurrency limits enforced?
 - What happens after process interruption or machine restart?
@@ -561,7 +581,7 @@ Output: quality gates, integration ownership, and completion protocol.
 
 Status: not started
 
-Input from PD-11: the nine role identities are fixed, but each role's model policy and specialization are configurable. Dormant logical managers may resume an existing model context or be reconstructed when children wake them.
+Input from PD-11 and PD-12: the nine role identities are fixed, but each role's model policy and specialization are configurable. Waiting or Completed logical managers may resume an existing model context or receive a reconstructed activation when children wake them.
 
 - Which roles need high reasoning quality, coding ability, retrieval, speed, low cost, or model independence?
 - Can users configure model policies?
@@ -578,6 +598,8 @@ Output: model policy, routing, fallback, and budget rules.
 Status: not started
 
 Input from PD-07: research and POC artifacts are Git-tracked in `.lazycode/`, with associated metadata in the project's SQLite database. Define their canonical-data, synchronization, and portability relationship without assuming two independent sources of truth.
+
+Input from PD-12: persist stable worker identity and reconstruction state separately from disposable activation and conversation data. Permanent deletion may erase worker-exclusive data while retaining project knowledge and de-associated aggregate metrics.
 
 - Which artifacts are Markdown, YAML, JSON, database records, or generated projections?
 - What is canonical versus derived?

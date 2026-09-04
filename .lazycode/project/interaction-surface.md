@@ -1,7 +1,7 @@
 # Interaction Surface
 
 Status: established
-Last updated: 2026-09-03
+Last updated: 2026-09-04
 
 ## Purpose
 
@@ -258,6 +258,8 @@ The default worker view emphasizes:
 The user can open the chat to inspect details or redirect the worker directly.
 
 Role identity, ownership, allowed children, and verification relationships follow [Roles and Ownership](roles-and-ownership.md).
+
+The displayed lifecycle states and the distinction between a logical worker and its current activation follow [Worker Identity and Lifecycle](worker-identity-and-lifecycle.md).
 
 ## Project documentation
 

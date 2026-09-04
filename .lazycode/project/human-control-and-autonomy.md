@@ -1,7 +1,7 @@
 # Human Control and Autonomy
 
 Status: established
-Last updated: 2026-09-03
+Last updated: 2026-09-04
 
 ## Purpose
 
@@ -155,7 +155,7 @@ User requests forced stop
   -> scheduling stops immediately
   -> all worker threads are terminated
   -> owned process trees and execution environments are terminated
-  -> Delivery is marked interrupted
+  -> Delivery records an interrupted condition for recovery
 ```
 
 Forced stop does not rely on worker cooperation or cleanup.
@@ -189,6 +189,8 @@ Parent cancellation requested
 A parent should rarely stop before its children because it owns their coordination and normally waits for their results.
 
 If a worker is replaced, its logical responsibility survives. The replacement tours durable state, repository state, environment state, and child outcomes before continuing or redelegating work.
+
+Replacement preserves the same logical worker identity. Worker states, reconstruction, soft disposal, restoration, and permanent deletion follow [Worker Identity and Lifecycle](worker-identity-and-lifecycle.md).
 
 ## Loop and waste safeguards
 

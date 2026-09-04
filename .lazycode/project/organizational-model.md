@@ -87,6 +87,8 @@ A persistent identity can be reconstructed from:
 
 This permits long-lived ownership while allowing model contexts to reset frequently.
 
+Logical worker identity, activation, user-visible states, reconstruction, disposal, and deletion follow [Worker Identity and Lifecycle](worker-identity-and-lifecycle.md). There is no Dormant state; a Waiting or Completed worker may release its active model session without losing identity.
+
 ## Information compression
 
 Implementation Workers return Task results to their parents. Feature Leads return Feature outcomes to Delivery Managers. Delivery Managers return Delivery outcomes to Project Managers. Project Managers promote project-level consequences and durable knowledge.

@@ -55,6 +55,7 @@ pnpm dsh --profile lazycode "Delegate an exploration of .lazycode/project/vision
 - [Delivery planning](.lazycode/project/delivery-planning.md)
 - [Feature definition](.lazycode/project/feature-definition.md)
 - [Roles and ownership](.lazycode/project/roles-and-ownership.md)
+- [Worker identity and lifecycle](.lazycode/project/worker-identity-and-lifecycle.md)
 - [Vision](.lazycode/project/vision.md)
 - [Organizational model](.lazycode/project/organizational-model.md)
 - [Architecture](.lazycode/project/architecture.md)

@@ -1,7 +1,7 @@
 # Roles and Ownership
 
 Status: established
-Last updated: 2026-09-03
+Last updated: 2026-09-04
 
 ## Purpose
 
@@ -55,7 +55,7 @@ Every Delivery has a Delivery Manager, and every Active Feature has a Feature Le
 
 These are persistent logical ownership requirements, not requirements to keep model conversations continuously active.
 
-A manager may become dormant while waiting for children. A child completion, escalation, alert, or coordination request can wake the existing parent context or reconstruct a new worker with the same role and ownership.
+A manager enters Waiting while children work and no useful independent work remains. Its active model session may be released without changing the logical worker state. A child completion, escalation, alert, or coordination request returns that same logical identity to Active through an existing or reconstructed activation.
 
 ## Multiple Project Managers
 
@@ -63,12 +63,7 @@ A Project may have several Project Managers concurrently.
 
 For example, two users defining separate Features receive separate Project Managers.
 
-Each Project Manager:
-
-- works in an isolated branch or worktree;
-- owns only its current planning scope;
-- uses the shared approved project state as its baseline;
-- records its changes independently.
+Each Project Manager works in an isolated branch or worktree, uses shared approved project state as its baseline, and records changes independently. The branch isolates modifications but does not reduce the Project Manager's role or documentation authority.
 
 The Project Manager whose work merges later must reconcile changes introduced by earlier merges before its own work can be accepted.
 
@@ -306,7 +301,7 @@ Project Guides, Explorers, Oracles, Reviewers, and Testers provide guidance, evi
 
 The direct parent authorizes replacement or ownership transfer.
 
-The replacement must have the same role and receives:
+Replacement preserves the same logical worker ID and role. A new activation receives:
 
 - ownership contract or Task;
 - branch and worktree when applicable;
@@ -317,8 +312,8 @@ The replacement must have the same role and receives:
 - child relationships;
 - unresolved Findings and escalations.
 
-The replacement tours transferred state before continuing.
+The replacement activation tours transferred state before continuing.
 
 ## Deferred detail
 
-Agent identity, activation, dormancy, reconstruction, and runtime lifecycle are refined in `PD-12`. Detailed permissions and leases are refined in `PD-16`; verification mechanics and acceptance evidence are refined in `PD-19`.
+Logical identity, activation, reconstruction, visible states, disposal, and deletion are established in [Worker Identity and Lifecycle](worker-identity-and-lifecycle.md). Detailed permissions and leases are refined in `PD-16`; verification mechanics and acceptance evidence are refined in `PD-19`.
