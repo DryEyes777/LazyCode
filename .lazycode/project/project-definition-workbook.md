@@ -446,7 +446,7 @@ Output: recorded in [Worker Identity and Lifecycle](worker-identity-and-lifecycl
 
 #### PD-13 — Delegation rules
 
-Status: not started
+Status: established
 
 Input from PD-12: every delegated Task has a stable worker identity whose progress and checkpoint survive activation replacement. Parent events wake Waiting workers, and disposal follows removal of the owned Task or scope.
 
@@ -460,7 +460,21 @@ Input from PD-12: every delegated Task has a stable worker identity whose progre
 - Who integrates or rejects the child result?
 - How are duplicate or overlapping delegations prevented?
 
-Output: delegation policy and child-work lifecycle.
+Decision summary:
+
+- Implementation Workers delegate independently verifiable lower-level units while retaining and integrating the higher-level behavior. Existing suitable implementations are reused, and delegation may recurse under the same policy.
+- Before delegation, the parent provides a bounded Task contract, relevant approved context, dependencies, permissions, expected evidence, and executable failing tests. The child tours the context, plans its implementation, and escalates incomplete or conflicting contracts rather than guessing.
+- Every proposed child tree requires an approved delegation plan covering dependencies, parallelism, expected depth and worker count, scope reservations, branches and worktrees, tests, integration, and approximate time, token, and cost allowances.
+- Fresh verification proxies act with the organizational parent's role and limited authority to approve delegation plans without bloating the persistent parent's context. Proxy provenance, inputs, decisions, rationale, and escalations remain auditable.
+- A proxy may consult another fresh proxy or Oracle. Unresolved uncertainty advances through the persistent hierarchy to the user rather than creating an endless verification loop.
+- Exceeding an approved plan pauses new delegation until a revised plan is approved; unaffected valid work may continue. Deep, highly parallel, unexpectedly expensive, or diverging trees receive broader Feature-level review.
+- Active Tasks reserve files, Components, interfaces, or behavioral scope. Unplanned overlap pauses affected workers while their nearest common parent narrows, orders, combines, or explicitly integrates the work and obtains reapproval.
+- Parents continue useful work and enter Waiting only when nothing useful remains while children execute.
+- Child completion returns implementation and test references, verification evidence, Decisions, Findings, deviations, unresolved concerns, and branch, commit, and worktree details.
+- Each coding Task normally has its own branch and worktree. The direct parent inspects, tests, commissions Reviewers where appropriate, evaluates Findings, and integrates accepted commits bottom-up.
+- Rejected work returns to the same logical child for correction. Cancellation, redirection, retry, reassignment, pause, and resume preserve the established control and logical-identity contracts.
+
+Output: recorded in [Delegation and Task Contracts](delegation-and-task-contracts.md).
 
 #### PD-14 — Reporting and information compression
 

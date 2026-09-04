@@ -14,6 +14,7 @@
 - `.lazycode/project/feature-definition.md` is the canonical Feature template, approval, orchestration, lifecycle, modification, completion, and restoration contract.
 - `.lazycode/project/roles-and-ownership.md` is the canonical fixed role catalog, delegation matrix, decision-authority, verification-ownership, and transfer contract.
 - `.lazycode/project/worker-identity-and-lifecycle.md` is the canonical logical identity, activation, reconstruction, worker-state, disposal, restoration, and deletion contract.
+- `.lazycode/project/delegation-and-task-contracts.md` is the canonical delegation-planning, child-contract, verification-proxy, scope-coordination, and bottom-up integration contract.
 - `.lazycode/project/` contains project-wide durable knowledge and decisions.
 - `.lazycode/deliveries/<id>/` contains delivery intent, acceptance, and status.
 - `.lazycode/features/<id>/` contains feature behavior, contracts, and status.
@@ -34,7 +35,7 @@ Research and POC artifacts are Git-tracked under `.lazycode/`, with associated m
 
 ## Delegation
 
-Every delegated task states a question or deliverable, repository scope, allowed capabilities, expected output, and completion criteria. A child must not infer authority from its role name.
+Every delegated Task follows [Delegation and Task Contracts](delegation-and-task-contracts.md). It states a question or deliverable, repository scope, allowed capabilities, expected output, tests, and completion criteria. A child must not infer authority from its role name.
 
 ## Source and test style
 

@@ -67,7 +67,7 @@ A Task belongs to a Feature or another Task and is the definable, testable, and 
 
 Components describe software building blocks rather than work assignments. A Task may implement or modify a Component; Delegation assigns the Task and its contract. See [Work Hierarchy and Terminology](work-hierarchy-and-terminology.md).
 
-A parent delegates when a component has a meaningful, independently verifiable contract. A child receives its role, task, relevant interfaces and files, constraints, allowed resources, expected result, and escalation route. It does not automatically receive ancestral conversations.
+A parent delegates when a Component has a meaningful, independently verifiable contract. A child receives its role, Task, relevant interfaces and files, constraints, allowed resources, expected result, test contract, and escalation route. It does not automatically receive ancestral conversations. Delegation-plan approval, verification proxies, plan-specific limits, scope reservations, and bottom-up integration follow [Delegation and Task Contracts](delegation-and-task-contracts.md).
 
 Parents continue against the agreed contract and integrate the returned result. Detailed child reasoning stays at the child level unless it exposes a durable constraint or unresolved risk.
 
