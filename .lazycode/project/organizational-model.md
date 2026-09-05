@@ -91,9 +91,9 @@ Logical worker identity, activation, user-visible states, reconstruction, dispos
 
 ## Information compression
 
-Implementation Workers return Task results to their parents. Feature Leads return Feature outcomes to Delivery Managers. Delivery Managers return Delivery outcomes to Project Managers. Project Managers promote project-level consequences and durable knowledge.
+Implementation Workers return Task results to their parents. Feature Leads return Feature outcomes to Delivery Managers. Delivery Managers return Delivery outcomes to Project Managers. Project Managers promote project-level consequences and durable knowledge. The complete reporting, validation, compression, and promotion contract is defined in [Reporting and Information Compression](reporting-and-information-compression.md).
 
-Report routing and persistence are distinct: Feature-associated Reports are stored with the Feature, while Reports without a Feature are stored at Project level, including Delivery-wide summaries. Decisions retain their rationale and supporting evidence independently of transient worker conversations.
+Report routing and persistence are distinct: Feature-associated SQLite Report objects are logically owned by the Feature, while Reports without a Feature are logically owned at Project level, including Delivery-wide summaries. Decisions retain their rationale and supporting evidence independently of transient worker conversations.
 
 ## Escalation
 

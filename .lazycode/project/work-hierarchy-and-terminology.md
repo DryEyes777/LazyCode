@@ -134,7 +134,7 @@ Routing and intervention follow [Human Control and Autonomy](human-control-and-a
 
 ## Report
 
-A Report is a worker's structured account of progress or results, including evidence, Decisions, deviations, and unresolved issues.
+A Report is a worker's structured account of progress or results, including evidence, Decisions, deviations, and unresolved issues. Reports are canonical structured SQLite objects rendered by the LazyCode web application.
 
 Persistence follows these rules:
 
@@ -144,6 +144,8 @@ Persistence follows these rules:
 - Other objects may reference those Reports without duplicating them.
 
 Reporting upward does not change where the canonical Report is stored. A Delivery may reference its Feature Reports and a Project-level Delivery summary while retaining its own definition and status artifacts.
+
+Report types, lifecycle, validation, compression, and promotion follow [Reporting and Information Compression](reporting-and-information-compression.md).
 
 ## Research and proofs of concept
 

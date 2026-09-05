@@ -478,7 +478,7 @@ Output: recorded in [Delegation and Task Contracts](delegation-and-task-contract
 
 #### PD-14 — Reporting and information compression
 
-Status: not started
+Status: established
 
 - What must every child report?
 - What evidence must remain inspectable?
@@ -489,7 +489,21 @@ Status: not started
 - Who performs and verifies knowledge promotion?
 - How are conflicting reports reconciled?
 
-Output: report schemas and upward information-compression rules.
+Decision summary:
+
+- Workers maintain a living progress/checkpoint record, append-only event records, and structured Completion Reports. Reporting occurs at meaningful work transitions rather than on a timer.
+- Reports are canonical structured objects in the Project SQLite database and are rendered by the web application. DeepSeek Harness session logs retain raw conversations, tool activity, command output, discarded approaches, and other low-level evidence.
+- Common Report data includes stable identity, type, lifecycle, producing worker, owning scope, relationships, summary, source and evidence references, relevant Findings and Decisions, deviations, unresolved concerns, risks, promotions, validation, and integration references.
+- Task, Feature, Delivery, and Project summaries become progressively narrower: implementation detail compresses into Feature outcome, Delivery outcome, and finally durable Project impact.
+- Reports move from Draft to Submitted and become Completed when their work crosses the relevant parent merge boundary. Parent-requested corrections before merge return the same Report to Draft. Completed Reports are immutable; later corrections use a new Task and Report linked to the original.
+- A direct parent validates a Task Report, the Delivery Manager validates a Feature Report, and a Project Manager uses Delivery Manager evidence to modify Project documentation directly on the Delivery branch. The Delivery Manager never receives Project-documentation write permission.
+- Unresolved blockers, failed or skipped checks, material uncertainty, deviations, unresolved Findings, dangerous risks, approvals, Decision rationale, and future constraints cannot be compressed away while relevant.
+- Routine or resolved detail stays at the source level. Rejected or resolved Findings may be omitted upward because Reports and execution logs remain inspectable.
+- Ordinary Findings go to the direct parent, cross-scope risks reach all affected owners, and blockers or dangerous and human-authority matters bypass normal compression until resolved.
+- Promotion may wait for ordinary merges. When earlier approval is required, ephemeral activations of the authoritative management role validate the Decision without waking or bloating the persistent agent; human-authority matters still reach the user.
+- Conflicting Reports remain unpromoted while the parent gathers evidence and records a reasoned resolution. Higher summaries retain the accepted consequence rather than every rejected argument.
+
+Output: recorded in [Reporting and Information Compression](reporting-and-information-compression.md).
 
 ### Phase 4 — Trustworthy execution
 
@@ -498,6 +512,8 @@ Output: report schemas and upward information-compression rules.
 Status: not started
 
 Input from PD-12: context is reconstructed for the same logical worker from durable role, ownership, approved definitions, plan, progress, child Reports, Findings, escalations, branch/worktree, and permissions rather than requiring the previous conversation.
+
+Input from PD-14: context can use structured SQLite Reports and living checkpoints while leaving raw conversations, tool activity, and routine resolved detail in DeepSeek Harness logs. Compression must retain unresolved blockers, failures, material uncertainty, deviations, risks, required approvals, Decision rationale, and future constraints.
 
 - What context does each role receive?
 - How are relevant files, documents, decisions, tests, and reports selected?

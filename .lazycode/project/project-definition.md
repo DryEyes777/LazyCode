@@ -236,7 +236,7 @@ The repository is the canonical organizational memory. `.lazycode/` stores proje
 
 DeepSeek Harness sessions are useful execution evidence, but they are not the source of project truth. Durable discoveries should be promoted into the smallest appropriate project artifact.
 
-Decisions persist with their rationale, alternatives, evidence, and affected scope. Reports associated with a Feature persist at Feature level; Reports without an owning Feature, including Delivery-wide summaries, persist at Project level. Project-level research and POC outcomes require user approval, with Git-tracked artifacts in `.lazycode/` and associated SQLite project metadata. Their exact storage relationship remains for PD-21.
+Decisions persist with their rationale, alternatives, evidence, and affected scope. Reports are structured SQLite objects: Reports associated with a Feature are logically owned at Feature level, while Reports without an owning Feature, including Delivery-wide summaries, are logically owned at Project level. Project-level research and POC outcomes require user approval, with Git-tracked artifacts in `.lazycode/` and associated SQLite project data. Their exact storage relationship remains for PD-21.
 
 Detailed artifact ownership and writing rules are defined in [Project Conventions](conventions.md).
 
@@ -252,6 +252,8 @@ Project Manager       -> durable project impact
 ```
 
 The detailed evidence should remain available for inspection without being copied into every parent context.
+
+The complete event-driven reporting, merge-bound completion, validation, compression, urgent-propagation, and promotion contract is [Reporting and Information Compression](reporting-and-information-compression.md).
 
 ## Permissions and authority
 

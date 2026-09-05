@@ -113,7 +113,7 @@ A child that considers its Task complete returns:
 - unresolved concerns;
 - branch, commit, and worktree information needed for integration.
 
-Detailed reporting and upward information compression are refined in `PD-14`.
+Detailed schemas, validation lifecycle, storage contract, and upward compression follow [Reporting and Information Compression](reporting-and-information-compression.md).
 
 ## Verification and integration
 
@@ -147,7 +147,6 @@ Forced stop, graceful pause, and resume propagation retain the previously establ
 
 This document establishes delegation planning and child-work lifecycle. It does not yet settle:
 
-- detailed Report schemas and compression rules (`PD-14`);
 - context selection and memory budgets (`PD-15`);
 - capability leases and permission escalation (`PD-16`);
 - exact verification evidence and acceptance mechanics (`PD-19`);

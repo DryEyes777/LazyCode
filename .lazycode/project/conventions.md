@@ -15,6 +15,7 @@
 - `.lazycode/project/roles-and-ownership.md` is the canonical fixed role catalog, delegation matrix, decision-authority, verification-ownership, and transfer contract.
 - `.lazycode/project/worker-identity-and-lifecycle.md` is the canonical logical identity, activation, reconstruction, worker-state, disposal, restoration, and deletion contract.
 - `.lazycode/project/delegation-and-task-contracts.md` is the canonical delegation-planning, child-contract, verification-proxy, scope-coordination, and bottom-up integration contract.
+- `.lazycode/project/reporting-and-information-compression.md` is the canonical Report-object, reporting-trigger, validation-lifecycle, upward-compression, urgent-propagation, and knowledge-promotion contract.
 - `.lazycode/project/` contains project-wide durable knowledge and decisions.
 - `.lazycode/deliveries/<id>/` contains delivery intent, acceptance, and status.
 - `.lazycode/features/<id>/` contains feature behavior, contracts, and status.
@@ -22,7 +23,7 @@
 
 Use stable identifiers such as `D001-foundation`, `F001-read-only-delegation`, and `ADR-0001`. Update status artifacts when work changes state. Promote only durable conclusions into project documents.
 
-Persist Decisions with their rationale, alternatives, evidence, and affected scope. Store Feature-associated Reports at Feature level. Store Reports without an owning Feature at Project level, including Delivery-wide completion summaries and project research Reports; other objects reference these records rather than duplicate them.
+Persist Decisions with their rationale, alternatives, evidence, and affected scope. Reports are structured SQLite objects: Feature-associated Reports are logically owned at Feature level, while Reports without an owning Feature are logically owned at Project level, including Delivery-wide completion summaries and project research Reports. Other objects reference these records rather than duplicate them. The physical persistence model remains deferred to PD-21.
 
 Research and POC artifacts are Git-tracked under `.lazycode/`, with associated metadata in the project's SQLite database. The exact storage and synchronization model is deferred to PD-21; this is a product contract, not an existing database implementation.
 
