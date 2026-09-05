@@ -238,6 +238,8 @@ Before a reconstructed worker becomes Active, it tours:
 
 If durable state and actual state disagree, the worker reconciles them or escalates before continuing.
 
+Context selection, warning and mandatory compaction triggers, and lightweight Reviewer checks of checkpoints follow [Context and Memory](context-and-memory.md). Compaction creates a fresh activation of the same worker and preserves its ownership and durable progress.
+
 ## Waiting parents
 
 Delivery Managers and Feature Leads remain logical owners while their children work.

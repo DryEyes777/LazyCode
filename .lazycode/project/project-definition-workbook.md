@@ -509,7 +509,7 @@ Output: recorded in [Reporting and Information Compression](reporting-and-inform
 
 #### PD-15 — Context and memory
 
-Status: not started
+Status: established
 
 Input from PD-12: context is reconstructed for the same logical worker from durable role, ownership, approved definitions, plan, progress, child Reports, Findings, escalations, branch/worktree, and permissions rather than requiring the previous conversation.
 
@@ -525,11 +525,27 @@ Input from PD-14: context can use structured SQLite Reports and living checkpoin
 - How are stale, contradictory, or missing documents detected?
 - Can an agent request additional context without gaining unrelated authority?
 
-Output: the context-builder contract and memory policy.
+Decision summary:
+
+- Default context includes role, permissions, assignment and applicable tests, relevant approved definitions and Decisions, development guidance, relationships, and a brief explanation of the parent's work and the assignment's purpose. Returning workers also receive their plan, progress, checkpoint, and unresolved issues.
+- LazyCode supplies mandatory instructions; parents add necessary context and references. Large sources may be summarized and linked, without inheriting the entire parent conversation.
+- Access is bounded to the assignment, relevant files, and development guidance. Small read expansions require a specific question and source request approved by an ephemeral parent activation; they grant no write authority.
+- Larger Explorer or Oracle investigations follow PD-13 approval. Requests identify the precise question, Task relevance, available information, and remaining uncertainty. Related questions are grouped, prior answers reused, and unjustified repetition flagged.
+- Summaries retain source references and exact versions or commits so stale information can be identified.
+- Workers maintain durable progress throughout execution. Compaction may be worker-initiated between steps, requested at a warning threshold, or mandatory at a hard threshold. Exact thresholds and checkpoint reserves remain technical planning details.
+- Compaction reconstructs a fresh activation of the same worker from its contract, plan, progress, checkpoint, Decisions, unresolved state, and selected evidence. The previous conversation stays in the execution log with excerpts retrievable as needed.
+- A lightweight Reviewer checks the checkpoint against the contract, progress, relevant repository changes, and open child or alert state. It reports omissions for correction and escalates unresolved disagreements; it does not act as the parent approver.
+- Documentation/code conflicts are recorded and escalated before relying on disputed interpretations. Unaffected work may continue.
+- Context changes propagate from the responsible point down the existing worker hierarchy, including affected assumptions and plan steps. There is no separate update agent. Receiving workers reconcile their plans and checkpoints before continuing affected work.
+- Worker memory supports continuity; canonical knowledge follows PD-14 promotion. Unresolved and consequential information required by PD-14 survives reconstruction.
+
+Output: recorded in [Context and Memory](context-and-memory.md).
 
 #### PD-16 — Permissions and escalation
 
 Status: not started
+
+Input from PD-15: workers have bounded context access. Specific small read expansions use ephemeral parent approval without write permission; larger investigations use approved Explorer or Oracle delegation. Changed guidance propagates through existing owners and children.
 
 Input from PD-11: role identity and allowed child roles are fixed while instructions, models, context, tools, permissions, and specialization are configurable. Only Implementation Workers modify implementation. Specialized roles provide evidence rather than accepted Decisions.
 

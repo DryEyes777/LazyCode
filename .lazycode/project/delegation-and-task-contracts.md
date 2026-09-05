@@ -145,9 +145,10 @@ Forced stop, graceful pause, and resume propagation retain the previously establ
 
 ## Boundary with later definitions
 
+Initial context, read-expansion approval, specialist investigation requests, compaction, and checkpoint review are established in [Context and Memory](context-and-memory.md).
+
 This document establishes delegation planning and child-work lifecycle. It does not yet settle:
 
-- context selection and memory budgets (`PD-15`);
 - capability leases and permission escalation (`PD-16`);
 - exact verification evidence and acceptance mechanics (`PD-19`);
 - runtime scheduling and resource-allocation algorithms (`PD-20`).

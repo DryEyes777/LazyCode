@@ -266,9 +266,10 @@ After resolution, higher-level summaries retain the accepted consequence without
 
 ## Boundary with later definitions
 
+Initial context, source provenance, progress-based reconstruction, compaction, and updates through the worker hierarchy are established in [Context and Memory](context-and-memory.md).
+
 This document establishes logical Report objects and information flow. It does not yet settle:
 
-- context selection and memory construction (`PD-15`);
 - permission and escalation enforcement (`PD-16`);
 - exact verification evidence and acceptance mechanics (`PD-19`);
 - runtime scheduling and resource allocation (`PD-20`);

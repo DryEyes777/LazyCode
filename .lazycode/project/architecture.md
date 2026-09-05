@@ -70,7 +70,7 @@ The Explorer does not inherit the parent's conversation. Its invocation context 
 4. the current repository visible through read-only tools;
 5. the structured output contract.
 
-Future context builders may add architecture decisions, feature contracts, failing tests, and child reports based on role and task, but they must keep selection explicit and observable.
+The intended product context policy is established in [Context and Memory](context-and-memory.md): default assignment context, bounded read expansion, source provenance, progress-based reconstruction, compaction thresholds, lightweight checkpoint review, and updates through the existing hierarchy. Its runtime implementation remains future work beyond the Explorer spike described above.
 
 The v1 plugin validates scope paths and places them in the child contract, but DSH's base read/search tools remain workspace-wide. Runtime enforcement currently covers read-only tool access, not path-level scope. Resource-scoped read authority is deferred to the capability work.
 
