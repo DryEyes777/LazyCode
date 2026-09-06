@@ -153,7 +153,9 @@ Initial context, read-expansion approval, specialist investigation requests, com
 
 Grant authority, scope, lifetimes, revocation, and permission appeals are established in [Permissions and Escalation](permissions-and-escalation.md); runtime enforcement remains future work.
 
+Runtime admission against approved plans, priorities, reserved verification capacity, failure handling, and restart recovery follow [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md). Exact scheduling and resource-allocation algorithms remain technical planning work.
+
 This document establishes delegation planning and child-work lifecycle. It does not yet settle:
 
 - exact verification evidence and acceptance mechanics (`PD-19`);
-- runtime scheduling and resource-allocation algorithms (`PD-20`).
+- model and provider routing (`PD-20`).

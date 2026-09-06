@@ -44,6 +44,8 @@ The established human gates are:
 
 Additional user approval occurs only when an escalation reaches the human because internal workers and authority cannot resolve it.
 
+After an unexpected LazyCode or machine restart, the user is also asked whether to resume all interrupted work or none. Deliberately Paused work and work awaiting a user answer remain excluded. Reconciliation must succeed before affected work resumes, as defined in [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md).
+
 Grant lifetimes, standing permissions requiring user approval, revocation, and permission appeals follow [Permissions and Escalation](permissions-and-escalation.md).
 
 ## Run until complete
@@ -211,13 +213,13 @@ When detected:
 
 ```text
 Runtime alerts direct parent with evidence
-  -> parent evaluates worker and task
-  -> parent applies internal remediation
+  -> ephemeral parent activation evaluates worker and task
+  -> authorized remediation redirects, reconstructs, or revises work
   -> unresolved problem escalates through hierarchy
   -> user is contacted only when necessary
 ```
 
-Exact remediation—steering, retry, context reconstruction, worker replacement, task redesign, or escalation—is refined under scheduling and recovery.
+Scheduling priorities, reserved verification capacity, bounded retries, shared incidents, and restart recovery follow [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md). Long-running execution alone does not establish a loop; remediation depends on evidence and remains within the responsible parent's authority.
 
 ## User visibility requirement
 

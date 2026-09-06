@@ -80,6 +80,8 @@ The v1 plugin validates scope paths and places them in the child contract, but D
 
 Startup or capability mismatches fail loudly. Cancellation flows through the Harness request signal. Refusal, model error, token exhaustion, invalid structured output, and disposal failures are reported as tool failures. Once a child run exists, LazyCode attempts disposal regardless of how result collection ends.
 
+The future product scheduling and recovery contract is established in [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md): reserved verification capacity, bounded retries, inspection of uncertain outcomes, shared external incidents, and explicit user authorization after unexpected restart. These runtime capabilities remain beyond the current spike.
+
 ## Deferred architecture
 
 The following are not implemented in D001: durable agent identity, delivery scheduling, feature integration, general permission leases, escalation routing, document indexing, automatic context selection, reviewer/tester workflows, multi-model role routing, and external human messaging.

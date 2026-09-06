@@ -116,6 +116,8 @@ Escalations block only affected and dependent work; unrelated work continues. Th
 
 Graceful pause is a bottom-up checkpoint and resource-cleanup protocol. Forced stop is an immediate runtime-supervised termination followed by mandatory state reconciliation. Logical worker identity and ownership survive context or model-session reconstruction.
 
+Unexpected LazyCode or machine restart requires a user choice to resume all interrupted work or none, excluding deliberately Paused and user-blocked work. Recovery reconciles actual state before affected work resumes. Scheduling reserves capacity for verification and recovery, temporary retries are bounded, and shared provider failures are coordinated under [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md).
+
 LazyCode initially avoids arbitrary usage limits that terminate useful work. Instead, loop and no-progress safeguards alert the responsible parent for remediation and escalation.
 
 The complete intervention and lifecycle contract is defined in [Human Control and Autonomy](human-control-and-autonomy.md).

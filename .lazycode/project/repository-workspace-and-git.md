@@ -117,4 +117,4 @@ Reports and verification identify the combination of repository commits being ev
 
 The product rules are established. Technical planning must define branch naming, repository registration details, safe Git-operation mechanics, recovery storage for preserved Feature and Delivery work, and the implementation of command and resource controls.
 
-Interruption recovery and retry behavior continue in `PD-18`; detailed review and acceptance mechanics continue in `PD-19`; physical persistence and retention mechanics continue in `PD-21`.
+Interruption recovery, user restart authorization, and checking uncertain operation outcomes before retry follow [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md). Detailed review and acceptance mechanics continue in `PD-19`; physical persistence and retention mechanics continue in `PD-21`.

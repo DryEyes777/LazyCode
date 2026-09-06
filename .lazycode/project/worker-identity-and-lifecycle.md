@@ -157,6 +157,8 @@ A Failed worker reports the failure to its parent.
 
 Repairing the external condition, retrying, or replacing the activation returns the same logical worker to Active.
 
+Bounded retries, inspection of uncertain outcomes, and shared-incident recovery follow [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md). These mechanisms preserve worker identity and do not add lifecycle states.
+
 ### Disposed
 
 The worker's Task or owned scope is no longer needed.
@@ -239,6 +241,8 @@ Before a reconstructed worker becomes Active, it tours:
 If durable state and actual state disagree, the worker reconciles them or escalates before continuing.
 
 Context selection, warning and mandatory compaction triggers, and lightweight Reviewer checks of checkpoints follow [Context and Memory](context-and-memory.md). Compaction creates a fresh activation of the same worker and preserves its ownership and durable progress.
+
+After an unexpected LazyCode or machine restart, reconstruction does not authorize automatic execution. The user chooses whether to resume all interrupted work or none, excluding deliberately Paused and user-blocked work. Recovery resolves unexpected or ambiguous state before affected work resumes, under [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md).
 
 ## Waiting parents
 

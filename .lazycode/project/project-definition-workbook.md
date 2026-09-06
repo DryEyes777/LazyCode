@@ -617,7 +617,7 @@ Output: recorded in [Repository, Workspace, and Git Strategy](repository-workspa
 
 #### PD-18 — Scheduling, failure, and recovery
 
-Status: not started
+Status: established
 
 Input from PD-17: multi-repository integration can partially succeed locally or remotely. All required local merges must finish before requested pushes begin. Recovery must retain per-repository outcomes and avoid repeating successful operations. Unexpected manual worktree edits stop affected work and escalate directly to the user.
 
@@ -632,11 +632,26 @@ Input from PD-12: canonical worker states distinguish Waiting for children, user
 - How are partial results and side effects recovered?
 - When should responsibility be reassigned?
 
-Output: execution scheduling and recovery semantics.
+Decision summary:
+
+- Parents define readiness, dependencies, and order through approved plans; LazyCode enforces dependencies, permissions, workspaces, and concurrency. Ready independent work starts as capacity becomes available without repeated parent authorization.
+- Scheduling follows explicit Project or Delivery priorities, then favors work that unlocks dependencies, while ensuring other ready work eventually receives capacity.
+- Capacity is reserved for Reviewers, permitted QA Testers, integration workers, and ephemeral escalation agents. These receive priority when branches wait, preventing implementation work from occupying every slot. Role and delegation restrictions still apply.
+- Temporary failures receive bounded retries with increasing delays. Exhaustion reports the failed operation to the parent with diagnostics and progress rather than automatically terminating the Task.
+- Operations with uncertain outcomes are inspected before retry. Confirmed successes are not repeated; unresolved uncertainty escalates. Multi-repository recovery preserves each merge and push outcome and the all-local-merges-before-push rule.
+- Shared external failures are coordinated as one incident across affected workers, avoiding independent retry storms and duplicate alerts. Unaffected providers and work continue.
+- Evidence of repeated failures, duplicate actions, circular delegation, or lack of progress is evaluated by an ephemeral parent activation. It may redirect, reconstruct, revise the Task, or escalate within its authority. Long execution alone does not establish a loop.
+- Unexpected LazyCode or machine restart prompts the user to resume all interrupted work or none. Deliberately Paused and user-blocked work are excluded. Execution does not resume automatically.
+- Recovery checks checkpoints, worktrees, processes, pending operations, permissions, and actual state before resumption. Unexpected changes and uncertain outcomes require resolution; manual worktree edits escalate directly to the user.
+- Existing worker states and identities remain unchanged. Issues stop affected and dependent work where necessary; unrelated work continues. Detailed retry, reservation, incident, and recovery algorithms remain technical planning work.
+
+Output: recorded in [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md).
 
 #### PD-19 — Review, testing, integration, and completion
 
 Status: not started
+
+Input from PD-18: reserved capacity must keep review, permitted QA, integration, and ephemeral escalation available when implementation branches are waiting. Verification priority remains subject to role permissions and approved delegation plans.
 
 Input from PD-10: Feature completion requires every acceptance criterion to pass on the Feature branch after child integration, required review and tests, recorded evidence, and a persisted Feature Report. Delivery-level integration and QA happen afterward.
 
@@ -659,6 +674,8 @@ Output: quality gates, integration ownership, and completion protocol.
 #### PD-20 — Models and provider routing
 
 Status: not started
+
+Input from PD-18: provider outages are shared incidents across affected workers with coordinated retry and recovery. Temporary failures use bounded retries with increasing delays; unaffected providers and work may continue. Verification and recovery need reserved capacity.
 
 Input from PD-11 and PD-12: the nine role identities are fixed, but each role's model policy and specialization are configurable. Waiting or Completed logical managers may resume an existing model context or receive a reconstructed activation when children wake them.
 
