@@ -124,7 +124,7 @@ Postponing or rejecting an idea does not automatically discard the work already 
 
 Draft reports and related progress remain persisted on a branch so the user can revisit them. Rejected or deferred drafts are not treated as accepted project direction.
 
-They remain available until the user explicitly requests deletion or a separately defined cleanup process removes them. Cleanup timing and safeguards remain for the Git and persistence topics; this contract does not set a retention deadline or authorize automatic cleanup.
+They remain available until the user explicitly requests deletion or the applicable cleanup process removes their active workspace. [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md) preserves unmerged Feature and Delivery work recoverably during cleanup, while obsolete unmerged Task code may be discarded at Feature completion. Physical preservation and retention mechanics remain for technical planning.
 
 ## Deferred detail
 
@@ -134,5 +134,5 @@ Later topics will define:
 - detailed planning-agent permissions;
 - Feature readiness checks;
 - approval and merge mechanics for planning artifacts;
-- draft-branch retention and cleanup;
+- physical preservation and retention mechanics for draft work;
 - reconciliation of active work after scope or Decision changes.

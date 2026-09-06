@@ -496,7 +496,7 @@ Decision summary:
 - Common Report data includes stable identity, type, lifecycle, producing worker, owning scope, relationships, summary, source and evidence references, relevant Findings and Decisions, deviations, unresolved concerns, risks, promotions, validation, and integration references.
 - Task, Feature, Delivery, and Project summaries become progressively narrower: implementation detail compresses into Feature outcome, Delivery outcome, and finally durable Project impact.
 - Reports move from Draft to Submitted and become Completed when their work crosses the relevant parent merge boundary. Parent-requested corrections before merge return the same Report to Draft. Completed Reports are immutable; later corrections use a new Task and Report linked to the original.
-- A direct parent validates a Task Report, the Delivery Manager validates a Feature Report, and a Project Manager uses Delivery Manager evidence to modify Project documentation directly on the Delivery branch. The Delivery Manager never receives Project-documentation write permission.
+- A direct parent validates a Task Report and the Delivery Manager validates a Feature Report. As refined by PD-17, a Project Manager uses Delivery Manager evidence to modify Project documentation in its own branch, which the Delivery Manager integrates. The Delivery Manager never receives permission to author Project-documentation changes.
 - Unresolved blockers, failed or skipped checks, material uncertainty, deviations, unresolved Findings, dangerous risks, approvals, Decision rationale, and future constraints cannot be compressed away while relevant.
 - Routine or resolved detail stays at the source level. Rejected or resolved Findings may be omitted upward because Reports and execution logs remain inspectable.
 - Ordinary Findings go to the direct parent, cross-scope risks reach all affected owners, and blockers or dangerous and human-authority matters bypass normal compression until resolved.
@@ -578,7 +578,7 @@ Output: recorded in [Permissions and Escalation](permissions-and-escalation.md).
 
 #### PD-17 — Repository, workspace, and Git strategy
 
-Status: not started
+Status: established
 
 Input from PD-16: Git and workspace actions require scoped grants. Task grants survive review and correction loops but expire at parent merge. Command approvals include arguments, working directory, and resources; changed scripts require approval-applicability checks. Revocation is enforced at the next use.
 
@@ -599,11 +599,27 @@ Input from PD-11: concurrent Project Managers use isolated branches or worktrees
 - Which Git actions require approval?
 - What repository states must agents refuse to modify?
 
-Output: workspace isolation, concurrency, ownership, and Git rules.
+Decision summary:
+
+- A Project may contain one main repository and secondary repositories. Shared Project documentation lives in the main repository; repository-specific guidance stays with its code. Monorepos are encouraged, while existing repository boundaries are supported.
+- Features and Deliveries are shared logical work items with branches in each affected repository. Every Task belongs to exactly one repository. Feature Leads coordinate interfaces, versions, dependencies, and integration tests across repositories.
+- Deliveries, Features, and coding Tasks use managed worktrees separate from the user's checkout. Git operations run through LazyCode with permission checks and recorded ownership.
+- Project Managers author Project-documentation changes in their own branches; Delivery Managers integrate them. This replaces PD-14's direct-write arrangement on the Delivery branch without granting documentation-authoring permission to Delivery Managers.
+- Parent-branch updates arrive as review comments with other corrections. Children reconcile before acceptance; urgent risks retain immediate propagation. Receiving owners coordinate conflicts through workers authorized to edit the content, escalating changes outside approved intent.
+- Each branch has one editable implementation commit between boundaries. Child merges, parent merges, and successful pushes open a new commit slot. Merges are explicit; incoming condensed history is preserved. Published or parent-integrated commits remain unchanged.
+- Changes require new test runs tied to the exact commit. Corrections return to the same logical Reviewer for follow-up with prior Finding dispositions; rejected Findings are not repeated without new evidence.
+- Unexpected manual worktree edits stop affected and dependent operations and escalate directly to the user. Unrelated work continues.
+- Accepted, integrated work is cleaned up after dependent execution ends and owned processes stop. Feature branches remain until Delivery integration. Obsolete Task descendants are cleaned up at Feature completion, discarding unmerged Task code; unmerged Feature or Delivery work is preserved recoverably before cleanup.
+- Pushes require a user request. LazyCode may offer a push only after Delivery pause or completion.
+- One user approval covers all affected repositories. Every required local merge must succeed before any requested push begins. Partial local integration and partial remote publication are tracked separately; Merged requires all local merges to succeed.
+
+Output: recorded in [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md).
 
 #### PD-18 — Scheduling, failure, and recovery
 
 Status: not started
+
+Input from PD-17: multi-repository integration can partially succeed locally or remotely. All required local merges must finish before requested pushes begin. Recovery must retain per-repository outcomes and avoid repeating successful operations. Unexpected manual worktree edits stop affected work and escalate directly to the user.
 
 Input from PD-12: canonical worker states distinguish Waiting for children, user-requested Paused, human-input Blocked, reusable Completed, recoverable Failed, and soft-deleted Disposed. Activation loading is not a state; reconstruction must tour actual and durable state.
 

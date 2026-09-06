@@ -298,7 +298,7 @@ User edits documentation
   -> affected work is reconciled before acceptance
 ```
 
-Exact branching, merge, and reconciliation mechanics are deferred to `PD-17 — Repository, workspace, and Git strategy`.
+Branching, merge, and reconciliation rules follow [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md). Unexpected manual edits inside a managed worker worktree stop affected operations and escalate directly to the user. A multi-repository Delivery presents the combined candidate and per-repository local integration and push outcomes.
 
 ## Delivery candidate review
 

@@ -157,6 +157,8 @@ Feature documentation
 
 Promotion may happen during implementation. Before presenting the Delivery candidate, the Delivery Manager performs a final reconciliation so higher-level documentation reflects every consequence relevant to its scope.
 
+A Project Manager authors Project-documentation changes in its own branch, which the Delivery Manager integrates into the candidate. For multi-repository Projects, the candidate covers every affected repository; all required local merges must succeed before any user-requested pushes begin. See [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md).
+
 Detailed evidence remains at the Feature level while higher levels receive the decisions and effects they need.
 
 Decisions retain their rationale. Feature-associated Reports persist with the Feature; Reports without an owning Feature, including Delivery-wide summaries, persist at Project level and are referenced from the relevant Delivery.

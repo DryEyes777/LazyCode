@@ -52,6 +52,8 @@ The established information architecture is defined in [Interaction Surface](int
 
 Project registration and repository-state ownership are defined in [Project Lifecycle](project-lifecycle.md).
 
+A Project may span a main repository and secondary repositories, with shared Project context and Feature/Delivery ownership. Tasks remain scoped to one repository. Managed worktrees, runtime-controlled Git operations, integration and push ordering, and cleanup follow [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md). These are future product capabilities beyond the current spike.
+
 ## First vertical slice
 
 The bundle overrides the root deployment persona with a Project Manager and registers `delegate_exploration`. A call creates a fresh in-process Explorer through the Harness `spawn` provider.

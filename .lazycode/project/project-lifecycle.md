@@ -21,6 +21,8 @@ The local entry allows the installation to find, display, and run the project.
 
 The repository-owned state contains the project-specific definitions and organizational memory required for another compatible LazyCode installation to understand the project.
 
+A Project has one main repository and may register secondary repositories. Shared Project documentation lives in the main repository; repository-specific guidance stays with its code. Features and Deliveries may span repositories, while Tasks belong to one repository. Membership and workspace rules follow [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md).
+
 ## Create or open project
 
 The project launcher provides:
@@ -33,7 +35,7 @@ The project launcher provides:
 Creating or opening a project initially requires:
 
 - project name;
-- repository location.
+- main repository location.
 
 LazyCode inspects only for existing LazyCode project state.
 
@@ -158,7 +160,7 @@ LazyCode detects new Git history
   -> reconciles or escalates when necessary
 ```
 
-Exact diffing, branch, worktree, and merge behavior remains deferred to `PD-17 — Repository, workspace, and Git strategy`.
+Workspace isolation, branch ownership, synchronization, and integration follow [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md); exact operation mechanics remain technical planning work.
 
 ## Multiple projects
 

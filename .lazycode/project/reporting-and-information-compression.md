@@ -171,6 +171,8 @@ A Report becomes Completed when its associated work is accepted and merged acros
 - a Delivery Report completes when the approved Delivery merges into its target branch;
 - Project-level changes produced during a Delivery live on the Delivery branch and complete with the approved Delivery merge.
 
+For a Feature or Delivery spanning repositories, the required integration boundary must succeed across all affected repositories. Reports identify each repository and commit under [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md).
+
 A Completed Report is immutable.
 
 If a later review discovers a problem after that integration boundary, LazyCode creates a corrective Task with a new Report. The new Report references the earlier Report and the Finding that caused the correction. Completed historical Reports are not rewritten to represent later code or conclusions.
@@ -182,10 +184,10 @@ Report validation follows the organizational hierarchy:
 - the child writes its Task Report and the direct parent validates it;
 - the Feature Lead writes the Feature Report and the Delivery Manager validates it;
 - the Delivery Manager writes the Delivery Report and supplies proposed Project consequences;
-- a Project Manager uses that information to update canonical Project documentation directly on the Delivery branch;
+- a Project Manager uses that information to update canonical Project documentation in its own branch, which the Delivery Manager integrates into the Delivery branch;
 - the user approves the implementation, Reports, and resulting Project-documentation changes together as the Delivery candidate.
 
-The Delivery Manager may read Project documentation but never receives permission to modify it. Project-documentation write authority remains with the Project Manager.
+The Delivery Manager may read Project documentation and integrate its approved commits, but never receives permission to author modifications to it. Project-documentation write authority remains with the Project Manager.
 
 ## Upward compression
 

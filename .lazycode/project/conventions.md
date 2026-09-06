@@ -18,6 +18,7 @@
 - `.lazycode/project/reporting-and-information-compression.md` is the canonical Report-object, reporting-trigger, validation-lifecycle, upward-compression, urgent-propagation, and knowledge-promotion contract.
 - `.lazycode/project/context-and-memory.md` is the canonical initial-context, bounded-access, source-provenance, compaction, checkpoint-review, and context-update contract.
 - `.lazycode/project/permissions-and-escalation.md` is the canonical permission, delegated-authority, grant-lifetime, revocation, escalation, and permission-appeal contract.
+- `.lazycode/project/repository-workspace-and-git.md` is the canonical multi-repository, worktree-ownership, Git-control, commit-history, integration, cleanup, and remote-publication contract.
 - `.lazycode/project/` contains project-wide durable knowledge and decisions.
 - `.lazycode/deliveries/<id>/` contains delivery intent, acceptance, and status.
 - `.lazycode/features/<id>/` contains feature behavior, contracts, and status.

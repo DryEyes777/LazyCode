@@ -192,6 +192,8 @@ The nine fixed roles and delegation matrix are defined in [Roles and Ownership](
 
 ## Work and delegation model
 
+A Project may include a main repository and secondary repositories. The main repository holds shared Project documentation; each repository retains its development guidance. Features and Deliveries coordinate branches across all affected repositories, while each Task belongs to one repository. Managed worktrees, compact commit history, review follow-up, cleanup, and user-requested pushes follow [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md).
+
 Features are self-contained, acceptance-driven work units, including fixes, migrations, upgrades, and maintenance. A Feature may belong to several Epics, but once scheduled it belongs to only one Delivery. Work spanning Deliveries becomes separate, linked Features. Deliveries are coherent batches of work, not timeboxes.
 
 A Delivery may group independently testable Features or overlapping Features that need an explicit combined-state plan. Multiple Deliveries may run concurrently under functional-dependency and merge-order constraints. Canonical Delivery states distinguish Completed work on the Delivery branch from Merged integration into the target branch. The complete contract is [Delivery Planning](delivery-planning.md).

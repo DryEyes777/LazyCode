@@ -170,7 +170,7 @@ This may happen when:
 
 Disposed is a soft delete by default.
 
-The worker's identity, Task, progress, branch, Findings, and history remain available for inspection and possible restoration.
+The worker's identity, Task, progress, Findings, and history remain available for inspection and possible restoration under the retention policy. Branches and worktrees remain subject to [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md): obsolete unmerged Task code may be discarded at Feature completion, while unmerged Feature and Delivery work is preserved recoverably during cleanup.
 
 ## Transition model
 
@@ -274,6 +274,8 @@ Before returning to Active, it must:
 - restore valid permissions.
 
 Restoration does not imply that old implementation remains valid.
+
+It also does not guarantee that a cleaned-up Task's unmerged code still exists. Restoration must account for what remains in integrated history, preserved Feature or Delivery work, and retained artifacts.
 
 ## Permanent deletion
 

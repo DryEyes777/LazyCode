@@ -125,11 +125,13 @@ The commissioning parent:
 1. Receives the findings.
 2. Evaluates whether they are valid.
 3. May consult Oracles for clarification.
-4. Converts valid findings into corrective Tasks.
-5. Returns those Tasks to the original or replacement implementer.
-6. Commissions fresh verification afterward.
+4. Converts valid findings into actionable corrections; findings after parent integration require new corrective Tasks.
+5. Returns corrections before integration to the same Task and logical implementer, reconstructing its activation if necessary.
+6. Requires new test evidence after changes and asks the same logical Reviewer to check the corrections, supplying previous Finding dispositions and reasons for rejected Findings.
 
 A Finding does not alter accepted project state until its responsible parent evaluates and incorporates it.
+
+Commit-specific evidence and follow-up review rules are defined in [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md). Rejected Findings are not raised again without new evidence; a full new review is not automatically required for corrections.
 
 ## Decision authority
 

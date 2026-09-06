@@ -146,6 +146,8 @@ The Feature Lead has integrated its child work and produced the required verific
 
 Completed does not mean merged into the Delivery branch. The Delivery Manager performs that integration and later Delivery-level review and QA.
 
+For a Feature spanning repositories, completion covers the combined acceptance criteria across each affected repository's branch. Tasks remain repository-specific. The Feature branches stay available until their required Delivery integrations succeed. See [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md).
+
 ### Abandoned
 
 The unfinished Feature is soft-deleted and excluded from active planning.

@@ -59,6 +59,8 @@ The following are included only when applicable:
 - desired combined state for overlapping Features;
 - known integration risks or constraints.
 
+For a Delivery spanning repositories, the definition identifies each affected repository, its Delivery and target branch, and dependencies across repositories. One approval covers the combined candidate; all required local merges must succeed before requested pushes begin.
+
 The Delivery references Feature definitions and acceptance criteria rather than duplicating them. It does not require budgets, time estimates, sprint dates, or empty boilerplate sections.
 
 ## Readiness to start
@@ -79,13 +81,13 @@ A Delivery may enter `Active` only when:
 
 The Delivery Manager starts and coordinates the Feature workers.
 
-Each Feature worker owns its Feature branch. As the Delivery branch evolves, Feature workers incorporate relevant Delivery-branch changes into their branches and reconcile their work before returning it.
+Each Feature worker owns its Feature branch in each affected repository. Relevant Delivery-branch changes arrive as review comments alongside other corrections; Feature workers incorporate them during revision and reconcile before acceptance. Urgent risks retain immediate escalation.
 
 A Feature reaches Completed when its Feature Lead has integrated all Task work and every Feature acceptance criterion passes. The Delivery Manager then merges that completed Feature branch into the Delivery branch; this later integration is not part of Feature completion. See [Feature Definition](feature-definition.md).
 
 The Delivery Manager remains responsible for ensuring the combined Delivery branch reaches the intended state.
 
-Exact Git operations and conflict mechanics remain for `PD-17 — Repository, workspace, and Git strategy`.
+Managed worktrees, integration, commit history, conflict ownership, cleanup, and multi-repository behavior follow [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md). Exact Git-operation implementation remains technical planning work.
 
 ## Multiple active Deliveries
 
@@ -183,6 +185,8 @@ The candidate review package is attached to the Completed Delivery; awaiting app
 
 The user approved the candidate and authorized its integration into the configured target branch.
 
+When multiple repositories are affected, every required local target-branch merge must succeed before the Delivery becomes Merged. Partial local integration is recorded for resolution. Requested pushes begin only after all local merges succeed, and partial remote publication is reported separately.
+
 After successful merge and reconciliation:
 
 - post-merge checks run;
@@ -202,7 +206,7 @@ Abandonment is a soft deletion:
 - history and artifacts remain available;
 - the Delivery is excluded from active planning by default;
 - implemented or partial branch work is not erased;
-- cleanup remains governed by later Git and persistence rules.
+- cleanup preserves unmerged Delivery work recoverably under [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md).
 
 Any non-Merged Delivery may become Abandoned.
 
@@ -243,7 +247,7 @@ Feature discoveries are first recorded in Feature documentation.
 The Delivery Manager then:
 
 - updates Delivery-level definitions and integration knowledge;
-- promotes project-wide consequences to project documentation;
-- updates affected Epic and roadmap state;
+- supplies project-wide consequences and affected Epic/roadmap state to a Project Manager;
+- integrates the Project Manager's documentation branch into the Delivery branch;
 - persists the Delivery-wide summary at Project level;
 - links the Delivery to its Feature Reports and Decisions.

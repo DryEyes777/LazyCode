@@ -11,6 +11,8 @@ This reference defines LazyCode's work objects, their relationships, and the ter
 
 The Project is the top-level organizational boundary for a software product. It owns product definitions, roadmap, Epics, Features, Deliveries, research, Decisions, and project-level Reports.
 
+A Project has one main repository and may include secondary repositories. Shared context, Epics, Features, and Deliveries span those repositories; the main repository holds canonical shared Project documentation. See [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md).
+
 ## Request or goal
 
 An informal user request does not automatically become a new work object.
@@ -63,6 +65,8 @@ Once scheduled, a Feature belongs to only one Delivery. Work spanning two Delive
 
 Multiple Epic parents do not duplicate a Feature's identity, definition, or completion state.
 
+A Feature may affect several repositories, with a branch in each. Its completion requires the combined acceptance criteria to pass across the relevant repository versions.
+
 ## Delivery
 
 A Delivery is a coherent group of implementation-ready Features that are implemented, integrated, tested, and approved together. Features may be grouped for efficient independent verification or because their overlap requires a shared integration plan.
@@ -79,6 +83,7 @@ A Task is a definable, testable, and verifiable subdivision of a Feature.
 
 - Its parent is a Feature or another Task.
 - Each Task has an assigned worker.
+- Each Task belongs to exactly one repository, even when its Feature spans several.
 - The Task serves as the contract between the assigning and receiving workers.
 - If a worker subdivides its Task, each new child Task receives a new worker.
 - Routine Task definition occurs between workers rather than requiring user participation.

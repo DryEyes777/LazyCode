@@ -134,4 +134,4 @@ Accepted Decisions and relevant guidance propagate through the existing hierarch
 
 The product policy is established. Technical planning must still define the detailed capability and authority matrix, resource matching, command-change validation, enforcement mechanisms, and physical grant and escalation schemas.
 
-Repository and Git operations are refined in `PD-17`; physical persistence is refined in `PD-21`. Runtime implementation remains future work beyond the current read-only Explorer tool restriction.
+Managed Git operations, user-requested pushes, multi-repository integration, and cleanup follow [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md); physical persistence is refined in `PD-21`. Runtime implementation remains future work beyond the current read-only Explorer tool restriction.

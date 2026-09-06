@@ -119,6 +119,8 @@ Detailed schemas, validation lifecycle, storage contract, and upward compression
 
 Every coding Task normally receives its own branch and worktree, based on the direct parent's branch. The child commits only its owned Task result there.
 
+Each Task belongs to one repository even when its Feature spans several. Managed Git controls, the single editable commit between merges or pushes, explicit merge commits, synchronization through review comments, and cleanup follow [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md).
+
 When the child reports completion, its direct parent:
 
 1. inspects the returned work and evidence;
@@ -131,6 +133,8 @@ When the child reports completion, its direct parent:
 Integration proceeds bottom-up through the Task tree. A parent cannot report its own Task complete until accepted child work has been integrated and the combined result satisfies the parent's contract.
 
 If the result is rejected, corrections return to the same logical child worker. The child retains its Task, identity, branch, worktree, and durable progress through the repair loop. It may report completion again only after addressing the accepted Findings and rerunning its verification.
+
+The same logical Reviewer performs follow-up on corrections with the previous Findings and their dispositions. New test results must identify the updated commit; earlier results cannot validate changed code.
 
 ## Cancellation, redirection, retry, and reassignment
 
