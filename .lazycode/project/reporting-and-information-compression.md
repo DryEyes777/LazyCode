@@ -268,9 +268,10 @@ After resolution, higher-level summaries retain the accepted consequence without
 
 Initial context, source provenance, progress-based reconstruction, compaction, and updates through the worker hierarchy are established in [Context and Memory](context-and-memory.md).
 
+Permission-decision history, ephemeral approval, and appeal routing follow [Permissions and Escalation](permissions-and-escalation.md); runtime enforcement remains future work.
+
 This document establishes logical Report objects and information flow. It does not yet settle:
 
-- permission and escalation enforcement (`PD-16`);
 - exact verification evidence and acceptance mechanics (`PD-19`);
 - runtime scheduling and resource allocation (`PD-20`);
 - physical database schemas, migrations, Git behavior, and synchronization (`PD-21`).

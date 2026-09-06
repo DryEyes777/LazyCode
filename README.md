@@ -59,6 +59,7 @@ pnpm dsh --profile lazycode "Delegate an exploration of .lazycode/project/vision
 - [Delegation and Task contracts](.lazycode/project/delegation-and-task-contracts.md)
 - [Reporting and information compression](.lazycode/project/reporting-and-information-compression.md)
 - [Context and memory](.lazycode/project/context-and-memory.md)
+- [Permissions and escalation](.lazycode/project/permissions-and-escalation.md)
 - [Vision](.lazycode/project/vision.md)
 - [Organizational model](.lazycode/project/organizational-model.md)
 - [Architecture](.lazycode/project/architecture.md)

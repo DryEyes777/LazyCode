@@ -147,8 +147,9 @@ Forced stop, graceful pause, and resume propagation retain the previously establ
 
 Initial context, read-expansion approval, specialist investigation requests, compaction, and checkpoint review are established in [Context and Memory](context-and-memory.md).
 
+Grant authority, scope, lifetimes, revocation, and permission appeals are established in [Permissions and Escalation](permissions-and-escalation.md); runtime enforcement remains future work.
+
 This document establishes delegation planning and child-work lifecycle. It does not yet settle:
 
-- capability leases and permission escalation (`PD-16`);
 - exact verification evidence and acceptance mechanics (`PD-19`);
 - runtime scheduling and resource-allocation algorithms (`PD-20`).

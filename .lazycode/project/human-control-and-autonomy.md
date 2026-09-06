@@ -44,7 +44,7 @@ The established human gates are:
 
 Additional user approval occurs only when an escalation reaches the human because internal workers and authority cannot resolve it.
 
-Detailed permission exceptions and mandatory safety approvals remain for `PD-16 — Permissions and escalation`.
+Grant lifetimes, standing permissions requiring user approval, revocation, and permission appeals follow [Permissions and Escalation](permissions-and-escalation.md).
 
 ## Run until complete
 
@@ -68,9 +68,9 @@ Workers first attempt to resolve problems through the internal organization.
 
 ```text
 Worker cannot safely proceed
-  -> relevant internal specialists or Oracles are consulted
-  -> direct parent attempts resolution
-  -> escalation moves through successive owners
+  -> information requests use authorized specialists when needed
+  -> permission and Decision requests use ephemeral authority-holder activations
+  -> unresolved requests escalate; permission appeals may skip implementation parents
   -> escalation reaches user only when human input or authority is necessary
 ```
 
@@ -83,6 +83,8 @@ When an escalation reaches the user:
 - the answer propagates to affected workers and durable artifacts.
 
 A local escalation does not unnecessarily stop the entire Delivery.
+
+Permission revocation is checked at the next use and does not itself stop ongoing work. A denial identifies revoked or narrowed access. A worker first tries an authorized alternative; after a justified resubmission is denied, it may appeal through ephemeral Feature Lead, Delivery Manager, and Project Manager activations, skipping levels already consulted.
 
 ## Direct user intervention
 

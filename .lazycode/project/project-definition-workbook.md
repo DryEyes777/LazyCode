@@ -543,7 +543,7 @@ Output: recorded in [Context and Memory](context-and-memory.md).
 
 #### PD-16 — Permissions and escalation
 
-Status: not started
+Status: established
 
 Input from PD-15: workers have bounded context access. Specific small read expansions use ephemeral parent approval without write permission; larger investigations use approved Explorer or Oracle delegation. Changed guidance propagates through existing owners and children.
 
@@ -559,11 +559,28 @@ Input from PD-11: role identity and allowed child roles are fixed while instruct
 - Can non-blocking work continue during escalation?
 - How does a decision flow back to every affected agent and artifact?
 
-Output: authority, permission-lease, and escalation models.
+Decision summary:
+
+- Permissions govern a worker's own actions; authority governs what it may authorize for eligible children and their scope. Role restrictions remain the maximum boundary, including under standing Project permissions.
+- Grants identify the action, resources, recipients, lifetime, and approving authority. Managers may authorize child implementation without holding permission to write code themselves.
+- Grants support one action, the current Task's implementation/review/correction loop, a Delivery, or a standing Project rule. They follow logical work across compaction and activation replacement. Task grants expire at acceptance and merge; later corrective Tasks need their own or standing grants.
+- Agents may grant temporary access within their authority. Standing permissions or expansion to future workers require user approval and eligibility rules.
+- Delivery start authorizes routine capabilities within its approved plan and Project settings. Network, dependency, credential, and external-service access follows configured resources and actions; exceptions escalate before execution.
+- Command approvals specify the command, arguments, working directory, and resources. Changed executable or script contents trigger a check that the approval still applies.
+- Every use passes through a permission check. Revocation or narrowing applies at the next use, including derived descendant access, without interrupting ongoing work. Denials explicitly identify changed permissions.
+- Escalations distinguish missing information, permission, and decision authority, potentially using one shared object with a type. Explorers and Oracles provide information; ephemeral authority-holder activations approve grants and Decisions within their authority.
+- Escalations record the precise question/action, justification, affected work, evidence, attempted solutions, required authority, and work that may continue. Grant requests include scope and lifetime.
+- After denial, a worker tries an authorized alternative, then may resubmit with additional reasons. If denied again, it may appeal directly to the Feature Lead, then Delivery Manager, then Project Manager, skipping consulted levels and using ephemeral verification activations with prior denial history.
+- Appeals do not grant access by themselves. Human-authority matters reach the user; affected work waits and unrelated work continues.
+- Permission history is inspectable. Worker pages distinguish current permissions from authority over child grants. Accepted guidance propagates through the existing hierarchy.
+
+Output: recorded in [Permissions and Escalation](permissions-and-escalation.md).
 
 #### PD-17 — Repository, workspace, and Git strategy
 
 Status: not started
+
+Input from PD-16: Git and workspace actions require scoped grants. Task grants survive review and correction loops but expire at parent merge. Command approvals include arguments, working directory, and resources; changed scripts require approval-applicability checks. Revocation is enforced at the next use.
 
 Input from PD-08: postponed and rejected planning retains draft reports and progress on a branch. Define retention and cleanup safeguards, planning-artifact integration, and reconciliation with active work without treating rejection as deletion.
 

@@ -259,11 +259,11 @@ The complete event-driven reporting, merge-bound completion, validation, compres
 
 Agent authority should be enforced by runtime software rather than prompt text alone. Capabilities may include filesystem access, shell and test execution, network access, package installation, Git operations, documentation changes, agent creation, and human messaging.
 
-Capabilities should be restrictable to resources and may eventually be granted for one action, task, session, delivery, or permanently. The complete lease and permission model has not yet been designed.
+Permissions govern a worker's own actions; authority governs what it may authorize for eligible children. Resource-scoped grants may cover one action, a Task through review and parent merge, a Delivery, or a user-approved standing Project rule. Grants survive compaction, remain bounded by role, and are checked on every use. The product contract is established in [Permissions and Escalation](permissions-and-escalation.md); runtime enforcement and the detailed capability matrix remain future work.
 
 ## Escalation
 
-Agents should explicitly escalate questions they cannot safely resolve. The proposed route is the relevant Oracle, direct parent, successive organizational parents, then the human.
+Agents explicitly distinguish information, permission, and decision-authority requests. Information may come from an authorized Explorer or Oracle; permission and Decision approvals use ephemeral authority-holder activations. Following denial, attempted alternatives, and a rejected justified resubmission, a permission appeal may go directly to the Feature Lead, then Delivery Manager and Project Manager, skipping levels already consulted. Human-authority matters reach the user.
 
 An escalation should carry the reason, precise question, blocking status, evidence already examined, alternatives considered, and authority required. Runtime policy—not model improvisation—should select the next recipient.
 

@@ -227,6 +227,7 @@ It shows:
 - runtime and state;
 - workspace, worktree, or project area;
 - permissions and accessible resources;
+- authority to grant permissions and scope to eligible children;
 - plan and progress;
 - completed, active, blocked, and pending steps;
 - emitted alerts;
@@ -238,6 +239,8 @@ It shows:
 - worker chat.
 
 Worker-local persisted knowledge is distinct from canonical project knowledge. It becomes canonical only after promotion into an owned project artifact.
+
+Current permissions and child-grant authority are displayed separately. Requests, approvals, denials, appeals, reasons, lifetimes, and revocations remain inspectable under [Permissions and Escalation](permissions-and-escalation.md).
 
 ## Worker chat and execution detail
 

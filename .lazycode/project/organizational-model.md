@@ -97,12 +97,12 @@ Report routing and persistence are distinct: Feature-associated SQLite Report ob
 
 ## Escalation
 
-The intended path is Oracle, direct parent, successive organizational parents, then human. An escalation must carry a reason, a precise question, blocking status, attempted evidence, and the authority required to resolve it. Runtime policy chooses the next recipient.
+Escalations distinguish information, permission, and decision authority. Authorized Explorers or Oracles may supply information; ephemeral authority-holder activations handle permission and Decision approval. Permission appeals may bypass intermediate implementation parents and proceed through the Feature Lead, Delivery Manager, and Project Manager, skipping already consulted levels. Human-authority matters reach the user. Requests retain evidence, reasons, prior denials, affected work, and the authority required. The complete routing contract is [Permissions and Escalation](permissions-and-escalation.md).
 
 Workers may resolve child questions from user-approved artifacts and existing Decisions. New questions without precedent escalate upward to the user. Implementation Workers may choose local implementation details within their approved contract; parent evaluation and independent review remain mandatory.
 
 ## Permissions
 
-Capabilities such as filesystem access, shell execution, network use, agent creation, documentation changes, and Git operations must be granted by runtime policy and may be scoped to resources. Planned grants include one action, task, session, delivery, and permanent leases.
+Permissions govern actions a worker may perform; authority governs grants it may make to eligible children. Role boundaries constrain resource-scoped grants for one action, a Task through parent merge, a Delivery, or a user-approved standing Project rule. Every use is checked; revocation affects the next use without interrupting ongoing work.
 
-The first spike proves only a read-only Explorer tool restriction. General capability leases and permission escalation are deferred.
+The first spike proves only a read-only Explorer tool restriction. The broader permission and escalation product policy is established; its runtime implementation remains future work.
