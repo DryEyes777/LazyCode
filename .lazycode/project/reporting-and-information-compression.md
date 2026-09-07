@@ -179,6 +179,8 @@ If a later review discovers a problem after that integration boundary, LazyCode 
 
 ## Validation ownership
 
+Verification records distinguish passed checks, failed checks, and unverified criteria. Permitted pre-existing or transient external-service exceptions retain classification evidence, affected behavior, consequences, and the user's retest or acceptance decision under [Review, Testing, Integration, and Completion](review-testing-and-completion.md). These unresolved limitations remain visible through compression and promotion.
+
 Report validation follows the organizational hierarchy:
 
 - the child writes its Task Report and the direct parent validates it;
@@ -274,6 +276,6 @@ Permission-decision history, ephemeral approval, and appeal routing follow [Perm
 
 This document establishes logical Report objects and information flow. It does not yet settle:
 
-- exact verification evidence and acceptance mechanics (`PD-19`);
-- runtime scheduling and resource allocation (`PD-20`);
+- physical verification-evidence schemas (`PD-21`);
+- exact runtime scheduling and resource-allocation algorithms, under the policy in [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md);
 - physical database schemas, migrations, Git behavior, and synchronization (`PD-21`).

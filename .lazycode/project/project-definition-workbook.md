@@ -1,7 +1,7 @@
 # Project Definition Workbook
 
 Status: in progress
-Last updated: 2026-09-04
+Last updated: 2026-09-07
 
 ## Purpose
 
@@ -314,9 +314,9 @@ Decision summary:
 - Multiple Deliveries may be Active. A functional dependency on Active work prevents start, while a Completed unmerged predecessor permits stacked work with enforced merge order.
 - Pure code overlap may run concurrently, but later base-branch integration requires a user-started, reviewed, and approved conflict-resolution plan and is never automatic.
 - Scope change pauses the Delivery, revises definitions and plan, reconciles partial code, notifies workers, and then resumes valid work.
-- Canonical states are Draft, Active, Paused, Completed, Merged, and Abandoned. Completed means every Feature is complete and merged into the Delivery branch; Merged means user-approved integration into the target branch.
+- Canonical states are Draft, Active, Paused, Completed, Merged, and Abandoned. Completed requires all Features integrated and, as refined by PD-19, the Delivery's own full test run with introduced defects corrected and permitted exceptions documented. Merged means user-approved integration into the target branch.
 - Completed may return to Active for verification failure, rejection, or rework. Any non-Merged Delivery may be Abandoned; Merged is terminal and cannot be Abandoned.
-- Delivery-wide verification and user review occur from Completed. Successful approved integration produces Merged and promotes affected project, Epic, Feature, roadmap, Report, and Decision state.
+- As refined by PD-19, the Delivery's full test run precedes Completed; required review and QA evidence accompany the candidate for user review. Successful approved integration produces Merged and promotes affected project, Epic, Feature, roadmap, Report, and Decision state.
 
 Output: recorded in [Delivery Planning](delivery-planning.md).
 
@@ -359,7 +359,7 @@ Decision summary:
 - The Project Manager and user define and approve the Feature. The Feature Lead then verifies sufficiency and orchestrates implementation, review, testing, and child integration without ordinarily coding.
 - Canonical states are Draft, Defined, Specced, Approved, Scheduled, Active, Paused, Completed, and Abandoned.
 - Defined means product behavior is approved; Specced means technical planning is finished but unapproved; Approved means implementation-ready; Scheduled means assigned to a Delivery.
-- Completed means every acceptance criterion passed on the integrated Feature branch, with review, tests, evidence, and Feature Report. Delivery-branch integration happens afterward.
+- Completed requires integrated child work, review, required tests, acceptance evidence, and a Feature Report. PD-19 permits documented pre-existing or transient external-service verification exceptions, including unverified criteria, for user review. Delivery-branch integration happens afterward.
 - Product-definition changes invalidate the full approval chain and return to Draft. Technical-specification changes preserve product approval and return to Specced. In-scope implementation corrections need reconciliation but no reapproval.
 - Completed Features are immutable work history. Further behavior becomes a new linked Feature.
 - Splitting or combining creates new Draft Features requiring full reapproval; originals retain history, become Abandoned, and link to replacements.
@@ -649,11 +649,11 @@ Output: recorded in [Scheduling, Failure, and Recovery](scheduling-failure-and-r
 
 #### PD-19 — Review, testing, integration, and completion
 
-Status: not started
+Status: established
 
 Input from PD-18: reserved capacity must keep review, permitted QA, integration, and ephemeral escalation available when implementation branches are waiting. Verification priority remains subject to role permissions and approved delegation plans.
 
-Input from PD-10: Feature completion requires every acceptance criterion to pass on the Feature branch after child integration, required review and tests, recorded evidence, and a persisted Feature Report. Delivery-level integration and QA happen afterward.
+Input from PD-10: Feature completion originally required every criterion to pass after child integration, review, tests, and a Feature Report. PD-19 refines this to allow the documented verification exceptions below. Delivery integration still follows Feature completion.
 
 Input from PD-11: the parent, never the implementer, commissions independent verification and evaluates Findings. Reviewers report only and may delegate evidence work. Only Delivery Managers commission tightly scoped leaf Testers in isolated environments for human-like Delivery QA before user verification.
 
@@ -667,7 +667,22 @@ Input from PD-11: the parent, never the implementer, commissions independent ver
 - Who updates documentation and status?
 - Who declares final completion to the human?
 
-Output: quality gates, integration ownership, and completion protocol.
+Decision summary:
+
+- Coding Tasks run added/modified tests, the full unit suite in their repository, and internal integration tests using the real internal helper/service chain while mocking only application-external boundaries.
+- Feature verification runs full applicable suites across every changed repository, including local dependency integration tests with containers and seeded data. Unchanged repositories do not need suite reruns.
+- Live external regression tests follow settled review corrections and preceding checks, subject to documented exceptions. External tests being added or modified may run earlier as implementation work.
+- Delivery Managers perform a fresh full test run against the integrated Delivery across its changed repositories, even if equivalent Feature evidence exists, before declaring completion.
+- Parents select Reviewer specializations. Contract Reviewers receive Task requirements and relevant guidance/code/evidence without the implementer conversation; architecture, cleanliness, and safety Reviewers receive their own guidance and appropriate code context without automatic Task narratives.
+- Corrections return to the same logical Reviewer with Finding dispositions. Rejected Findings are not repeated without new evidence. Parents evaluate Findings and direct corrections.
+- New-work failures require correction; unexplained failures require investigation. Pre-existing failures require supporting evidence such as baseline reproduction. Established pre-existing and transient external-service failures do not stop Feature or Delivery progress, but remain failed or unverified in Reports and candidate review.
+- External unavailability may leave even a critical new acceptance criterion unverified. The user may request a retest or approve merge with the failure, affected behavior, consequences, and decision documented. This refines earlier all-checks-must-pass completion wording.
+- QA scenarios are planned before implementation and may evolve. Delivery Managers alone commission narrowly scoped Testers in isolated environments with the candidate, local dependencies, seeded data, access instructions, and expected outcomes.
+- Corrections require full automated-suite reruns across affected repositories; QA revisits failed and potentially affected scenarios and may precede expensive retesting.
+- Completion evidence and permitted exceptions accompany the combined multi-repository candidate for user approval. Report finalization and Git integration retain their established boundaries.
+- Isolated execution and QA environment options will be evaluated separately in PD-26.
+
+Output: recorded in [Review, Testing, Integration, and Completion](review-testing-and-completion.md).
 
 ### Phase 5 — Technical product definition
 
@@ -749,6 +764,25 @@ Status: not started
 - What are the security invariants for autonomous operation?
 
 Output: the LazyCode threat model and mandatory security properties.
+
+#### PD-26 — Isolated execution and QA environments
+
+Status: not started
+
+Added during PD-19; existing topic identifiers are retained. Discuss before finalizing the implementation roadmap.
+
+Input from PD-19: Delivery Managers commission narrow QA scenarios in isolated environments containing the candidate, required local dependencies, seeded data, and access instructions. Scenarios vary by product, and QA may precede expensive regression reruns after corrections. The user has candidate tools or approaches to compare.
+
+- Which environment options has the user identified, and how do they fit local operation?
+- How are application versions from multiple repositories assembled into a candidate environment?
+- How are browsers, local services, containers, seed data, and credentials supplied within approved permissions?
+- What isolation does each Tester need, and what may be shared without interfering with another scenario?
+- How are environment setup, reset, pause, recovery, and cleanup owned and controlled?
+- How are live external tests distinguished from tests using local dependencies?
+- What evidence and environment versions must remain available for reproducing QA Findings?
+- Which approach should be implemented first, and what should remain deferred?
+
+Output: environment architecture, option comparison, provisioning, isolation, and resource-lifecycle plan.
 
 #### PD-25 — Evaluation and implementation roadmap
 

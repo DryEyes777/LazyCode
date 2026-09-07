@@ -136,6 +136,8 @@ If the result is rejected, corrections return to the same logical child worker. 
 
 The same logical Reviewer performs follow-up on corrections with the previous Findings and their dispositions. New test results must identify the updated commit; earlier results cannot validate changed code.
 
+Task test layers, full-suite requirements, Reviewer specializations, and permitted verification exceptions follow [Review, Testing, Integration, and Completion](review-testing-and-completion.md).
+
 ## Cancellation, redirection, retry, and reassignment
 
 Delegated work follows the control rules in [Human Control and Autonomy](human-control-and-autonomy.md) and the identity rules in [Worker Identity and Lifecycle](worker-identity-and-lifecycle.md).
@@ -157,5 +159,5 @@ Runtime admission against approved plans, priorities, reserved verification capa
 
 This document establishes delegation planning and child-work lifecycle. It does not yet settle:
 
-- exact verification evidence and acceptance mechanics (`PD-19`);
+- physical verification-evidence schemas (`PD-21`);
 - model and provider routing (`PD-20`).

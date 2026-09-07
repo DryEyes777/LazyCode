@@ -221,7 +221,7 @@ Project Guides, Explorers, Oracles, Reviewers, and Testers provide guidance, evi
 
 **Children:** Implementation Workers, Explorers, Oracles, and Reviewers.
 
-**Outputs:** Completed Feature branch satisfying every acceptance criterion.
+**Outputs:** Completed Feature branch with acceptance evidence and any permitted pre-existing or transient external-service exceptions explicit for user review under [Review, Testing, Integration, and Completion](review-testing-and-completion.md).
 
 **Completion:** Feature reaches Completed or Abandoned, or ownership is transferred.
 
@@ -275,6 +275,8 @@ Project Guides, Explorers, Oracles, Reviewers, and Testers provide guidance, evi
 
 **Parent:** The parent of the worker whose result is being reviewed.
 
+**Context:** Contract Reviewers receive Task requirements and relevant guidance/code/evidence without the implementer's conversation. Architecture, code-quality, and safety Reviewers receive their own guidance and relevant code context without automatically receiving the Task narrative. Parents select specializations in the verification plan.
+
 **Children:** Narrower Reviewers, Explorers, or Oracles.
 
 **Capabilities:** Read and analyze work, run appropriate non-mutating checks, and report Findings.
@@ -318,4 +320,4 @@ The replacement activation tours transferred state before continuing.
 
 ## Deferred detail
 
-Logical identity, activation, reconstruction, visible states, disposal, and deletion are established in [Worker Identity and Lifecycle](worker-identity-and-lifecycle.md). Delegation planning, child Task contracts, verification proxies, scope coordination, and bottom-up integration are established in [Delegation and Task Contracts](delegation-and-task-contracts.md). The distinction between permissions and grant authority, grant lifetimes, and permission appeals is established in [Permissions and Escalation](permissions-and-escalation.md); the detailed capability matrix remains technical planning work. Verification mechanics and acceptance evidence are refined in `PD-19`.
+Logical identity, activation, reconstruction, visible states, disposal, and deletion are established in [Worker Identity and Lifecycle](worker-identity-and-lifecycle.md). Delegation planning, child Task contracts, verification proxies, scope coordination, and bottom-up integration are established in [Delegation and Task Contracts](delegation-and-task-contracts.md). The distinction between permissions and grant authority, grant lifetimes, and permission appeals is established in [Permissions and Escalation](permissions-and-escalation.md); the detailed capability matrix remains technical planning work. Verification and acceptance policy is established in [Review, Testing, Integration, and Completion](review-testing-and-completion.md); physical evidence schemas and environment implementation remain technical planning work.

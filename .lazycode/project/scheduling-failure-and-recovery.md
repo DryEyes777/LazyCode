@@ -104,4 +104,4 @@ Continuous execution still follows [Human Control and Autonomy](human-control-an
 
 The product rules are established. Technical planning must define retry bounds and delays, incident correlation, progress detection, capacity reservations, fair scheduling, and recovery mechanics for uncertain side effects.
 
-Detailed review and acceptance mechanics continue in `PD-19`; provider routing and fallback policy continue in `PD-20`; physical recovery records and persistence continue in `PD-21`.
+Test sequencing, QA scope, acceptance evidence, and permitted external-service verification exceptions follow [Review, Testing, Integration, and Completion](review-testing-and-completion.md). Provider routing and fallback policy continue in `PD-20`; physical recovery records and persistence continue in `PD-21`.

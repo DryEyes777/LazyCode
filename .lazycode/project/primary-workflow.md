@@ -139,9 +139,9 @@ Feature implementation
   -> integration into Delivery branch
 ```
 
-A Feature is not complete until its implementation, review, tests, and integration obligations pass.
+A Feature is not complete until implementation, review, test execution, and child integration obligations are met. Permitted pre-existing and transient external-service exceptions remain explicit under [Review, Testing, Integration, and Completion](review-testing-and-completion.md).
 
-The Feature Lead does not code. It decomposes the Feature into Tasks, coordinates Implementation Workers and Reviewers, directs Feature-level test execution, integrates child work into the Feature branch, and proves every acceptance criterion. The Feature becomes Completed on its branch before the Delivery Manager integrates it into the Delivery branch.
+The Feature Lead does not code. It decomposes the Feature into Tasks, coordinates Implementation Workers and Reviewers, directs Feature-level test execution, integrates child work, and records acceptance evidence and permitted exceptions. The Feature becomes Completed on its branch before the Delivery Manager integrates it into the Delivery branch.
 
 Feature workers incorporate relevant Delivery-branch changes into their Feature branches. The Delivery Manager remains responsible for the correct combined Delivery state.
 
@@ -165,9 +165,9 @@ Decisions retain their rationale. Feature-associated Reports persist with the Fe
 
 ## 9. Complete and verify the Delivery
 
-When every included Feature is complete and merged into the Delivery branch, the Delivery enters `Completed`. It is not yet merged into the target branch.
+After all Features are complete and integrated, the Delivery Manager runs the full test suite across changed repositories before declaring the Delivery Completed. Introduced defects require correction; permitted verification exceptions remain explicit. It is not yet merged into the target branch.
 
-LazyCode then runs Delivery-level integration and acceptance testing across the complete Delivery branch. The user reviews the Delivery as a coherent whole rather than reviewing isolated Features.
+The candidate includes required review and QA evidence, test outcomes, and remaining limitations. The user reviews the Delivery as a coherent whole and may request retests or accept documented exceptions under [Review, Testing, Integration, and Completion](review-testing-and-completion.md).
 
 ## 10. Present the Delivery candidate
 

@@ -46,7 +46,7 @@ Feature workers incorporate relevant Delivery-branch changes into their Feature 
 
 ### Feature Lead
 
-Owns execution of one approved Feature contract. It verifies the definition and specification, decomposes work into Tasks, assigns and manages Implementation Workers, commissions independent Reviewers, directs Feature-level test execution, integrates child work into the Feature branch, and proves every acceptance criterion before reporting completion to the Delivery Manager.
+Owns execution of one approved Feature contract. It verifies the definition and specification, decomposes work into Tasks, assigns and manages Implementation Workers, commissions independent Reviewers, directs full Feature-level test execution, integrates child work, and records acceptance evidence and permitted verification exceptions before reporting completion to the Delivery Manager. Exceptions and user acceptance follow [Review, Testing, Integration, and Completion](review-testing-and-completion.md).
 
 The Feature Lead does not implement code. It is accountable for orchestration, integration, verification evidence, and fidelity to the approved Feature. See [Feature Definition](feature-definition.md).
 

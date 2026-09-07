@@ -204,7 +204,7 @@ The roadmap combines a historical implementation timeline, a decided future time
 
 A Task belongs to a Feature or another Task and forms a verifiable contract between workers. Each Task has a worker; further subdivision creates child Tasks with new workers. The complete reference is [Work Hierarchy and Terminology](work-hierarchy-and-terminology.md).
 
-Feature definition uses separate product and technical approval gates. The Project Manager helps the user define and specify the Feature; after approval, a Feature Lead orchestrates Implementation Workers, Reviewers, and integration without coding. Delivery Managers alone commission tightly scoped Tester workers for isolated QA. Completion requires every acceptance criterion to pass on the Feature branch before Delivery integration. The complete contract is [Feature Definition](feature-definition.md).
+Feature definition uses separate product and technical approval gates. The Project Manager helps the user define and specify the Feature; after approval, a Feature Lead orchestrates Implementation Workers, Reviewers, and integration without coding. Delivery Managers alone commission tightly scoped Tester workers for isolated QA. Feature completion requires recorded verification before Delivery integration, with permitted pre-existing or transient external-service exceptions explicit for user review. The Delivery runs its own full suite before completion. See [Feature Definition](feature-definition.md) and [Review, Testing, Integration, and Completion](review-testing-and-completion.md).
 
 Delegation should occur at meaningful, independently verifiable software boundaries. A delegated task should state:
 

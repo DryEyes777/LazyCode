@@ -20,6 +20,7 @@
 - `.lazycode/project/permissions-and-escalation.md` is the canonical permission, delegated-authority, grant-lifetime, revocation, escalation, and permission-appeal contract.
 - `.lazycode/project/repository-workspace-and-git.md` is the canonical multi-repository, worktree-ownership, Git-control, commit-history, integration, cleanup, and remote-publication contract.
 - `.lazycode/project/scheduling-failure-and-recovery.md` is the canonical scheduling, reserved-capacity, retry, shared-incident, stalled-worker, and restart-recovery contract.
+- `.lazycode/project/review-testing-and-completion.md` is the canonical test-layer, verification-scope, Reviewer-context, exception, QA, retesting, and acceptance contract.
 - `.lazycode/project/` contains project-wide durable knowledge and decisions.
 - `.lazycode/deliveries/<id>/` contains delivery intent, acceptance, and status.
 - `.lazycode/features/<id>/` contains feature behavior, contracts, and status.

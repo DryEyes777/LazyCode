@@ -140,7 +140,7 @@ The Feature remains assigned to its Delivery, but no new Feature work proceeds u
 
 ### Completed
 
-Every acceptance criterion has passed against the Feature branch.
+Acceptance criteria have been verified against the Feature branch, with any permitted pre-existing or transient external-service exceptions explicitly recorded under [Review, Testing, Integration, and Completion](review-testing-and-completion.md). A new criterion may remain unverified because of external unavailability for user review; introduced defects still require correction.
 
 The Feature Lead has integrated its child work and produced the required verification evidence and Feature Report.
 
@@ -221,14 +221,14 @@ No definition approval is invalidated.
 
 ## Completion boundary
 
-A Feature becomes Completed when every acceptance criterion passes on its Feature branch.
+A Feature becomes Completed when verification on its integrated Feature branch satisfies the requirements in [Review, Testing, Integration, and Completion](review-testing-and-completion.md), including explicit recording of permitted exceptions.
 
 Completion requires:
 
 - all child Tasks settled;
 - child work integrated into the Feature branch;
 - required review completed;
-- required tests passing;
+- required full test suites executed across changed repositories, with introduced defects corrected and permitted exceptions documented;
 - acceptance evidence recorded;
 - Feature Report persisted.
 

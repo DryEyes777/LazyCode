@@ -83,7 +83,7 @@ The Delivery Manager starts and coordinates the Feature workers.
 
 Each Feature worker owns its Feature branch in each affected repository. Relevant Delivery-branch changes arrive as review comments alongside other corrections; Feature workers incorporate them during revision and reconcile before acceptance. Urgent risks retain immediate escalation.
 
-A Feature reaches Completed when its Feature Lead has integrated all Task work and every Feature acceptance criterion passes. The Delivery Manager then merges that completed Feature branch into the Delivery branch; this later integration is not part of Feature completion. See [Feature Definition](feature-definition.md).
+A Feature reaches Completed after child integration and required verification, with introduced defects corrected and permitted verification exceptions documented under [Review, Testing, Integration, and Completion](review-testing-and-completion.md). The Delivery Manager then merges the Feature into the Delivery branch; this later integration is not part of Feature completion. See [Feature Definition](feature-definition.md).
 
 The Delivery Manager remains responsible for ensuring the combined Delivery branch reaches the intended state.
 
@@ -160,7 +160,7 @@ Delivery work is being performed.
 
 - Features may be implementing, reviewing, testing, or integrating.
 - It may move to `Paused`.
-- It becomes `Completed` when every Feature is complete and merged into the Delivery branch.
+- It becomes `Completed` after every Feature is integrated and the Delivery's own full test run is performed, with introduced defects corrected and permitted verification exceptions recorded.
 - Corrections may move a Completed Delivery back to Active.
 
 ### Paused
@@ -172,11 +172,11 @@ Work has stopped through the established graceful-pause contract.
 
 ### Completed
 
-Every included Feature is complete and merged into the Delivery branch.
+Every included Feature is complete and merged into the Delivery branch, and the Delivery Manager has performed a full test run against the combined candidate across changed repositories.
 
-This makes the Delivery eligible for Delivery-level verification and candidate review. Completed does not mean merged into the project's target branch.
+Introduced defects require correction. Established pre-existing failures and transient external-service failures may remain explicitly failed or unverified for candidate review under [Review, Testing, Integration, and Completion](review-testing-and-completion.md). Required QA and review evidence must accompany the candidate presented to the user. Completed does not mean merged into the project's target branch.
 
-- Failed verification, user rejection, required correction, or necessary rework returns it to `Active`.
+- Verification failures requiring correction, user rejection, or necessary rework return it to `Active`; permitted exceptions alone do not stop progress.
 - A verified and user-approved candidate may proceed toward `Merged`.
 
 The candidate review package is attached to the Completed Delivery; awaiting approval is a presentation condition, not another canonical lifecycle state.
@@ -228,17 +228,17 @@ No state transitions out of Merged.
 
 ## Verification and user review
 
-After a Delivery enters Completed:
+Before presenting a Delivery candidate:
 
-1. Delivery-level integration and acceptance checks run.
-2. Failure returns the Delivery to Active.
-3. Passing checks produce a Delivery candidate and review package.
+1. The Delivery Manager runs the full suite against the integrated candidate, even when Feature evidence exists.
+2. Introduced defects are corrected; pre-existing or transient external-service exceptions require evidence and remain visible.
+3. Completion includes the Delivery test run, and the candidate review package includes required review, QA, test evidence, and remaining exceptions.
 4. The user tests the Delivery branch.
 5. Rejection returns actionable changes to Active implementation.
 6. Approval authorizes merge.
 7. Successful integration produces Merged.
 
-Exact review contracts are refined in `PD-19 — Review, testing, integration, and completion`.
+The full contract is [Review, Testing, Integration, and Completion](review-testing-and-completion.md). The user may request retesting of unavailable checks or approve merge with documented limitations and consequences.
 
 ## Knowledge promotion
 
