@@ -279,7 +279,9 @@ Verification results should be structured and durable enough to support integrat
 
 ## Model policy
 
-Organizational contracts should not depend on one model. Different roles may eventually use different models or providers according to reasoning quality, coding ability, retrieval needs, cost, and independence from the implementer.
+Organizational contracts do not depend on one model. Parents choose from approved role configurations using installation defaults and Project overrides. Portable model identities resolve through local provider connections; availability fallback follows an approved ordered list. Struggling workers request guidance, with stronger-model reassignment reserved for parent-authorized recovery after failure.
+
+Reviewers normally use the implementer's model, with lower-cost approved review configurations available for expensive implementation models. Model changes preserve identity and authority. The complete configuration, fallback, and evidence policy is [Models and Provider Routing](models-and-provider-routing.md).
 
 The initial implementation is model-independent only within the adapter seams provided by DeepSeek Harness.
 

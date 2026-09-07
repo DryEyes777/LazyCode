@@ -160,4 +160,4 @@ Runtime admission against approved plans, priorities, reserved verification capa
 This document establishes delegation planning and child-work lifecycle. It does not yet settle:
 
 - physical verification-evidence schemas (`PD-21`);
-- model and provider routing (`PD-20`).
+- concrete model capabilities and provider-adapter implementation, under the policy in [Models and Provider Routing](models-and-provider-routing.md).

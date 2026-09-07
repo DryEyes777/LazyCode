@@ -63,6 +63,7 @@ pnpm dsh --profile lazycode "Delegate an exploration of .lazycode/project/vision
 - [Repository, workspace, and Git strategy](.lazycode/project/repository-workspace-and-git.md)
 - [Scheduling, failure, and recovery](.lazycode/project/scheduling-failure-and-recovery.md)
 - [Review, testing, integration, and completion](.lazycode/project/review-testing-and-completion.md)
+- [Models and provider routing](.lazycode/project/models-and-provider-routing.md)
 - [Vision](.lazycode/project/vision.md)
 - [Organizational model](.lazycode/project/organizational-model.md)
 - [Architecture](.lazycode/project/architecture.md)

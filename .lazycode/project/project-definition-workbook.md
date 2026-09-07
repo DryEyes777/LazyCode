@@ -688,7 +688,7 @@ Output: recorded in [Review, Testing, Integration, and Completion](review-testin
 
 #### PD-20 — Models and provider routing
 
-Status: not started
+Status: established
 
 Input from PD-18: provider outages are shared incidents across affected workers with coordinated retry and recovery. Temporary failures use bounded retries with increasing delays; unaffected providers and work may continue. Verification and recovery need reserved capacity.
 
@@ -702,11 +702,27 @@ Input from PD-11 and PD-12: the nine role identities are fixed, but each role's 
 - What model and provider information becomes execution evidence?
 - What behavior must remain stable across model changes?
 
-Output: model policy, routing, fallback, and budget rules.
+Decision summary:
+
+- Configuration supports installation-wide defaults, Project overrides, and multiple approved configurations per role or specialization. Parents select according to assignment difficulty, scope, and capability needs, prioritizing quality, affordability, then speed.
+- Configurations identify the model, provider-route requirements or preferences, supported reasoning settings, context limits, ordered fallbacks, and descriptions of capabilities and intended use cases.
+- Portable model identity is separate from local provider connections and credentials. Installations resolve the same identity through supported routes; substituting a different model requires an approved fallback.
+- Unresolvable or inaccessible required configurations without an available approved fallback prevent affected work from starting until the user fixes access, mapping, or policy.
+- Availability fallback follows the configuration's ordered approved list. If none is available, PD-18 retry, shared-outage, and escalation rules apply. Identity, role, assignment, permissions, and organizational obligations remain stable.
+- Struggling workers ask ephemeral parents for guidance, not stronger models. Guidance, investigation, and decomposition are normal remedies. After an execution attempt fails, the parent may exceptionally assign a stronger approved configuration or create smaller child Tasks.
+- Reassignment preserves the logical Task and worker identity, progress, and environment. Subdivision creates child Tasks and identities; failed execution does not automatically abandon the original Task.
+- Reviewers normally use the implementer's model. Expensive implementation configurations may use the strongest approved review configuration at lower cost. Different model families are not required for independence.
+- Policy updates affect new workers by default. Existing workers retain their recorded configuration unless the user requests a change, an approved availability fallback occurs, or a parent authorizes exceptional reassignment after failure.
+- Each activation records requested and actual configuration/model/provider, effective settings, change reasons, tokens, cache usage where available, runtime, and estimated or provider-reported cost. Missing data is unknown; estimates remain distinguished from reported values.
+- Provider capacity follows PD-18 and plan-specific usage allowances follow PD-13. Concrete catalogs, capabilities, pricing, caching, identifiers, and adapters remain technical research and planning work.
+
+Output: recorded in [Models and Provider Routing](models-and-provider-routing.md).
 
 #### PD-21 — Persistence and schemas
 
 Status: not started
+
+Input from PD-20: persist portable Project model-policy references separately from local provider connections and credentials. Record the requested configuration and actual route per activation, including changes, usage, cache information, and cost provenance. Existing logical workers retain their selected configuration across compaction unless an authorized change occurs.
 
 Input from PD-07: research and POC artifacts are Git-tracked in `.lazycode/`, with associated metadata in the project's SQLite database. Define their canonical-data, synchronization, and portability relationship without assuming two independent sources of truth.
 

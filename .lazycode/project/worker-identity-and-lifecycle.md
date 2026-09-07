@@ -83,6 +83,8 @@ Logical identity survives:
 
 A replacement does not receive a new worker identity. It becomes a new activation of the same logical worker.
 
+Model-policy updates apply to new logical workers by default. Existing workers keep their recorded configuration across compaction or replacement unless the user requests a change, an approved availability fallback applies, or the parent exceptionally reassigns after execution failure. See [Models and Provider Routing](models-and-provider-routing.md).
+
 It receives the existing contract, environment, state, history references, and ownership, then tours them before continuing.
 
 ## Runtime activation

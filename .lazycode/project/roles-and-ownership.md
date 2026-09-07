@@ -25,6 +25,8 @@ Tester
 
 Projects may configure each role's instructions, model policy, context policy, permissions, tools, and specialization, but the role's ownership semantics remain stable.
 
+Parents select models from approved role configurations under [Models and Provider Routing](models-and-provider-routing.md). Reviewers normally match the implementer's model; expensive implementation configurations may use a lower-cost approved review configuration. Model changes do not change role or authority.
+
 A worker may hold exactly one role.
 
 The following terms are not roles:

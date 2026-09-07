@@ -148,7 +148,7 @@ The same logical workers retain responsibility.
 
 The runtime may reuse an existing warm model session or reconstruct a fresh model context in the same environment. That decision depends on provider cache behavior and pause duration; it must not change organizational identity or ownership.
 
-Model cache duration, invalidation, and pricing require research during `PD-20 — Models and provider routing`.
+Model selection, fallback, and per-activation usage evidence follow [Models and Provider Routing](models-and-provider-routing.md). Concrete cache duration, invalidation, and pricing remain technical research work.
 
 ## Forced stop
 

@@ -104,4 +104,4 @@ Continuous execution still follows [Human Control and Autonomy](human-control-an
 
 The product rules are established. Technical planning must define retry bounds and delays, incident correlation, progress detection, capacity reservations, fair scheduling, and recovery mechanics for uncertain side effects.
 
-Test sequencing, QA scope, acceptance evidence, and permitted external-service verification exceptions follow [Review, Testing, Integration, and Completion](review-testing-and-completion.md). Provider routing and fallback policy continue in `PD-20`; physical recovery records and persistence continue in `PD-21`.
+Test sequencing, QA scope, acceptance evidence, and permitted external-service verification exceptions follow [Review, Testing, Integration, and Completion](review-testing-and-completion.md). Ordered availability fallback, exceptional stronger-model reassignment, and stable worker configuration follow [Models and Provider Routing](models-and-provider-routing.md); physical recovery records and persistence continue in `PD-21`.
