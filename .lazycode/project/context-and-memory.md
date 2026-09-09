@@ -132,4 +132,4 @@ Raw conversations and routine execution detail remain in logs. Reconstructed con
 
 The product policy is established. Later technical planning must define context sizing, warning and hard thresholds, checkpoint reserves, context selection and retrieval mechanisms, and enforcement of resource-scoped access.
 
-Grant scope, lifetime, ephemeral approval, revocation, and appeals follow [Permissions and Escalation](permissions-and-escalation.md); their runtime enforcement remains technical planning work. Physical storage, synchronization, source-version representation, and log retention mechanics remain for `PD-21`.
+Grant scope, lifetime, ephemeral approval, revocation, and appeals follow [Permissions and Escalation](permissions-and-escalation.md); their runtime enforcement remains technical planning work. Worktree databases, record versions, replication, and portable restoration follow [Persistence and Schemas](persistence-and-schemas.md). Concrete storage, synchronization, and log-retention mechanisms still require technical design.

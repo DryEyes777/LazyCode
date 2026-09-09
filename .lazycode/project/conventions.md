@@ -2,6 +2,8 @@
 
 ## Artifact ownership
 
+The paths below describe this repository's current planning artifacts. For the intended product, [Persistence and Schemas](persistence-and-schemas.md) places structured knowledge and planning in controlled worktree databases, with Git-tracked snapshots and evidence files. The existing files are not automatically converted by this policy.
+
 - `.lazycode/project/project-definition.md` is the canonical high-level definition of LazyCode's purpose, boundaries, current state, and success criteria.
 - `.lazycode/project/project-definition-workbook.md` contains unresolved definition questions and the order in which they should be decided; it does not override established project documents.
 - `.lazycode/project/primary-workflow.md` is the canonical end-to-end user journey and approval-gate definition.
@@ -22,6 +24,7 @@
 - `.lazycode/project/scheduling-failure-and-recovery.md` is the canonical scheduling, reserved-capacity, retry, shared-incident, stalled-worker, and restart-recovery contract.
 - `.lazycode/project/review-testing-and-completion.md` is the canonical test-layer, verification-scope, Reviewer-context, exception, QA, retesting, and acceptance contract.
 - `.lazycode/project/models-and-provider-routing.md` is the canonical model-configuration, portable-identity, selection, fallback, reassignment, Reviewer-model, and execution-evidence contract.
+- `.lazycode/project/persistence-and-schemas.md` is the canonical database-boundary, ownership, replication, snapshot, integration, attachment, restoration, and migration contract.
 - `.lazycode/project/` contains project-wide durable knowledge and decisions.
 - `.lazycode/deliveries/<id>/` contains delivery intent, acceptance, and status.
 - `.lazycode/features/<id>/` contains feature behavior, contracts, and status.
@@ -29,9 +32,9 @@
 
 Use stable identifiers such as `D001-foundation`, `F001-read-only-delegation`, and `ADR-0001`. Update status artifacts when work changes state. Promote only durable conclusions into project documents.
 
-Persist Decisions with their rationale, alternatives, evidence, and affected scope. Reports are structured SQLite objects: Feature-associated Reports are logically owned at Feature level, while Reports without an owning Feature are logically owned at Project level, including Delivery-wide completion summaries and project research Reports. Other objects reference these records rather than duplicate them. The physical persistence model remains deferred to PD-21.
+Persist Decisions with their rationale, alternatives, evidence, and affected scope. In the intended product, definitions, planning, and Reports are structured SQLite records. Feature-associated Reports are logically owned at Feature level; Reports without a Feature are owned at Project level. Selected live replicas retain the author's ID and revision rather than becoming independently authored copies. Each worktree has a database accessed only through LazyCode.
 
-Research and POC artifacts are Git-tracked under `.lazycode/`, with associated metadata in the project's SQLite database. The exact storage and synchronization model is deferred to PD-21; this is a product contract, not an existing database implementation.
+Research and POC knowledge is stored in SQLite under the intended product policy; supporting files may remain Git-tracked under `.lazycode/` and be referenced from the database. Consistent snapshots and required attachments provide portability. Concrete schemas, merge mechanisms, and migration implementation remain technical planning work.
 
 ## Documentation modes
 

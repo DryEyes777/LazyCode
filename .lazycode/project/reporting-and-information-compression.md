@@ -63,7 +63,7 @@ This preserves useful checkpoints without interrupting work to produce low-value
 
 ## Storage model
 
-Reports are canonical structured objects in the Project's SQLite database. The LazyCode web application interprets those objects and renders appropriate human-facing views; Reports do not require parallel presentation-oriented Markdown files.
+Reports are canonical structured SQLite objects in the relevant worktree database. The LazyCode web application interprets those objects and renders human-facing views; Reports do not require parallel presentation-oriented Markdown files. Worktree copies and live replicas retain explicit authorship and versions under [Persistence and Schemas](persistence-and-schemas.md).
 
 Ownership remains logical:
 
@@ -71,9 +71,11 @@ Ownership remains logical:
 - Delivery-wide Reports belong at Project level and reference their Delivery and Feature Reports;
 - project research and Reports without a Feature owner belong at Project level.
 
-The exact tables, relationships, migrations, Git behavior, and synchronization between repository artifacts and SQLite remain for `PD-21 — Persistence and schemas`.
+Progress/checkpoints, alerts, escalations, and submitted Reports may replicate to parent databases before integration. Each record has one authoritative author; parent evaluations are separate. Pending delivery survives replication failure, retries avoid duplicates, and parents acknowledge stored IDs and revisions. Accepted records remain durable after child cleanup. Exact tables and synchronization algorithms remain technical planning work.
 
 DeepSeek Harness's append-only session log retains raw execution history. It is the inspectable source for conversations, tool activity, complete command output, discarded approaches, rejected hypotheses, and other routine development detail that does not belong in a canonical Report.
+
+Those raw logs remain installation-local. Portable Reports must retain the conclusions and necessary evidence independently, including Git-tracked attachments where appropriate. A restored Project must distinguish unavailable local history from its retained project evidence.
 
 ## Common Report contract
 
@@ -97,7 +99,7 @@ Every Completion Report has these common data elements:
 - validation history;
 - branch, commit, worktree, and integration references when applicable.
 
-Detailed storage normalization is deferred to PD-21. This contract defines the information the system must represent, not a fixed table layout.
+Storage ownership, replication, and checkpoint policy follow [Persistence and Schemas](persistence-and-schemas.md). This contract defines the information the system must represent; physical table normalization remains technical planning work.
 
 ## Report hierarchy
 
@@ -276,6 +278,6 @@ Permission-decision history, ephemeral approval, and appeal routing follow [Perm
 
 This document establishes logical Report objects and information flow. It does not yet settle:
 
-- physical verification-evidence schemas (`PD-21`);
+- physical verification-evidence schemas;
 - exact runtime scheduling and resource-allocation algorithms, under the policy in [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md);
-- physical database schemas, migrations, Git behavior, and synchronization (`PD-21`).
+- concrete database schemas and implementation of migrations, Git checkpoints, and synchronization under [Persistence and Schemas](persistence-and-schemas.md).

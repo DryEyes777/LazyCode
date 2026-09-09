@@ -246,6 +246,8 @@ Context selection, warning and mandatory compaction triggers, and lightweight Re
 
 After an unexpected LazyCode or machine restart, reconstruction does not authorize automatic execution. The user chooses whether to resume all interrupted work or none, excluding deliberately Paused and user-blocked work. Recovery resolves unexpected or ambiguous state before affected work resumes, under [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md).
 
+Restoring a Git checkpoint on another installation uses committed database state and referenced code and evidence. Previously active Tasks become Paused, and retained worker records support reconstruction without the original conversations. Ownership, replicas, and restoration follow [Persistence and Schemas](persistence-and-schemas.md).
+
 ## Waiting parents
 
 Delivery Managers and Feature Leads remain logical owners while their children work.

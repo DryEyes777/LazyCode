@@ -236,11 +236,11 @@ Canonical worker states are Active, Waiting, Paused, Blocked, Completed, Failed,
 
 ## Durable project memory
 
-The repository is the canonical organizational memory. `.lazycode/` stores project, delivery, feature, decision, research, contract, acceptance, and status artifacts.
+The intended product stores structured project knowledge and planning in SQLite, with one complete working database per worktree. Git-tracked database checkpoints and required `.lazycode/` attachments preserve organizational memory. The current Markdown planning documents remain in place until storage implementation and migration work occurs.
 
 DeepSeek Harness sessions are useful execution evidence, but they are not the source of project truth. Durable discoveries should be promoted into the smallest appropriate project artifact.
 
-Decisions persist with their rationale, alternatives, evidence, and affected scope. Reports are structured SQLite objects: Reports associated with a Feature are logically owned at Feature level, while Reports without an owning Feature, including Delivery-wide summaries, are logically owned at Project level. Project-level research and POC outcomes require user approval, with Git-tracked artifacts in `.lazycode/` and associated SQLite project data. Their exact storage relationship remains for PD-21.
+Decisions persist with rationale, alternatives, evidence, and scope. Reports retain logical Feature or Project ownership across controlled worktree copies and selected live replication. Research and POC outcomes require user approval. All worker data access is mediated by LazyCode; validated database imports follow branch integration. Restoring committed state on another installation pauses previously active Tasks, while conversations and raw logs remain local. The complete policy is [Persistence and Schemas](persistence-and-schemas.md).
 
 Detailed artifact ownership and writing rules are defined in [Project Conventions](conventions.md).
 

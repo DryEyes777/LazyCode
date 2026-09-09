@@ -278,11 +278,11 @@ User identifies incorrect or missing information
 
 Direct document editing may also be available for precise manual corrections.
 
-The storage format remains undecided. The web application presents coherent views regardless of whether canonical data is backed by Markdown, structured files, SQLite, or a hybrid.
+The intended product renders structured knowledge and planning from worktree SQLite databases, with referenced evidence attachments under `.lazycode/`. Editing goes through LazyCode data tools with ownership and version checks under [Persistence and Schemas](persistence-and-schemas.md). The current Markdown planning files remain until a separate implementation and migration.
 
 ## Direct-edit and Git semantics
 
-Direct documentation edits are Git-backed changes.
+Direct documentation edits through the app update the authorized database records and are captured in Git-backed checkpoints.
 
 Workers operating in isolated branches or worktrees do not automatically receive live mutations to their task premises.
 
@@ -351,8 +351,7 @@ This interaction model does not decide:
 
 - visual styling;
 - frontend framework;
-- canonical artifact format;
-- database schema;
+- concrete database schemas and presentation of the SQLite records established in [Persistence and Schemas](persistence-and-schemas.md);
 - remote authentication;
 - hosted deployment topology;
 - branch and worktree mechanics;

@@ -148,7 +148,7 @@ Persistence follows these rules:
 - This includes project research Reports and Delivery-wide completion summaries.
 - Other objects may reference those Reports without duplicating them.
 
-Reporting upward does not change where the canonical Report is stored. A Delivery may reference its Feature Reports and a Project-level Delivery summary while retaining its own definition and status artifacts.
+Reporting upward does not change a Report's logical owner or authoritative author. Selected records may replicate to parent worktree databases using the same ID and revision; accepted records remain durable in the parent after child cleanup under [Persistence and Schemas](persistence-and-schemas.md). A Delivery references its Feature Reports and Project-level Delivery summary.
 
 Report types, lifecycle, validation, compression, and promotion follow [Reporting and Information Compression](reporting-and-information-compression.md).
 
@@ -156,7 +156,7 @@ Report types, lifecycle, validation, compression, and promotion follow [Reportin
 
 Research and POCs may remain project-level work when their purpose is to gather information, test feasibility, or inform Decisions.
 
-Their artifacts are stored in `.lazycode/` and tracked through Git. Associated metadata is represented in the project's SQLite database; the exact persistence relationship remains for `PD-21 — Persistence and schemas`.
+Their structured knowledge is stored in SQLite under [Persistence and Schemas](persistence-and-schemas.md). Supporting files may live under `.lazycode/` with database references, and Git checkpoints carry the database state and required supporting files.
 
 The user must approve research and POC outcomes before they become accepted project knowledge.
 

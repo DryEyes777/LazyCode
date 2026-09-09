@@ -34,6 +34,8 @@ LazyCode owns organizational semantics:
 - future permission leases and escalation routing;
 - durable `.lazycode/` artifacts.
 
+The intended persistence model is [Persistence and Schemas](persistence-and-schemas.md): structured knowledge and planning in one controlled SQLite database per worktree, validated parent imports, selected live replication, and Git-tracked snapshots and evidence attachments. Harness conversations and raw execution logs remain local. This model is future implementation work; the current spike and its Markdown planning files are unchanged.
+
 ## Deployment stance
 
 The initial LazyCode runtime executes completely on the operator's machine. It does not require a hosted LazyCode control plane, persistence service, or collaboration server.

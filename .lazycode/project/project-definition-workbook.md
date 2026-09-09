@@ -1,7 +1,7 @@
 # Project Definition Workbook
 
 Status: in progress
-Last updated: 2026-09-07
+Last updated: 2026-09-09
 
 ## Purpose
 
@@ -258,7 +258,7 @@ Decision summary:
 - Findings are evidence-backed observations, Decisions are accepted choices, Escalations are unresolved questions or authority requests, and Reports describe progress or results.
 - Decisions persist with their rationale, alternatives, evidence, and affected scope.
 - Feature-associated Reports persist with the Feature; Reports without a Feature, including Delivery summaries and project research, persist at Project level.
-- Research and POCs remain project-level work with Git-tracked `.lazycode/` artifacts and SQLite project metadata. Their outcomes require user approval.
+- Research and POCs remain project-level work requiring user approval. PD-21 refines storage to structured SQLite knowledge with Git-tracked snapshots and supporting files under `.lazycode/`.
 - Exact schemas, lifecycle states, ownership-transfer rules, and storage synchronization remain deferred.
 
 Output: recorded in [Work Hierarchy and Terminology](work-hierarchy-and-terminology.md).
@@ -720,7 +720,7 @@ Output: recorded in [Models and Provider Routing](models-and-provider-routing.md
 
 #### PD-21 — Persistence and schemas
 
-Status: not started
+Status: established
 
 Input from PD-20: persist portable Project model-policy references separately from local provider connections and credentials. Record the requested configuration and actual route per activation, including changes, usage, cache information, and cost provenance. Existing logical workers retain their selected configuration across compaction unless an authorized change occurs.
 
@@ -737,11 +737,27 @@ Input from PD-12: persist stable worker identity and reconstruction state separa
 - How are concurrent artifact updates protected?
 - How is invalid or partially written state recovered?
 
-Output: the durable data model, schema, and migration strategy.
+Decision summary:
+
+- SQLite holds structured Project knowledge and planning, including definitions, work objects, Decisions, Reports, progress, relationships, portable configuration, and relevant authorization records. This supersedes the intended Markdown-first artifact split; existing planning files are not migrated by this decision.
+- Each worktree receives a complete parent database snapshot. Agents in the same worktree share its database under individual permissions. Separate Feature, Task, Delivery, and planning worktrees have separate databases, replacing the shared-Delivery proposal.
+- All worker access goes through LazyCode data tools. Ownership and scope constrain complete copies; direct database-file and unrestricted SQL access are not granted. Record-version checks reject stale writes, while overlapping ownership is minimized.
+- Globally unique internal IDs are separate from readable labels and survive branching, replication, integration, and restoration.
+- Git stores consistent database checkpoints with the code-commit references and attachments they describe across affected repositories. Restoration uses committed state; previously active Tasks become Paused and require reconciliation. Conversations, raw logs, credentials, and local connections remain installation-local.
+- Database integration checks actual changes against authority, ownership, baseline versions, relationships, and approval requirements while preserving unrelated parent changes. Unauthorized changes are reviewed: safely omittable changes are excluded; otherwise the child corrects its permitted work so the remainder can be imported safely. Parent changes occur only after result validation.
+- Live progress/checkpoints, alerts, escalations, and submitted Reports may replicate to parents with one authoritative author and stable ID/revision. Parent evaluation is separate. Failed replication persists pending delivery; retries avoid duplicates and acknowledgment follows parent storage.
+- Accepted records remain durable in the parent after child cleanup. Definition changes still follow integration; urgent Decisions can travel by escalation without replacing canonical definitions silently.
+- Evidence files live under `.lazycode/`, referenced from SQLite by repository-relative location and content identifier. They are Git-tracked and retained while required by Reports. Possible Git LFS adoption remains open.
+- From the first usable release, migrations cover the persisted Project format, including schemas, layouts, references, and configuration. Backups and validation are required; newer unsupported formats stay unwritable, and integration requires compatible formats.
+- Official SQLite and Git documentation supports snapshot feasibility, but trustworthy semantic merging, checkpoint coordination, replication, migrations, and storage costs require a focused implementation spike. Detailed schemas and algorithms are not finalized.
+
+Output: recorded in [Persistence and Schemas](persistence-and-schemas.md), with [SQLite and Git research](research/sqlite-and-git.md).
 
 #### PD-22 — DeepSeek Harness boundary
 
 Status: not started
+
+Input from PD-21: LazyCode must mediate database access, ownership, replication, and semantic database integration. Harness conversations and raw logs stay local; portable project state is reconstructed from worktree database checkpoints and attachments without those conversations. The adapter boundary must preserve these responsibilities.
 
 - Which behaviors should be native DSH plugins?
 - Which DSH services, events, tools, sessions, and providers should LazyCode consume?

@@ -44,6 +44,8 @@ pnpm dsh --profile lazycode "Delegate an exploration of .lazycode/project/vision
 
 ## Project memory
 
+These files are the current design documentation. The intended product storage is SQLite per worktree with Git-tracked checkpoints and evidence attachments, as defined in [Persistence and Schemas](.lazycode/project/persistence-and-schemas.md); the current spike has not migrated to that model.
+
 - [Project definition](.lazycode/project/project-definition.md)
 - [Project definition workbook](.lazycode/project/project-definition-workbook.md)
 - [Primary end-to-end workflow](.lazycode/project/primary-workflow.md)
@@ -64,12 +66,14 @@ pnpm dsh --profile lazycode "Delegate an exploration of .lazycode/project/vision
 - [Scheduling, failure, and recovery](.lazycode/project/scheduling-failure-and-recovery.md)
 - [Review, testing, integration, and completion](.lazycode/project/review-testing-and-completion.md)
 - [Models and provider routing](.lazycode/project/models-and-provider-routing.md)
+- [Persistence and schemas](.lazycode/project/persistence-and-schemas.md)
 - [Vision](.lazycode/project/vision.md)
 - [Organizational model](.lazycode/project/organizational-model.md)
 - [Architecture](.lazycode/project/architecture.md)
 - [Conventions](.lazycode/project/conventions.md)
 - [Roadmap](.lazycode/project/roadmap.md)
 - [DeepSeek Harness research](.lazycode/project/research/deepseek-harness.md)
+- [SQLite and Git research](.lazycode/project/research/sqlite-and-git.md)
 - [ADR-0001: Native DeepSeek Harness plugin](.lazycode/project/decisions/ADR-0001-native-dsh-plugin.md)
 - [D001 foundation delivery](.lazycode/deliveries/D001-foundation/delivery.md)
 - [F001 read-only delegation](.lazycode/features/F001-read-only-delegation/feature.md)

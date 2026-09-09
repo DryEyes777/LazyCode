@@ -31,6 +31,8 @@ This updates PD-14's earlier arrangement for Project Managers writing directly o
 
 ## Git controls
 
+Each worktree has a complete project database copy under [Persistence and Schemas](persistence-and-schemas.md). Git checkpoints pair consistent database state with the relevant code commits and evidence attachments. Database changes are integrated by LazyCode's validated import policy; ordinary binary-file merging is not the product's record-merge mechanism.
+
 Workers request Git operations through LazyCode. The runtime checks permissions and performs branch creation, commits, merges, pushes, and cleanup while recording ownership and lineage.
 
 The responsible worker decides when an operation is needed and what belongs in it, within the approved work contract. Git actions remain subject to [Permissions and Escalation](permissions-and-escalation.md), including scoped grants, role boundaries, and permission checks on every use.
@@ -117,4 +119,4 @@ Reports and verification identify the combination of repository commits being ev
 
 The product rules are established. Technical planning must define branch naming, repository registration details, safe Git-operation mechanics, recovery storage for preserved Feature and Delivery work, and the implementation of command and resource controls.
 
-Interruption recovery, user restart authorization, and checking uncertain operation outcomes before retry follow [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md). Full-suite verification, follow-up review, and permitted acceptance exceptions follow [Review, Testing, Integration, and Completion](review-testing-and-completion.md); physical persistence and retention mechanics continue in `PD-21`.
+Interruption recovery, user restart authorization, and checking uncertain operation outcomes before retry follow [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md). Full-suite verification, follow-up review, and permitted acceptance exceptions follow [Review, Testing, Integration, and Completion](review-testing-and-completion.md). Database checkpoints, attachments, and migration policy follow [Persistence and Schemas](persistence-and-schemas.md); exact mechanisms remain technical planning work.

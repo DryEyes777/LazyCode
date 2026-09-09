@@ -102,4 +102,4 @@ Model selection operates within approved Project and role policy. Existing plan-
 
 Concrete model choices, capability validation, pricing, cache duration and behavior, and provider adapters remain for technical research and implementation planning. This document does not assert current capabilities or prices for particular commercial models.
 
-Physical policy references, local connection mappings, and execution-evidence storage continue in `PD-21`. Runtime integration continues in `PD-22`.
+Portable database policy and evidence records, local connection boundaries, and Project-format migrations follow [Persistence and Schemas](persistence-and-schemas.md); concrete schemas and connection mapping remain implementation work. Runtime integration continues in `PD-22`.

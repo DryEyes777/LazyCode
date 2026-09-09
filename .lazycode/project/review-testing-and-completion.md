@@ -134,4 +134,4 @@ Report completion and immutability still follow their parent integration boundar
 
 ## Remaining implementation detail
 
-Technical planning must define executable verification plans, evidence schemas, environment provisioning, and concrete test commands. The isolated-environment comparison is reserved for PD-26; physical evidence and exception storage continue in PD-21.
+Technical planning must define executable verification plans, evidence schemas, environment provisioning, and concrete test commands. The isolated-environment comparison is reserved for PD-26. Structured evidence and exceptions live in worktree databases; required attachments are Git-tracked under `.lazycode/` with relative references and content identifiers under [Persistence and Schemas](persistence-and-schemas.md).

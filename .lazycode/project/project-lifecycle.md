@@ -75,7 +75,9 @@ LazyCode then:
 3. Registers the project in the local application.
 4. Opens the Project Manager workflow.
 
-The initial storage may consist of empty files and directories or an initialized SQLite schema. The physical representation remains deferred to `PD-21 — Persistence and schemas`.
+The intended initial storage is an empty SQLite project schema with the required `.lazycode/` structure for checkpoints and supporting files. [Persistence and Schemas](persistence-and-schemas.md) defines controlled worktree databases and portable snapshots; concrete schema and migration implementation remains technical planning work.
+
+On another installation, committed checkpoints restore Project state without the original conversations or raw Harness logs. Previously active Tasks become Paused and require reconciliation before resumption. Supported Project-format migrations preserve backups and validate results; newer unsupported formats remain unwritable until compatible software is available.
 
 LazyCode does not invent a vision, roadmap, architecture, or Epics before the Project Manager has worked with the user.
 
