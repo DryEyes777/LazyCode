@@ -21,7 +21,15 @@ The first integration targets exact version `0.1.0-rc.8` and the `spawn` subagen
 - Upgrades require explicit dependency, configuration, build, unit, profile, and live-smoke verification.
 - A provider-neutral orchestration process is deferred until experiments reveal a concrete need.
 
-## Alternatives considered
+## PD-22 refinement — 2026-09-09
+
+The out-of-tree DSH integration and no-fork choice remain accepted. LazyCode's broader application state is independent of individual Harness sessions, and DSH-specific execution code is concentrated behind a small internal interface. Stable worker IDs and portable Project records belong to LazyCode; Harness session IDs are execution references.
+
+DSH remains the only initially implemented runtime integration. Whether the long-running application resides inside the plugin host or in a separate local process remains open, refining the original deferral of a separate orchestration process. No second runtime or distributed control plane is required by this decision.
+
+All underlying tools must obey LazyCode authorization. Upgrade checks include enforcement, session events, cancellation, reconstruction, and the delegation flow. The full intended contract is [DeepSeek Harness Boundary](../deepseek-harness-boundary.md).
+
+## Alternatives considered at the original decision
 
 - **Independent control-plane process:** stronger harness portability, but adds a protocol and lifecycle boundary before the organizational contracts are proven.
 - **Harness fork:** maximum control, but creates unnecessary upstream synchronization and maintenance work.

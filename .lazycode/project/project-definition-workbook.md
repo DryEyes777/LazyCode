@@ -755,7 +755,7 @@ Output: recorded in [Persistence and Schemas](persistence-and-schemas.md), with 
 
 #### PD-22 — DeepSeek Harness boundary
 
-Status: not started
+Status: established
 
 Input from PD-21: LazyCode must mediate database access, ownership, replication, and semantic database integration. Harness conversations and raw logs stay local; portable project state is reconstructed from worktree database checkpoints and attachments without those conversations. The adapter boundary must preserve these responsibilities.
 
@@ -767,11 +767,24 @@ Input from PD-21: LazyCode must mediate database access, ownership, replication,
 - What adapter boundary would permit another runtime later?
 - Which current DSH tools or paths must LazyCode restrict or replace?
 
-Output: the stable integration boundary and upstream compatibility policy.
+Decision summary:
+
+- LazyCode owns the web application, Project lifecycle, logical workers, scheduling, delegation, permissions, databases, Git, reporting, context construction, and recovery policy. DSH supplies execution mechanics under LazyCode controls.
+- Application and Project state are independent of individual agent sessions, including when workers finish, wait, compact, or restart.
+- A small internal execution interface concentrates DSH-specific code for starting, messaging, stopping, and observing activations. Organizational code uses LazyCode identities and contracts; DSH session IDs remain execution references.
+- DSH is the sole initial runtime integration. Another integration requires a concrete need; portable organizational boundaries do not require building multiple runtimes now.
+- Controlled actions must pass LazyCode authorization even through underlying tools. Shell and CLI routes may not bypass database, Git, scope, or permission controls. Integration may restrict, wrap, or replace capabilities to enforce this.
+- Missing functionality or enforcement support is reported with the operation, justification, and affected scope. Affected work cannot bypass the gap; functionality may be added through normal LazyCode development while unrelated work continues.
+- Harness versions remain pinned. Upgrades require plugin/profile, model/tool, permissions, session-event, cancellation, reconstruction, and end-to-end delegation compatibility checks.
+- The out-of-tree bundle and no-fork decision remains. Exact hooks and interface schemas need validation; hosting the long-running application inside the plugin host versus a separate local process remains open.
+
+Output: recorded in [DeepSeek Harness Boundary](deepseek-harness-boundary.md).
 
 #### PD-23 — Observability and auditability
 
 Status: not started
+
+Input from PD-22: the runtime interface reports activity, results, failures, and execution references associated with stable LazyCode workers. Harness conversations and raw logs remain local. Capability gaps and unsupported enforcement must be visible without being confused with permission denials.
 
 - What should the human be able to inspect?
 - Should LazyCode expose the agent tree, tasks, context sources, decisions, permissions, costs, tool calls, or all of these?

@@ -132,6 +132,8 @@ Accepted Decisions and relevant guidance propagate through the existing hierarch
 
 ## Remaining implementation detail
 
+Underlying Harness tools, including generic shell and CLI routes, must not bypass LazyCode checks. Missing enforcement or functionality is reported as a capability gap, distinct from a permission request, under [DeepSeek Harness Boundary](deepseek-harness-boundary.md).
+
 The product policy is established. Technical planning must still define the detailed capability and authority matrix, resource matching, command-change validation, enforcement mechanisms, and physical grant and escalation schemas.
 
 Managed Git operations, user-requested pushes, multi-repository integration, and cleanup follow [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md); physical persistence is refined in `PD-21`. Runtime implementation remains future work beyond the current read-only Explorer tool restriction.

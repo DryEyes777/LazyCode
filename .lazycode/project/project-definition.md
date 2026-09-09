@@ -171,7 +171,7 @@ LazyCode owns or intends to own:
 - independent verification workflows;
 - durable `.lazycode/` project artifacts.
 
-The detailed boundary and current runtime flow are defined in [Architecture](architecture.md). The decision to begin with native Harness plugins is recorded in [ADR-0001](decisions/ADR-0001-native-dsh-plugin.md).
+The intended responsibility and execution-interface contract is [DeepSeek Harness Boundary](deepseek-harness-boundary.md). LazyCode owns the application, scheduling, databases, and Git controls independently of agent sessions; DSH is the first implementation behind an internal execution interface. Underlying CLI tools cannot bypass LazyCode authorization. Current runtime flow and limitations are described in [Architecture](architecture.md), with the native-plugin decision and its PD-22 refinement in [ADR-0001](decisions/ADR-0001-native-dsh-plugin.md).
 
 ## Organizational model
 

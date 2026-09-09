@@ -25,6 +25,7 @@ The paths below describe this repository's current planning artifacts. For the i
 - `.lazycode/project/review-testing-and-completion.md` is the canonical test-layer, verification-scope, Reviewer-context, exception, QA, retesting, and acceptance contract.
 - `.lazycode/project/models-and-provider-routing.md` is the canonical model-configuration, portable-identity, selection, fallback, reassignment, Reviewer-model, and execution-evidence contract.
 - `.lazycode/project/persistence-and-schemas.md` is the canonical database-boundary, ownership, replication, snapshot, integration, attachment, restoration, and migration contract.
+- `.lazycode/project/deepseek-harness-boundary.md` is the canonical application/runtime responsibility, execution-interface, enforcement, capability-gap, and upstream-compatibility contract.
 - `.lazycode/project/` contains project-wide durable knowledge and decisions.
 - `.lazycode/deliveries/<id>/` contains delivery intent, acceptance, and status.
 - `.lazycode/features/<id>/` contains feature behavior, contracts, and status.

@@ -6,7 +6,7 @@ The project is in an early spike phase. The first executable capability gives a 
 
 ## Architecture boundary
 
-DeepSeek Harness owns the agent loop, model adapters, tool registry, session log, sandbox, approvals, and subagent lifecycle. LazyCode owns organizational roles, task contracts, context policy, and durable project artifacts. This v1 choice couples LazyCode to the evolving Harness plugin API while leaving model selection behind Harness's adapter seam.
+The intended boundary gives LazyCode ownership of application state, workers, scheduling, permissions, databases, and Git operations. A small internal execution interface connects it to DSH's agent loop, model communication, underlying tool execution, and raw session logs. All controlled actions must respect LazyCode authorization. The current spike remains coupled to native Harness plugins; the complete boundary is future implementation work described in [DeepSeek Harness Boundary](.lazycode/project/deepseek-harness-boundary.md).
 
 The `.lazycode/` directory is the canonical organizational memory for this repository. Conversation history is execution evidence, not the source of project truth.
 
@@ -67,6 +67,7 @@ These files are the current design documentation. The intended product storage i
 - [Review, testing, integration, and completion](.lazycode/project/review-testing-and-completion.md)
 - [Models and provider routing](.lazycode/project/models-and-provider-routing.md)
 - [Persistence and schemas](.lazycode/project/persistence-and-schemas.md)
+- [DeepSeek Harness boundary](.lazycode/project/deepseek-harness-boundary.md)
 - [Vision](.lazycode/project/vision.md)
 - [Organizational model](.lazycode/project/organizational-model.md)
 - [Architecture](.lazycode/project/architecture.md)

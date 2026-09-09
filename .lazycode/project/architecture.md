@@ -2,21 +2,22 @@
 
 ## Decision status
 
-The v1 architecture is decided: LazyCode is an out-of-tree DeepSeek Harness bundle composed from native Cordis plugins. The larger organizational design remains evolutionary and will be validated through narrow vertical slices.
+The initial integration remains an out-of-tree DeepSeek Harness bundle composed from native Cordis plugins. PD-22 establishes a small internal execution interface and application state independent of individual agent sessions. Hosting the larger application inside the plugin host versus a separate local process remains open. The full contract is [DeepSeek Harness Boundary](deepseek-harness-boundary.md).
 
 ## System boundary
 
 ```text
-LazyCode organizational layer
-  roles | contracts | context policy | project artifacts | future escalation
+LazyCode application and organizational state
+  workers | scheduling | permissions | databases | Git | context | recovery
                               |
-DeepSeek Harness plugin seams
-  tools | system prompt | subagents | sessions | sandbox | approvals
+Internal execution interface
+  start | message | stop | observe
                               |
-Cordis plugin runtime and configured model adapters
+DSH integration through native Cordis plugins
+  agent loop | model communication | tool execution | raw sessions
 ```
 
-DeepSeek Harness owns execution mechanics:
+The initial DSH integration uses execution mechanics exposed through:
 
 - Cordis profile and bundle composition;
 - agent loops and model adapters;
@@ -25,14 +26,19 @@ DeepSeek Harness owns execution mechanics:
 - subagent startup, cancellation, results, and disposal;
 - filesystem, process sandbox, approval, and persistence seams.
 
-LazyCode owns organizational semantics:
+LazyCode owns the application and organizational policy:
 
 - named roles and responsibilities;
+- web application and Project lifecycle;
 - project, delivery, feature, and task contracts;
 - rules for constructing bounded context;
 - ownership and information-compression policy;
-- future permission leases and escalation routing;
-- durable `.lazycode/` artifacts.
+- scheduling, permission grants, and escalation routing;
+- databases, replication, and validated database imports;
+- Git and workspace controls;
+- durable project artifacts and recovery policy.
+
+Underlying tools must remain subject to LazyCode authorization, including shell and CLI paths. Missing functionality or enforcement support is reported as a capability gap for normal implementation work. These are intended product requirements, not capabilities already implemented by the spike.
 
 The intended persistence model is [Persistence and Schemas](persistence-and-schemas.md): structured knowledge and planning in one controlled SQLite database per worktree, validated parent imports, selected live replication, and Git-tracked snapshots and evidence attachments. Harness conversations and raw execution logs remain local. This model is future implementation work; the current spike and its Markdown planning files are unchanged.
 
