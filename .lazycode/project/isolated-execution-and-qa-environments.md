@@ -19,6 +19,8 @@ A small internal sandbox interface separates environment provisioning and execut
 
 Concrete provider support, resource consumption, and enforcement require an implementation spike before being treated as proven.
 
+PD-25 sequences this integration after the smaller dogfooding milestone; it is not a prerequisite to SQLite validation or the initial application. Manual QA is available before automated browser QA. Initial local execution must still enforce its declared permission and secret boundaries. See [Evaluation and Implementation Roadmap](evaluation-and-implementation-roadmap.md).
+
 ## Environment ownership
 
 Execution environments belong to worktrees, not model activations. Compaction or reconstruction does not inherently create a new environment.

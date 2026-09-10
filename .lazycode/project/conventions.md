@@ -29,6 +29,7 @@ The paths below describe this repository's current planning artifacts. For the i
 - `.lazycode/project/observability-and-auditability.md` is the canonical inspection, linked-history, usage-attribution, alert-selection, raw-retention, and cleanup-safeguard contract.
 - `.lazycode/project/security-and-trust.md` is the canonical managed-environment, secret-output, command-execution, imported-trust, override, and update-approval contract.
 - `.lazycode/project/isolated-execution-and-qa-environments.md` is the canonical environment-ownership, installation-capacity, allocation-state, QA-isolation, and provisioning-profile contract.
+- `.lazycode/project/evaluation-and-implementation-roadmap.md` is the canonical dogfooding-milestone, zero-live-AI automated-acceptance, evaluation, sequencing, and implementation-prerequisite contract.
 - `.lazycode/project/` contains project-wide durable knowledge and decisions.
 - `.lazycode/deliveries/<id>/` contains delivery intent, acceptance, and status.
 - `.lazycode/features/<id>/` contains feature behavior, contracts, and status.

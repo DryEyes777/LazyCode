@@ -38,7 +38,7 @@ Before starting a child, the parent provides a contract containing:
 - expected deliverables and verification evidence;
 - the escalation route.
 
-The parent is responsible for ensuring the tests exist before implementation is delegated. A non-implementing parent may commission permitted test preparation rather than authoring implementation code itself.
+The parent is responsible for ensuring executable tests exist before new implementation is delegated. Test authoring is ordinary implementation work within Features and Deliveries, not a separate assignment category. Responsibility and ordering for the earliest tests under non-coding managers must be specified in the relevant technical Feature plan.
 
 The child reviews the contract, tours the relevant context and repository state, and creates an implementation plan before changing code. It may add tests for discovered edge cases, but it may not remove, weaken, or replace the tests supplied by the parent merely to make its implementation pass.
 
@@ -98,7 +98,7 @@ When unplanned overlap is detected:
 
 A parent continues any useful authorized planning, coordination, verification, integration, or independent work while its children execute.
 
-It enters `Waiting` only when active children remain and no useful independent work is available. Child completion, escalation, Finding, or other coordination event reactivates or reconstructs the same logical parent worker.
+It enters `Waiting` when unfinished child work remains and no useful independent work is available, including when children await allocation. Child completion, escalation, Finding, or other coordination event reactivates or reconstructs the same logical parent worker.
 
 ## Child completion contract
 

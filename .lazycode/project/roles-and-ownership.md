@@ -239,7 +239,7 @@ Project Guides, Explorers, Oracles, Reviewers, and Testers provide guidance, evi
 
 **Outputs:** Verifiable implementation result, evidence, Findings, deviations, and unresolved issues.
 
-**Completion:** Parent accepts the Task result, the Task is abandoned, or ownership is transferred.
+**Completion:** The worker considers its assignment done and submits its result. Parent acceptance and integration are separate boundaries; corrections before integration return the same logical worker to Active. Disposal and ownership transfer follow the worker lifecycle rather than redefining Completed.
 
 ## Explorer
 

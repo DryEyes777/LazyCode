@@ -1,7 +1,7 @@
 # LazyCode Project Definition
 
-Status: draft for refinement
-Last updated: 2026-09-04
+Status: product definition established; implementation planning pending
+Last updated: 2026-09-10
 
 ## Project name
 
@@ -46,7 +46,7 @@ The primary operator must already possess the technical ability to build the pro
 
 Product-oriented participants may contribute to high-level planning, feature definitions, delivery priorities, and acceptance criteria. Complete operation of the development system still requires technical participation.
 
-Long-running product development is the primary workflow. Quick fixes, production issues, and small isolated changes must also be handled gracefully without forcing trivial work through the complete delivery hierarchy.
+Long-running product development is the primary workflow. Quick fixes, production issues, and small isolated changes use proportionate definitions while retaining the Feature/Delivery ownership, verification, and user-approved merge boundaries.
 
 New and early-stage products are the preferred adoption point because LazyCode's definitions and workflows can be established from the beginning. Mature products remain supported through either incremental adoption in selected areas or a deliberate comprehensive effort to import the existing architecture, conventions, workflows, and project state.
 
@@ -368,7 +368,7 @@ The project currently has:
 - a native DeepSeek Harness bundle;
 - automated tests, type checking, build verification, and profile-composition verification.
 
-The next activity is to refine this definition using the ordered [Project Definition Workbook](project-definition-workbook.md) before designing the first complete organizational workflow. Planned delivery sequencing remains provisional in the [Roadmap](roadmap.md).
+All listed product-definition topics have recorded decisions in the [Project Definition Workbook](project-definition-workbook.md). The next checkpoint is the user's pending design tweak, followed by the technical readiness items in [Evaluation and Implementation Roadmap](evaluation-and-implementation-roadmap.md). No implementation, including the SQLite spike, begins before that tweak is incorporated. The [Roadmap](roadmap.md) sequences a one-repository, one-active-Delivery dogfooding milestone with mocked-agent automated acceptance and later sandbox integration.
 
 ## Decision state
 
@@ -392,7 +392,7 @@ The next activity is to refine this definition using the ordered [Project Defini
 - Deliveries support controlled concurrency and use Draft, Active, Paused, Completed, Merged, and Abandoned as their canonical lifecycle states.
 - Features use separate product and technical approvals; Feature Leads orchestrate rather than ordinarily code, and Feature completion precedes Delivery-branch integration.
 - Nine fixed, single-role worker types use an explicit delegation matrix. Only Implementation Workers code; parents commission and evaluate independent verification, and only Delivery Managers commission isolated QA Testers.
-- Stable logical worker identity survives activation and model replacement. Seven visible worker states separate execution status from work-object lifecycle, and Disposed workers are soft-deleted by default.
+- Stable logical worker identity survives activation and model replacement. Nine visible worker states, including Awaiting Command and Awaiting Allocation, separate execution status from work-object lifecycle; Disposed workers are soft-deleted by default.
 - Decisions retain rationale; Reports persist with their Feature or, when no Feature owns them, at Project level.
 - Project-level research and POC outcomes require user approval.
 - Users review and approve a combined Delivery branch rather than every completed Feature.
@@ -408,13 +408,16 @@ The next activity is to refine this definition using the ordered [Project Defini
 - Runtime policy must ultimately enforce authority.
 - The system will be developed through narrow, verified vertical slices.
 
-### Proposed and subject to refinement
+### Implementation detail still to define
 
-- runtime lifecycle implementation and persistence schemas;
-- detailed Delivery and Feature lifecycle and readiness rules;
-- artifact and state schemas;
-- delegation stopping rules;
-- permission leases and escalation routing;
-- model selection by role;
-- automatic knowledge promotion;
-- human interaction and oversight workflows.
+Product-level lifecycle, delegation, permission, model-policy, promotion, and human-control rules are established in the linked references. Their concrete implementations remain future work:
+
+- execution-interface and application-hosting contracts;
+- physical state schemas, SQLite merge/replication algorithms, and code-checkpoint coordination;
+- earliest test authoring and post-merge correction organization;
+- local command enforcement and secret protection before sandbox integration;
+- executable role, delegation, permission, and model-configuration schemas;
+- UI operations, durable events, and recovery mechanisms;
+- safe development and testing of LazyCode while another instance manages that work.
+
+The user's pending tweak remains a prerequisite before implementing any of these.

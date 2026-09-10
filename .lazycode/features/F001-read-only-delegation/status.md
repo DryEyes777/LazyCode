@@ -13,3 +13,5 @@ Retrospective lifecycle mapping: this spike predates the PD-10 state contract. I
 - Package dry run: passing
 - Isolated profile composition: passing
 - Live key-backed delegation: pending; no `DEEPSEEK_API_KEY` was available on 2026-08-19
+
+PD-25 clarification: live AI smoke tests remain optional and require explicit user request. They are not automated test or dogfooding milestone gates, regardless of credential availability.

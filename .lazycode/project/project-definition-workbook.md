@@ -361,7 +361,7 @@ Decision summary:
 - Defined means product behavior is approved; Specced means technical planning is finished but unapproved; Approved means implementation-ready; Scheduled means assigned to a Delivery.
 - Completed requires integrated child work, review, required tests, acceptance evidence, and a Feature Report. PD-19 permits documented pre-existing or transient external-service verification exceptions, including unverified criteria, for user review. Delivery-branch integration happens afterward.
 - Product-definition changes invalidate the full approval chain and return to Draft. Technical-specification changes preserve product approval and return to Specced. In-scope implementation corrections need reconciliation but no reapproval.
-- Completed Features are immutable work history. Further behavior becomes a new linked Feature.
+- As clarified in PD-25, Completed Features may return Active for approved-contract corrections before Delivery integration. Merged Features remain closed; further fixes use new tracked work and a new branch. Newly desired behavior remains a new linked Feature.
 - Splitting or combining creates new Draft Features requiring full reapproval; originals retain history, become Abandoned, and link to replacements.
 - Abandoned Features are soft-deleted and restorable only after definition, approval, branch, conflict, and implementation-plan reconciliation.
 
@@ -435,7 +435,7 @@ Decision summary:
 - Project Manager branches isolate concurrent changes without reducing role or documentation authority. Later merges reconcile earlier accepted changes.
 - Durable worker state includes role, hierarchy, owned contract/scope, branch/worktree, permissions, approved context, plan, progress, checkpoint, children, Findings, Reports, escalations, premise divergence, and lifecycle state.
 - Canonical worker states are Active, Waiting, Awaiting Command (PD-24), Awaiting Allocation (PD-26), Paused, Blocked, Completed, Failed, and Disposed. There is no Dormant state; whether an activation is loaded is runtime detail.
-- Waiting means active children exist and no useful independent work remains. Blocked is reserved for required human input. Completed workers report upward but may return to Active for new or corrective work.
+- Waiting means unfinished child work remains, including children awaiting allocation, and no useful independent work is available. Blocked is reserved for required human input. Completed workers report upward before parent acceptance and may return Active for corrective work.
 - Failed records an external or mandatory-process failure that cannot be repaired in the current attempt; repair, retry, or replacement returns the same identity to Active.
 - Worker state is separate from Task, Feature, and Delivery state; parents accept results and advance owned work.
 - Reconstruction tours durable and actual state before Active work resumes. Child events can wake or reconstruct Waiting parents.
@@ -875,7 +875,7 @@ Output: recorded in [Isolated Execution and QA Environments](isolated-execution-
 
 #### PD-25 — Evaluation and implementation roadmap
 
-Status: not started
+Status: established
 
 Input from PD-26: validate OpenSandbox on ordinary macOS development machines with configurable shared capacity, fresh isolated browser QA, managed access, and queue behavior. Resource measurements determine practical defaults and whether every active implementation worktree can have a sandbox; native desktop QA remains manual initially. CubeSandbox remains a future Linux deployment candidate.
 
@@ -887,15 +887,20 @@ Input from PD-26: validate OpenSandbox on ordinary macOS development machines wi
 - Which vertical slice should follow the Explorer spike?
 - What evidence is required before expanding the hierarchy?
 
-Output: the evaluation plan, MVP definition, and evidence-based delivery roadmap.
+Decision summary:
 
-## Recommended starting session
+- The first usable target is a dogfooding milestone: develop subsequent LazyCode Features through LazyCode, not a release. It may initially support one repository and one active Delivery with real ownership, planning, delegation, persistence, permissions, review, testing, and approved integration through the web UI.
+- Automated acceptance uses scripted agent/model substitutes and real application mechanisms, including SQLite, Git fixtures, review corrections, pause/reconstruction, and merge. It consumes no real AI usage; attempted live model calls must fail tests. Live AI smoke tests are optional and explicitly requested, not suite or milestone requirements.
+- Evaluation uses ordinary user-authorized development and records runtime, usage/cost, interventions, repeated work, and review-driven corrections alongside model/instruction configurations. Tasks are not duplicated inside/outside LazyCode for benchmarks, and individual outcomes are not treated as proof of superiority.
+- Reconcile documentation and resolve technical contracts before implementation. SQLite snapshot/integration/ownership/replication/restoration validation comes first; the minimum application and simulated end-to-end workflow follow. Sandbox integration and automated browser QA may follow dogfooding, with manual QA available earlier.
+- The initial executor must still enforce its supported permissions and secret boundaries before sandbox-provider integration; deferral does not waive those contracts.
+- Completed Features may return Active for approved-contract corrections before Delivery integration. Once merged, the original Feature remains closed and fixes use new tracked work and a branch; detailed post-merge organization remains for Feature planning.
+- Missing legacy tests may pass a gate with No tests available. New implementation still follows test-first delegation rules, and existing applicable suites run. Coverage can be added through ordinary Features/Deliveries without a separate test-preparation assignment category.
+- The user has a pending design tweak that must be discussed and incorporated before any implementation, including the SQLite spike. Its content is not yet specified.
+- Remaining readiness items include earliest test authoring under managers, precise correction records, checkpoint/commit coordination, pre-sandbox controls, application hosting, and safely testing a new LazyCode build while an existing instance manages development.
 
-Begin with PD-01 through PD-04 only:
+Output: recorded in [Evaluation and Implementation Roadmap](evaluation-and-implementation-roadmap.md), with the updated [Roadmap](roadmap.md).
 
-1. Who uses LazyCode?
-2. What do they ask it to accomplish?
-3. What is the ideal end-to-end experience?
-4. How much control and approval do they retain?
+## Next planning checkpoint
 
-Once those answers are stable, update the project definition with a product-use section before moving to project lifecycle and work terminology.
+All listed product-definition topics have recorded decisions. Implementation has not been authorized by completing the workbook. Discuss the user's pending tweak first, then resolve the readiness items in [Evaluation and Implementation Roadmap](evaluation-and-implementation-roadmap.md) and define the initial technical Features and Deliveries.

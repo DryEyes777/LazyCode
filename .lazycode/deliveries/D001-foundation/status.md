@@ -15,4 +15,4 @@ Retrospective lifecycle mapping: the foundation was integrated into `main` befor
 
 ## Remaining
 
-- Run the key-backed live smoke test when credentials are available.
+- A key-backed live smoke test may be run only on explicit user request. It remains unperformed and optional; credential availability alone does not authorize it, and PD-25 does not require it for automated or milestone acceptance.

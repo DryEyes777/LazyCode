@@ -105,7 +105,7 @@ The worker is currently reasoning, using tools, coordinating children, implement
 
 ### Waiting
 
-The worker has active children and no useful independent work remaining until one of them reports or requires coordination.
+The worker has unfinished child work and no useful independent work remaining until a child reports or requires coordination. Children may be executing or queued in Awaiting Allocation; their parent can remain Waiting in either case.
 
 A worker should enter Waiting only after checking that it cannot:
 

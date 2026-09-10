@@ -18,7 +18,7 @@ The first integration targets exact version `0.1.0-rc.8` and the `spawn` subagen
 - LazyCode can prove organizational ideas quickly using existing execution and safety machinery.
 - The project remains model-independent within Harness's adapter seam.
 - LazyCode is runtime-coupled to unstable DSH and Cordis interfaces for v1.
-- Upgrades require explicit dependency, configuration, build, unit, profile, and live-smoke verification.
+- Upgrades require dependency, configuration, build, unit, and profile verification. The original live-smoke expectation is refined by PD-25: automated tests use mocked agents, and live AI verification is optional and explicitly requested.
 - A provider-neutral orchestration process is deferred until experiments reveal a concrete need.
 
 ## PD-22 refinement — 2026-09-09
@@ -28,6 +28,10 @@ The out-of-tree DSH integration and no-fork choice remain accepted. LazyCode's b
 DSH remains the only initially implemented runtime integration. Whether the long-running application resides inside the plugin host or in a separate local process remains open, refining the original deferral of a separate orchestration process. No second runtime or distributed control plane is required by this decision.
 
 All underlying tools must obey LazyCode authorization. Upgrade checks include enforcement, session events, cancellation, reconstruction, and the delegation flow. The full intended contract is [DeepSeek Harness Boundary](../deepseek-harness-boundary.md).
+
+## PD-25 evaluation refinement — 2026-09-10
+
+Automated acceptance must consume no real AI usage. End-to-end verification uses scripted models with actual application and integration mechanisms in fixtures. Live AI smoke tests are optional and require explicit user request; they are not mandatory adoption or milestone gates. See [Evaluation and Implementation Roadmap](../evaluation-and-implementation-roadmap.md).
 
 ## Alternatives considered at the original decision
 

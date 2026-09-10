@@ -7,4 +7,4 @@
 - A completed Explorer returns the documented structured report.
 - Failure and cancellation paths dispose every created child run.
 - Unit tests, type checking, production build, and profile composition checks pass.
-- A live smoke test either passes with an available API key or remains documented as an environment-dependent verification.
+- A live smoke test may run only on explicit user request; otherwise it remains documented as optional, unperformed verification. It is not an automatic acceptance requirement under PD-25.

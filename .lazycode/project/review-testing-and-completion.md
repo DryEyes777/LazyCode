@@ -9,6 +9,8 @@ This reference defines verification at Task, Feature, and Delivery levels, Revie
 
 ## Test layers
 
+For LazyCode's own automated suites and milestone acceptance, agents/models are scripted substitutes and attempted live model calls must fail the test. Live AI smoke tests require explicit user request and are never automatic gates. This does not remove the ordinary Project rules for other approved live external checks. See [Evaluation and Implementation Roadmap](evaluation-and-implementation-roadmap.md).
+
 Verification plans distinguish four layers:
 
 | Layer | Runs for real | May be mocked |
@@ -33,6 +35,8 @@ For internal integration tests, a worker changing a service method must exercise
 The direct parent verifies the Task contract, evaluates review Findings, and accepts or returns the work before integration. A Task remains scoped to one repository even when its Feature spans several.
 
 ## Feature verification
+
+Existing projects may adopt testing progressively. If an applicable legacy suite does not exist, its gate may pass with the explicit reason **No tests available**. That is not evidence that behavior was tested and does not bypass review or user approval. Existing applicable suites still run, and new implementation must follow the test-first and coverage rules above. Test infrastructure and wider legacy coverage can be implemented through ordinary Features and Deliveries.
 
 The Feature Lead verifies the integrated Feature against its acceptance criteria and runs the full applicable suites across every repository changed by the Feature.
 
@@ -123,6 +127,8 @@ Corrections before parent integration remain with the same logical Task and work
 ## Completion and user acceptance
 
 A Feature completes after child integration, required review, execution of its required tests, and recording of acceptance evidence and its Feature Report. Introduced defects must be corrected; permitted verification exceptions remain explicit. Delivery integration follows Feature completion.
+
+A Completed Feature can return Active for corrections to the approved contract before Delivery integration. Once merged, it remains closed and further fixes use new tracked work and a new branch, preserving accepted history.
 
 A Delivery completes after its Features are complete and integrated and its own full test run has been performed, with introduced defects corrected and permitted exceptions recorded. Candidate preparation includes required review and QA before presentation to the user.
 

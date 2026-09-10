@@ -165,7 +165,7 @@ Specced -> Approved
 Approved -> Scheduled
 Scheduled -> Active
 Active <-> Paused
-Active -> Completed
+Active <-> Completed before Delivery integration
 
 Any non-Completed state -> Abandoned
 ```
@@ -245,11 +245,11 @@ Feature Completed
 
 ## Further changes to Completed Features
 
-A Completed Feature does not reopen.
+A Completed Feature may return to Active for corrections to its approved contract before it is merged into its Delivery. Submission does not make its unaccepted implementation immutable.
 
 Any newly desired behavior becomes a new linked Feature with its own definition, specification, approvals, Delivery membership, and acceptance criteria.
 
-The prior Feature remains immutable work history.
+Once merged, the original Feature remains closed. Further fixes use new tracked work and a new branch rather than reopening accepted history. Exact post-merge corrective-work organization is a technical-planning prerequisite under [Evaluation and Implementation Roadmap](evaluation-and-implementation-roadmap.md).
 
 ## Splitting and combining Features
 

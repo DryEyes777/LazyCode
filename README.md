@@ -36,7 +36,7 @@ pnpm --config.minimum-release-age=0 dsh plugin --profile lazycode add .
 pnpm dsh --profile lazycode --dump-config
 ```
 
-With `DEEPSEEK_API_KEY` available, run the read-only spike:
+Optional live smoke test, only when explicitly requested and with `DEEPSEEK_API_KEY` available (it consumes real AI usage and is not part of automated acceptance):
 
 ```sh
 pnpm dsh --profile lazycode "Delegate an exploration of .lazycode/project/vision.md and .lazycode/project/architecture.md. Identify three design invariants with file-backed evidence."
@@ -71,6 +71,7 @@ These files are the current design documentation. The intended product storage i
 - [Observability and auditability](.lazycode/project/observability-and-auditability.md)
 - [Security and trust](.lazycode/project/security-and-trust.md)
 - [Isolated execution and QA environments](.lazycode/project/isolated-execution-and-qa-environments.md)
+- [Evaluation and implementation roadmap](.lazycode/project/evaluation-and-implementation-roadmap.md)
 - [Vision](.lazycode/project/vision.md)
 - [Organizational model](.lazycode/project/organizational-model.md)
 - [Architecture](.lazycode/project/architecture.md)

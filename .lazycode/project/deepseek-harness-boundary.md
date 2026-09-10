@@ -86,6 +86,8 @@ Harness versions remain explicitly pinned. Upgrades are deliberate and require c
 
 LazyCode application updates require explicit user approval, with release notes or open-source changes available for inspection. Managed command execution and interception before model or raw-log delivery follow [Security and Trust](security-and-trust.md); required runtime hooks still need technical validation.
 
+Automated compatibility and end-to-end tests use scripted model substitutes and must not consume real AI usage. Live AI smoke tests are optional and explicitly requested under [Evaluation and Implementation Roadmap](evaluation-and-implementation-roadmap.md).
+
 The out-of-tree bundle decision in [ADR-0001](decisions/ADR-0001-native-dsh-plugin.md) remains in place. No Harness fork is introduced.
 
 ## Remaining architecture work
