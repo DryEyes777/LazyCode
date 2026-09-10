@@ -62,6 +62,10 @@ Project registration and repository-state ownership are defined in [Project Life
 
 A Project may span a main repository and secondary repositories, with shared Project context and Feature/Delivery ownership. Tasks remain scoped to one repository. Managed worktrees, runtime-controlled Git operations, integration and push ordering, and cleanup follow [Repository, Workspace, and Git Strategy](repository-workspace-and-git.md). These are future product capabilities beyond the current spike.
 
+## Execution environments
+
+The intended environment policy is defined in [Isolated Execution and QA Environments](isolated-execution-and-qa-environments.md): OpenSandbox is the first local macOS candidate, with a separate sandbox interface beneath LazyCode controls, worktree-owned environments, and installation-wide capacity. CubeSandbox remains a future Linux candidate. This is not implemented by the current spike.
+
 ## First vertical slice
 
 The bundle overrides the root deployment persona with a Project Manager and registers `delegate_exploration`. A call creates a fresh in-process Explorer through the Harness `spawn` provider.

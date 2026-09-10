@@ -101,4 +101,4 @@ Version pinning and compatibility checks remain applicable. An agent reporting a
 
 Implementation planning must define secret storage and injection, result interception, protected handling of contested output, command scheduling, and imported-policy activation.
 
-Concrete isolation technology belongs in `PD-26 — Isolated execution and QA environments`. Detailed extension trust, disclosure prevention, threat analysis, and enforcement tests still require technical design and validation.
+Initial sandbox direction, worktree ownership, fresh QA state, and installation limits follow [Isolated Execution and QA Environments](isolated-execution-and-qa-environments.md). Concrete provider integration, extension trust, disclosure prevention, threat analysis, and enforcement tests still require technical design and validation.

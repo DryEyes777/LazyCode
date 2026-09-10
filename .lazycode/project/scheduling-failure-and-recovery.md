@@ -34,6 +34,8 @@ Reserved capacity does not expand a worker's role or permissions. The role restr
 
 Exact reservation amounts and scheduling algorithms remain for technical planning.
 
+Environment capacity is configured per installation across all Projects. Excess demand queues in Awaiting Allocation, while parents may remain Waiting for children. Lowering limits prevents new starts rather than terminating existing work. Worktree ownership, resource release, and isolated QA follow [Isolated Execution and QA Environments](isolated-execution-and-qa-environments.md).
+
 ## Temporary failures
 
 Temporary failures, such as a model API timeout or rate limit, receive automatic retries with increasing delays and a bounded retry policy.
@@ -98,7 +100,7 @@ Managed commands support Awaiting Command and background modes under [Security a
 
 An issue stops affected work and dependent operations where necessary. Unrelated work continues.
 
-Recoverable execution failures use the established Failed and reconstruction process when the current attempt cannot complete. Required human input uses Blocked. Shared incidents, retry attempts, and recovery tracking do not introduce lifecycle states; PD-24 separately adds Awaiting Command for a worker deliberately suspending activity on an owned command.
+Recoverable execution failures use the established Failed and reconstruction process when the current attempt cannot complete. Required human input uses Blocked. Shared incidents, retry attempts, and recovery tracking do not introduce lifecycle states; PD-24 adds Awaiting Command for suspended command activity, and PD-26 adds Awaiting Allocation for queued environment requests.
 
 Continuous execution still follows [Human Control and Autonomy](human-control-and-autonomy.md), subject to the explicit user restart decision after an unexpected interruption. Deliberate pause, forced stop, and user-blocked work retain their own control rules.
 

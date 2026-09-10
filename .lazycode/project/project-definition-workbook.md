@@ -434,7 +434,7 @@ Decision summary:
 - Project Guides and Project Managers are created per conversation; Delivery Managers per Delivery, Feature Leads per Feature, Implementation Workers per Task, and specialized workers per bounded assignment.
 - Project Manager branches isolate concurrent changes without reducing role or documentation authority. Later merges reconcile earlier accepted changes.
 - Durable worker state includes role, hierarchy, owned contract/scope, branch/worktree, permissions, approved context, plan, progress, checkpoint, children, Findings, Reports, escalations, premise divergence, and lifecycle state.
-- Canonical worker states are Active, Waiting, Awaiting Command (added by PD-24), Paused, Blocked, Completed, Failed, and Disposed. There is no Dormant state; whether an activation is loaded is runtime detail.
+- Canonical worker states are Active, Waiting, Awaiting Command (PD-24), Awaiting Allocation (PD-26), Paused, Blocked, Completed, Failed, and Disposed. There is no Dormant state; whether an activation is loaded is runtime detail.
 - Waiting means active children exist and no useful independent work remains. Blocked is reserved for required human input. Completed workers report upward but may return to Active for new or corrective work.
 - Failed records an external or mandatory-process failure that cannot be repaired in the current attempt; repair, retry, or replacement returns the same identity to Active.
 - Worker state is separate from Task, Feature, and Delivery state; parents accept results and advance owned work.
@@ -841,7 +841,7 @@ Output: recorded in [Security and Trust](security-and-trust.md). This establishe
 
 #### PD-26 — Isolated execution and QA environments
 
-Status: not started
+Status: established
 
 Added during PD-19; existing topic identifiers are retained. Discuss before finalizing the implementation roadmap.
 
@@ -858,11 +858,26 @@ Input from PD-24: environments must support managed variables/secrets, user-appr
 - What evidence and environment versions must remain available for reproducing QA Findings?
 - Which approach should be implemented first, and what should remain deferred?
 
-Output: environment architecture, option comparison, provisioning, isolation, and resource-lifecycle plan.
+Decision summary:
+
+- Initial execution targets local macOS alongside normal applications. OpenSandbox is the first provider candidate to validate; CubeSandbox remains a later Linux homelab/server candidate and OpenBot an architectural reference. No provider has been benchmarked or installed in this definition work.
+- A small sandbox-provider interface sits beneath LazyCode controls, separate from DSH activation execution. Environments belong to worktrees and survive model compaction; agents in the same worktree use its environment under individual permissions.
+- Coordination/read-only work does not require a dedicated desktop. Implementation uses minimal environments; browser-heavy environments serve UI QA. Idle compute may be released while preserving workspace state, without interrupting required running processes.
+- Installation-wide settings govern running environment count, CPU/memory allocation, and reserved verification/recovery capacity across all Projects. Excess demand queues; lowering limits prevents new starts rather than terminating existing work.
+- Awaiting Allocation is a new worker state. A parent can remain Waiting for children whose allocation is queued. Available capacity starts only eligible work and does not override permission, dependency, pause, or approval requirements.
+- Concurrent QA assignments get fresh browser sessions and fresh data and must not interfere. Any shared infrastructure must preserve that isolation. Initial QA covers web applications; unsupported native desktop testing is identified for manual user verification.
+- Versioned Project profiles define images/toolchains, setup/start commands, services, seed/reset procedures, variable/secret names, and capabilities. Multi-repository candidates identify the versions assembled, and profiles remain subject to approvals and local resource limits.
+- Provider APIs and CLI paths cannot bypass LazyCode Git, database, command, or secret controls. Expected runtimes do not automatically cancel commands or expire environments. Evidence and recoverable work are preserved before cleanup.
+- Integration initially consumes pinned SDK/API and runtime artifacts. Source submodules are optional for custom builds or upstream work, not a requirement to consume the service.
+- A spike must measure startup, memory pressure, CPU, concurrent implementation/QA, teardown/recreation, and preserved work, and verify isolation, managed access, secrets, and lifecycle compatibility before setting defaults or promising per-worktree sandbox viability.
+
+Output: recorded in [Isolated Execution and QA Environments](isolated-execution-and-qa-environments.md), with [Sandbox Platform Comparison](research/sandbox-platforms.md).
 
 #### PD-25 — Evaluation and implementation roadmap
 
 Status: not started
+
+Input from PD-26: validate OpenSandbox on ordinary macOS development machines with configurable shared capacity, fresh isolated browser QA, managed access, and queue behavior. Resource measurements determine practical defaults and whether every active implementation worktree can have a sandbox; native desktop QA remains manual initially. CubeSandbox remains a future Linux deployment candidate.
 
 - How do we measure whether hierarchy improves results?
 - Which single-agent or multi-agent baseline should be used?

@@ -108,7 +108,7 @@ The Delivery Manager coordinates environment preparation through authorized work
 
 Scenarios suit the product: browser interaction where applicable, or appropriate API, infrastructure, or data workflows.
 
-The choice and design of isolated execution and QA environments is a separate workbook topic, `PD-26 — Isolated execution and QA environments`.
+QA requires a fresh browser session and fresh data, with no interference between concurrent Testers. Initial automation targets web applications; unsupported native desktop testing is identified for manual user verification. Provider direction, worktree ownership, shared capacity, and environment profiles follow [Isolated Execution and QA Environments](isolated-execution-and-qa-environments.md).
 
 ## Corrections and retesting
 
@@ -134,4 +134,4 @@ Report completion and immutability still follow their parent integration boundar
 
 ## Remaining implementation detail
 
-Technical planning must define executable verification plans, evidence schemas, environment provisioning, and concrete test commands. The isolated-environment comparison is reserved for PD-26. Structured evidence and exceptions live in worktree databases; required attachments are Git-tracked under `.lazycode/` with relative references and content identifiers under [Persistence and Schemas](persistence-and-schemas.md).
+Technical planning must define executable verification plans, evidence schemas, concrete environment provisioning, and test commands. The environment policy and required provider spike are established in [Isolated Execution and QA Environments](isolated-execution-and-qa-environments.md). Structured evidence and exceptions live in worktree databases; required attachments are Git-tracked under `.lazycode/` with relative references and content identifiers under [Persistence and Schemas](persistence-and-schemas.md).

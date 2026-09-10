@@ -232,7 +232,7 @@ A responsibility may persist for weeks while its model context is rebuilt for ea
 
 Each logical worker has a stable ID, one role, owned scope, hierarchy, branch/worktree, permissions, plan, progress, checkpoint, Findings, Reports, escalations, and lifecycle state. Model processes and conversations are activations of that identity and may be replaced without changing it.
 
-Canonical worker states are Active, Waiting, Awaiting Command, Paused, Blocked, Completed, Failed, and Disposed. There is no Dormant state. Worker lifecycle is separate from Task, Feature, and Delivery lifecycle; the parent accepts results and advances the owned work. The complete contract is [Worker Identity and Lifecycle](worker-identity-and-lifecycle.md).
+Canonical worker states are Active, Waiting, Awaiting Command, Awaiting Allocation, Paused, Blocked, Completed, Failed, and Disposed. There is no Dormant state. Worker lifecycle is separate from Task, Feature, and Delivery lifecycle; the parent accepts results and advances the owned work. The complete contract is [Worker Identity and Lifecycle](worker-identity-and-lifecycle.md).
 
 ## Durable project memory
 

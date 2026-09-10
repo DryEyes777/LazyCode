@@ -123,6 +123,12 @@ The worker has chosen to suspend its activity after starting a managed command o
 
 This is distinct from Waiting for children. Background command execution does not require this state. Later user pauses, forced stops, or human blocks retain their own resume requirements and are not overridden by command events. See [Security and Trust](security-and-trust.md).
 
+### Awaiting Allocation
+
+The worker's environment request is queued because installation-wide capacity is unavailable. A parent waiting for this worker may remain Waiting for children.
+
+Available capacity permits the worker to return Active only when its dependencies, permissions, and approval conditions still allow execution. A later user pause or human block is not overridden by allocation availability. See [Isolated Execution and QA Environments](isolated-execution-and-qa-environments.md).
+
 ### Paused
 
 The user requested the worker's work to pause.
@@ -186,9 +192,11 @@ The worker's identity, Task, progress, Findings, and history remain available fo
 
 ```text
 Created -> Active
+Created -> Awaiting Allocation when environment admission is queued
 
 Active -> Waiting
 Active -> Awaiting Command
+Active -> Awaiting Allocation
 Active -> Paused
 Active -> Blocked
 Active -> Completed
@@ -206,6 +214,12 @@ Awaiting Command -> Paused
 Awaiting Command -> Blocked
 Awaiting Command -> Failed
 Awaiting Command -> Disposed
+
+Awaiting Allocation -> Active when eligible capacity is available
+Awaiting Allocation -> Paused
+Awaiting Allocation -> Blocked
+Awaiting Allocation -> Failed
+Awaiting Allocation -> Disposed
 
 Paused -> Active
 Paused -> Disposed
