@@ -84,4 +84,4 @@ Linked audit views preserve durable action summaries after raw details disappear
 
 Detailed retention limits, storage thresholds, event correlation, audit schemas, and aggregation implementation remain technical planning work.
 
-Redaction and protection of sensitive information continue in `PD-24 — Security and trust`.
+Secret-value interception and contested-output review follow [Security and Trust](security-and-trust.md). Original secret-bearing output must not enter normal logs, Reports, or audit records; only safe errors and user-authorized redacted results may enter ordinary visibility flows. Awaiting Command is distinct from Waiting for children, and runtime-overrun updates do not imply cancellation. Concrete detection and protected inspection mechanisms remain technical planning work.

@@ -232,7 +232,7 @@ A responsibility may persist for weeks while its model context is rebuilt for ea
 
 Each logical worker has a stable ID, one role, owned scope, hierarchy, branch/worktree, permissions, plan, progress, checkpoint, Findings, Reports, escalations, and lifecycle state. Model processes and conversations are activations of that identity and may be replaced without changing it.
 
-Canonical worker states are Active, Waiting, Paused, Blocked, Completed, Failed, and Disposed. There is no Dormant state. Worker lifecycle is separate from Task, Feature, and Delivery lifecycle; the parent accepts results and advances the owned work. The complete contract is [Worker Identity and Lifecycle](worker-identity-and-lifecycle.md).
+Canonical worker states are Active, Waiting, Awaiting Command, Paused, Blocked, Completed, Failed, and Disposed. There is no Dormant state. Worker lifecycle is separate from Task, Feature, and Delivery lifecycle; the parent accepts results and advances the owned work. The complete contract is [Worker Identity and Lifecycle](worker-identity-and-lifecycle.md).
 
 ## Durable project memory
 
@@ -266,6 +266,8 @@ Agent authority should be enforced by runtime software rather than prompt text a
 Permissions govern a worker's own actions; authority governs what it may authorize for eligible children. Resource-scoped grants may cover one action, a Task through review and parent merge, a Delivery, or a user-approved standing Project rule. Grants survive compaction, remain bounded by role, and are checked on every use. The product contract is established in [Permissions and Escalation](permissions-and-escalation.md); runtime enforcement and the detailed capability matrix remain future work.
 
 ## Escalation
+
+Managed variables and secrets, intercepted output, user-approved overrides, imported-policy activation, and update approval follow [Security and Trust](security-and-trust.md). Underlying commands remain subject to runtime controls, including when untrusted content misdirects a model.
 
 Agents explicitly distinguish information, permission, and decision-authority requests. Information may come from an authorized Explorer or Oracle; permission and Decision approvals use ephemeral authority-holder activations. Following denial, attempted alternatives, and a rejected justified resubmission, a permission appeal may go directly to the Feature Lead, then Delivery Manager and Project Manager, skipping levels already consulted. Human-authority matters reach the user.
 

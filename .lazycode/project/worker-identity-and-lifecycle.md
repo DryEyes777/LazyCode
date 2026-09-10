@@ -117,6 +117,12 @@ A worker should enter Waiting only after checking that it cannot:
 
 A child event returns it to Active.
 
+### Awaiting Command
+
+The worker has chosen to suspend its activity after starting a managed command or test. Command completion or notification-timer expiry returns it to Active with a result or a still-running message. Timer expiry does not cancel the command.
+
+This is distinct from Waiting for children. Background command execution does not require this state. Later user pauses, forced stops, or human blocks retain their own resume requirements and are not overridden by command events. See [Security and Trust](security-and-trust.md).
+
 ### Paused
 
 The user requested the worker's work to pause.
@@ -182,6 +188,7 @@ The worker's identity, Task, progress, Findings, and history remain available fo
 Created -> Active
 
 Active -> Waiting
+Active -> Awaiting Command
 Active -> Paused
 Active -> Blocked
 Active -> Completed
@@ -193,6 +200,12 @@ Waiting -> Paused
 Waiting -> Blocked
 Waiting -> Failed
 Waiting -> Disposed
+
+Awaiting Command -> Active on completion or notification timer
+Awaiting Command -> Paused
+Awaiting Command -> Blocked
+Awaiting Command -> Failed
+Awaiting Command -> Disposed
 
 Paused -> Active
 Paused -> Disposed

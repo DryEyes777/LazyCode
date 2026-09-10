@@ -19,6 +19,8 @@ Raw-history retention follows [Observability and Auditability](observability-and
 
 Provider credentials and installation-specific connection details remain local under [Models and Provider Routing](models-and-provider-routing.md).
 
+Managed environment secrets are also excluded from portable checkpoints, Reports, and normal logs. Secret names and requirements may be stored, while values remain in managed environment files and the user's interface. Imported grants need user confirmation before local activation under [Security and Trust](security-and-trust.md).
+
 This replaces the intended product's earlier Markdown-first artifact split. The main repository remains the home of shared Project knowledge; worker worktrees hold scoped working copies. Separate Markdown files are not required for every definition, Decision, or Report.
 
 ## One database per worktree

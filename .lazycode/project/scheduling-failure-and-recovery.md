@@ -94,9 +94,11 @@ The user choice controls resumption of work; it does not waive reconciliation or
 
 ## Failure containment and lifecycle
 
+Managed commands support Awaiting Command and background modes under [Security and Trust](security-and-trust.md). Completion or notification-timer expiry delivers a result or still-running update. Runtime estimates do not automatically cancel commands; workers may investigate, wait longer, or cancel within existing controls.
+
 An issue stops affected work and dependent operations where necessary. Unrelated work continues.
 
-Existing worker states remain unchanged. Recoverable execution failures use the established Failed and reconstruction process when the current attempt cannot complete. Required human input uses Blocked. Shared incidents, retry attempts, and recovery tracking do not introduce new worker lifecycle states.
+Recoverable execution failures use the established Failed and reconstruction process when the current attempt cannot complete. Required human input uses Blocked. Shared incidents, retry attempts, and recovery tracking do not introduce lifecycle states; PD-24 separately adds Awaiting Command for a worker deliberately suspending activity on an owned command.
 
 Continuous execution still follows [Human Control and Autonomy](human-control-and-autonomy.md), subject to the explicit user restart decision after an unexpected interruption. Deliberate pause, forced stop, and user-blocked work retain their own control rules.
 

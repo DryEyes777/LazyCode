@@ -52,6 +52,8 @@ User selects repository
 
 LazyCode does not require a separate onboarding report or automatic codebase investigation before opening the project.
 
+On a new installation, imported approvals do not automatically authorize execution. The user confirms executable commands, behavior overrides, and standing grants before local activation under [Security and Trust](security-and-trust.md). Viewing portable project state remains separate from activating its executable policy, and confirmation does not automatically resume paused work.
+
 Errors should identify:
 
 - incompatible state;

@@ -67,6 +67,10 @@ Command approvals identify:
 
 When the executable or script contents change, LazyCode checks whether the previous approval still applies. A command name alone does not establish that changed behavior remains authorized.
 
+New commands require review and permission. Commands using secrets require user approval by default, and commands requiring user approval need renewed approval after modification or for permanent grants. Secret use is authorized through the command rather than a separate per-use secret grant. Environment metadata, managed execution, and output interception follow [Security and Trust](security-and-trust.md).
+
+Project behavior overrides require user approval. On another installation, imported approvals and standing grants are historical until the user confirms local activation; portable records alone do not grant execution authority.
+
 ## Enforcement and revocation
 
 Every use passes through a runtime permission check.

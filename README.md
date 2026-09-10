@@ -69,6 +69,7 @@ These files are the current design documentation. The intended product storage i
 - [Persistence and schemas](.lazycode/project/persistence-and-schemas.md)
 - [DeepSeek Harness boundary](.lazycode/project/deepseek-harness-boundary.md)
 - [Observability and auditability](.lazycode/project/observability-and-auditability.md)
+- [Security and trust](.lazycode/project/security-and-trust.md)
 - [Vision](.lazycode/project/vision.md)
 - [Organizational model](.lazycode/project/organizational-model.md)
 - [Architecture](.lazycode/project/architecture.md)

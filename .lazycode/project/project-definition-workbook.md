@@ -434,7 +434,7 @@ Decision summary:
 - Project Guides and Project Managers are created per conversation; Delivery Managers per Delivery, Feature Leads per Feature, Implementation Workers per Task, and specialized workers per bounded assignment.
 - Project Manager branches isolate concurrent changes without reducing role or documentation authority. Later merges reconcile earlier accepted changes.
 - Durable worker state includes role, hierarchy, owned contract/scope, branch/worktree, permissions, approved context, plan, progress, checkpoint, children, Findings, Reports, escalations, premise divergence, and lifecycle state.
-- Canonical worker states are Active, Waiting, Paused, Blocked, Completed, Failed, and Disposed. There is no Dormant state; whether an activation is loaded is runtime detail.
+- Canonical worker states are Active, Waiting, Awaiting Command (added by PD-24), Paused, Blocked, Completed, Failed, and Disposed. There is no Dormant state; whether an activation is loaded is runtime detail.
 - Waiting means active children exist and no useful independent work remains. Blocked is reserved for required human input. Completed workers report upward but may return to Active for new or corrective work.
 - Failed records an external or mandatory-process failure that cannot be repaired in the current attempt; repair, retry, or replacement returns the same identity to Active.
 - Worker state is separate from Task, Feature, and Delivery state; parents accept results and advance owned work.
@@ -811,7 +811,7 @@ Output: recorded in [Observability and Auditability](observability-and-auditabil
 
 #### PD-24 — Security and trust
 
-Status: not started
+Status: established
 
 Input from PD-23: important action summaries and evidence references are durable while raw local logs have merge-triggered or user-requested retention. Define redaction and sensitive-data protection across runtime activity, Reports, audit summaries, replicated records, and retained attachments without hiding meaningful decisions or uncertainty.
 
@@ -823,7 +823,21 @@ Input from PD-23: important action summaries and evidence references are durable
 - How are secrets kept out of prompts, logs, reports, and artifacts?
 - What are the security invariants for autonomous operation?
 
-Output: the LazyCode threat model and mandatory security properties.
+Decision summary:
+
+- LazyCode manages `.env` files with ordinary variables and secrets. Scoped ordinary-variable creation, reading, modification, and deletion are available to agents. Names and secret-definition requests are allowed, but secret values are supplied/updated by the user and deletion requires user approval.
+- Secret values must not enter agent context, normal logs, Reports, or Project artifacts. Approved commands may consume them; secret-use authorization belongs to the command, not a separate per-use grant.
+- New commands require review and permission. Secret-bearing commands require user approval by default. Commands requiring user approval need renewed approval after modification and for permanent grants.
+- Results are intercepted before normal delivery or logging. Detected secret values cause withholding and a safe error. Contests require user inspection and a decision to release a redacted result or keep it withheld; originals must not leak through errors or audit records.
+- Commands describe scope, arguments, working directory, resources, environment requirements, expected runtime, and result processing. Deterministic compact output preserves failures, exit status, and permitted evidence references.
+- Awaiting Command is a new state: the worker suspends activity until completion or timer expiry, then receives a result or still-running message and returns Active. Background mode continues work and receives messages through the normal flow.
+- Expected runtimes or worker-specified notification intervals cause updates, never automatic cancellation. Workers may investigate, wait longer, or cancel; existing pause, cancellation, forced-stop, and blocked-work rules remain.
+- Project behavior overrides require user approval before activation. Repository, web, tool, and agent content cannot impersonate approval, grant authority, or change roles. Runtime checks remain enforced even when a model follows misleading instructions.
+- On a new installation, imported command approvals, overrides, and standing grants remain historical until the user confirms local activation. This refines project opening without automatically resuming work.
+- LazyCode updates require user approval, supported by release notes or open-source diffs. Existing pinning and compatibility checks remain; capability reports do not authorize runtime modification.
+- Secret handling, contested-result protection, detailed extension trust, isolation, and enforcement validation remain technical work. Concrete isolation is discussed in PD-26.
+
+Output: recorded in [Security and Trust](security-and-trust.md). This establishes product trust rules; a concrete implementation threat analysis remains technical validation work.
 
 #### PD-26 — Isolated execution and QA environments
 
@@ -832,6 +846,8 @@ Status: not started
 Added during PD-19; existing topic identifiers are retained. Discuss before finalizing the implementation roadmap.
 
 Input from PD-19: Delivery Managers commission narrow QA scenarios in isolated environments containing the candidate, required local dependencies, seeded data, and access instructions. Scenarios vary by product, and QA may precede expensive regression reruns after corrections. The user has candidate tools or approaches to compare.
+
+Input from PD-24: environments must support managed variables/secrets, user-approved secret-bearing commands, output interception before model/log delivery, Awaiting Command and background execution, non-cancelling overrun notifications, and preserved runtime permission enforcement.
 
 - Which environment options has the user identified, and how do they fit local operation?
 - How are application versions from multiple repositories assembled into a candidate environment?
