@@ -92,6 +92,8 @@ Missing data remains unknown. Estimates remain distinguishable from measured or 
 
 The record must make configuration changes and the actual execution route inspectable while preserving the same logical worker identity.
 
+Aggregation follows [Observability and Auditability](observability-and-auditability.md): Task direct/subtree totals and complete Feature, Delivery, and Project totals count each activation once. Supporting review usage belongs to the work reviewed, while multi-Task review of integrated parent work belongs to that parent. Replicas and summaries do not add usage.
+
 ## Capacity and usage
 
 Provider capacity and availability constraints follow the scheduling and reserved-capacity rules in [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md).

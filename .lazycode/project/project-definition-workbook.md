@@ -1,7 +1,7 @@
 # Project Definition Workbook
 
 Status: in progress
-Last updated: 2026-09-09
+Last updated: 2026-09-10
 
 ## Purpose
 
@@ -782,7 +782,7 @@ Output: recorded in [DeepSeek Harness Boundary](deepseek-harness-boundary.md).
 
 #### PD-23 — Observability and auditability
 
-Status: not started
+Status: established
 
 Input from PD-22: the runtime interface reports activity, results, failures, and execution references associated with stable LazyCode workers. Harness conversations and raw logs remain local. Capability gaps and unsupported enforcement must be visible without being confused with permission denials.
 
@@ -794,11 +794,26 @@ Input from PD-22: the runtime interface reports activity, results, failures, and
 - How are progress and uncertainty communicated without overwhelming the user?
 - Which records are retained, redacted, or deleted?
 
-Output: event, audit, reporting, and presentation requirements.
+Decision summary:
+
+- Work that is not progressing shows its reason and the condition needed to continue, without adding worker lifecycle states.
+- Runtime-observed activity and worker-reported progress are shown separately with update times. Stale or delayed replicas do not appear current; agent Reports remain event-driven.
+- Important requests, Decisions, Task changes, permissions, implementation, verification, and merges form a linked history with responsible worker/activation identities and available evidence. Raw details remain expandable.
+- Every agent's usage is inspectable. Tasks show direct and subtree totals; direct totals include supporting agents such as Reviewers even when commissioned by the parent. Multi-Task review occurs against integrated parent work and is charged to that parent.
+- Features, Deliveries, and the Project show full totals. Project-level Guide/planning usage belongs in the Project total. Each activation is counted once, including retries and ephemeral agents, without double-counting replicas or rollups.
+- Alerts focus on unresolved failures, decisions, capability gaps, verification exceptions, and significant risks. Internally resolved routine events remain history; shared failures appear as one incident with affected workers.
+- Raw Delivery conversations and logs are cleaned after Merged, not Completed. Independent documentation/Feature-planning history can be cleaned after its branch merges into the base. Project Guide limits remain to be determined from storage measurements.
+- Large histories may prompt an offer of early cleanup, but only the user initiates manual cleanup. Before removal, required conclusions, evidence, and recovery state must be durable; history needed by active workers or reviews is preserved.
+- Cleanup does not automatically remove durable Reports, Decisions, required attachments, or usage records. Durable audit summaries remain, and unavailable details are identified as cleaned up or unavailable on the installation.
+- Detailed thresholds, event schemas, and aggregation implementation remain technical planning work; redaction and sensitive-data protection continue in PD-24.
+
+Output: recorded in [Observability and Auditability](observability-and-auditability.md).
 
 #### PD-24 — Security and trust
 
 Status: not started
+
+Input from PD-23: important action summaries and evidence references are durable while raw local logs have merge-triggered or user-requested retention. Define redaction and sensitive-data protection across runtime activity, Reports, audit summaries, replicated records, and retained attachments without hiding meaningful decisions or uncertainty.
 
 - Which repositories, credentials, services, and network destinations may agents access?
 - How are untrusted repository instructions handled?

@@ -149,6 +149,8 @@ Alerts may represent:
 
 Every alert links directly to the responsible Project, Delivery, Feature, worker, artifact, or chat.
 
+Alerts focus on actionable unresolved failures, decisions, capability gaps, verification exceptions, and significant risks. Routine retries and internally resolved events remain history without separate alerts; shared failures are one incident with affected workers. See [Observability and Auditability](observability-and-auditability.md).
+
 ### Unconsulted alert
 
 The user has not opened the alert.
@@ -263,6 +265,10 @@ The user can open the chat to inspect details or redirect the worker directly.
 Role identity, ownership, allowed children, and verification relationships follow [Roles and Ownership](roles-and-ownership.md).
 
 The displayed lifecycle states and the distinction between a logical worker and its current activation follow [Worker Identity and Lifecycle](worker-identity-and-lifecycle.md).
+
+When work is not progressing, its view explains the reason and what permits continuation. Runtime-observed activity and worker-reported progress have separate update times so stale checkpoints or replicas are not presented as current.
+
+Usage is visible per agent. Tasks show direct and subtree totals; supporting Reviewers are attributed to the work reviewed rather than the commissioning agent. Features, Deliveries, and Projects show complete deduplicated totals. Linked action history, attribution rules, and availability of cleaned-up raw details follow [Observability and Auditability](observability-and-auditability.md).
 
 ## Project documentation
 

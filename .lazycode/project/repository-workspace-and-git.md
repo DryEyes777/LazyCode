@@ -97,6 +97,8 @@ Unmerged Feature or Delivery work is preserved in a recoverable form before its 
 
 Paused, abandoned, or rejected work remains available until the applicable owner-completion cleanup or an explicit cleanup decision. Branch and worktree cleanup does not by itself delete durable Reports or logs; those continue to follow their established retention policies.
 
+Raw-history cleanup is defined separately in [Observability and Auditability](observability-and-auditability.md). Delivery-associated history is retained until Delivery merge, subject to user-requested early cleanup and preservation of anything needed by active work or review.
+
 ## Remote pushes
 
 Pushes occur only when the user requests them. LazyCode may proactively offer a push only after a Delivery pauses or completes.

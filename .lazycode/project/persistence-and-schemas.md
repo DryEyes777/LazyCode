@@ -15,6 +15,8 @@ Git stores recoverable checkpoints of that data. The live database and committed
 
 Harness conversations and raw execution logs remain with the LazyCode installation. Conclusions and evidence needed to understand portable Reports must be retained with the Project rather than depending on another installation's logs.
 
+Raw-history retention follows [Observability and Auditability](observability-and-auditability.md): Delivery history is cleaned after merge, independent planning history may be cleaned after base integration, and early manual cleanup requires user action. Required active context and durable evidence are preserved, with unavailable raw details explicitly identified.
+
 Provider credentials and installation-specific connection details remain local under [Models and Provider Routing](models-and-provider-routing.md).
 
 This replaces the intended product's earlier Markdown-first artifact split. The main repository remains the home of shared Project knowledge; worker worktrees hold scoped working copies. Separate Markdown files are not required for every definition, Decision, or Report.

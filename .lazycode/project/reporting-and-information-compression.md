@@ -77,6 +77,8 @@ DeepSeek Harness's append-only session log retains raw execution history. It is 
 
 Those raw logs remain installation-local. Portable Reports must retain the conclusions and necessary evidence independently, including Git-tracked attachments where appropriate. A restored Project must distinguish unavailable local history from its retained project evidence.
 
+Raw logs follow [Observability and Auditability](observability-and-auditability.md), including cleanup after Delivery merge and protection of history still needed by active work. Durable action summaries remain after cleanup and identify when underlying raw details are unavailable.
+
 ## Common Report contract
 
 Every Completion Report has these common data elements:
@@ -214,7 +216,7 @@ The following normally remain at the worker or source-Report level:
 - resolved or rejected Findings;
 - local implementation detail that does not affect a parent contract.
 
-They may be omitted from higher-level Reports because their history remains available through source Reports or execution logs.
+They may be omitted from higher-level Reports while their retained history remains inspectable through source Reports or execution logs. Raw details are subject to the retention policy; durable summaries and required evidence must not depend on logs scheduled for cleanup.
 
 The following must not be compressed away while relevant:
 
@@ -238,7 +240,7 @@ Cross-scope risks immediately reach every affected Feature or Delivery owner.
 
 Blockers, security or safety concerns, data-loss risks, and questions requiring human authority bypass ordinary compression. They remain explicitly visible at every affected higher level until resolved.
 
-Once a Finding is rejected or resolved, it may disappear from higher-level summaries. Its original history remains accessible from its source Report or the execution log.
+Once a Finding is rejected or resolved, it may disappear from higher-level summaries. Its retained history is accessible from its source Report or execution log; the interface identifies raw details removed under the retention policy.
 
 ## Knowledge promotion
 
