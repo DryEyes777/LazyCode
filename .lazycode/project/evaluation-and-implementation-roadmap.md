@@ -56,6 +56,8 @@ Quality remains the first priority, affordability second, and speed third. Usage
 
 ## Implementation sequence
 
+The [Jev decision lookup research note](research/jev-decision-lookup.md) records a candidate for later testing: check whether approved Decisions or documentation already answer an agent's question before escalating to someone with sufficient authority, potentially the user. It is not a selected dependency or milestone prerequisite; implementation and live evaluation remain pending.
+
 After the user's pending tweak has been incorporated:
 
 1. Reconcile stale documentation and conflicting rules, and identify decisions that would otherwise require implementation guesses.

@@ -1,7 +1,7 @@
 # Delegation and Task Contracts
 
 Status: established
-Last updated: 2026-09-04
+Last updated: 2026-09-15
 
 ## Purpose
 
@@ -22,6 +22,8 @@ An Implementation Worker should delegate when its Task can be decomposed into in
 For example, a worker implementing a higher-level operation retains ownership of that operation while delegating distinct helpers or lower-level behaviors. The parent implements and integrates the higher-level behavior; each child owns one narrower contract.
 
 Existing suitable implementations are reused instead of creating unnecessary Tasks.
+
+Helpers should normally live in separately owned files. The coding parent retains the orchestration method and its tests while children implement bounded helper contracts. Parent-authored behavioral contract tests are available to children for execution and inspection but remain outside their write scope. Children may add their own tests without weakening that contract.
 
 Recursive delegation is allowed. An Implementation Worker may subdivide its Task into child Tasks, whose workers may apply the same rule again. Delegation stops when further subdivision adds more coordination cost, duplication, or risk than useful isolation.
 
@@ -135,6 +137,16 @@ Integration proceeds bottom-up through the Task tree. A parent cannot report its
 If the result is rejected, corrections return to the same logical child worker. The child retains its Task, identity, branch, worktree, and durable progress through the repair loop. It may report completion again only after addressing the accepted Findings and rerunning its verification.
 
 The same logical Reviewer performs follow-up on corrections with the previous Findings and their dispositions. New test results must identify the updated commit; earlier results cannot validate changed code.
+
+## Compositional review
+
+A Reviewer evaluates the contribution owned by its target worker. Accepted child implementation and child-authored tests are not routinely re-reviewed at every ancestor. Parent review instead covers the parent's orchestration, contract tests, arguments, sequencing, error handling, and interactions with the accepted helpers.
+
+The parent-facing review packet separates authored changes from inherited child work. It carries the relevant child contracts, exact accepted versions, content identifiers, review references, test evidence, and unresolved Findings. Attribution follows recorded ownership, baselines, and integration history rather than commit-author names. Unattributed changes remain visible for review.
+
+Child evidence remains reusable only while its accepted implementation and relevant contract remain intact. Changes to helper code, interfaces, or merge resolutions invalidate coverage for the affected changes and require targeted review. A concrete suspected defect or integration failure can justify an explicitly recorded review-scope expansion; it does not trigger an automatic broad review of every helper.
+
+Narrow review scope does not narrow required integration testing. Parents continue exercising real helper chains under the existing test-layer rules and remain responsible for the combined result. Completion-level review assesses acceptance, composition, new integration changes, and evidence without duplicating intact child-internal reviews. These rules apply recursively through the Task tree.
 
 Task test layers, full-suite requirements, Reviewer specializations, and permitted verification exceptions follow [Review, Testing, Integration, and Completion](review-testing-and-completion.md).
 

@@ -79,6 +79,7 @@ These files are the current design documentation. The intended product storage i
 - [Roadmap](.lazycode/project/roadmap.md)
 - [DeepSeek Harness research](.lazycode/project/research/deepseek-harness.md)
 - [SQLite and Git research](.lazycode/project/research/sqlite-and-git.md)
+- [Jev decision lookup research](.lazycode/project/research/jev-decision-lookup.md)
 - [Sandbox platform comparison](.lazycode/project/research/sandbox-platforms.md)
 - [ADR-0001: Native DeepSeek Harness plugin](.lazycode/project/decisions/ADR-0001-native-dsh-plugin.md)
 - [D001 foundation delivery](.lazycode/deliveries/D001-foundation/delivery.md)

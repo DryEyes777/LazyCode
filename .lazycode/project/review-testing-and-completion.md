@@ -1,7 +1,7 @@
 # Review, Testing, Integration, and Completion
 
 Status: established
-Last updated: 2026-09-07
+Last updated: 2026-09-15
 
 ## Purpose
 
@@ -74,6 +74,10 @@ Architecture, code-quality, and safety Reviewers receive their own review guidan
 Reviewers report Findings. The parent evaluates those Findings and directs corrections, optionally consulting Oracles under the existing authority rules.
 
 Follow-up returns to the same logical Reviewer with the changes and prior Finding dispositions. Rejected Findings include their rationale and are not repeated without new evidence. Corrections do not automatically require a full new review.
+
+Review is compositional: each Reviewer focuses on its target's authored changes and tests. Parent packets identify intact accepted child versions and their contracts so helper implementations and child-authored tests are not routinely audited again. Parent review covers orchestration and composition; the required real-helper integration tests and full applicable suites still run.
+
+Reuse of child review requires matching accepted content and relevant contract. Changed helpers, interfaces, or merge-resolution deltas need targeted review. Concrete evidence may justify a recorded scope expansion into a helper; it does not automatically reopen every child. Unattributed changes remain reviewable. Completion-level review remains focused on acceptance, composition, new integration changes, and evidence. See [Delegation and Task Contracts](delegation-and-task-contracts.md#compositional-review).
 
 ## Failure classification and exceptions
 
