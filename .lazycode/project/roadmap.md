@@ -1,6 +1,8 @@
 # Roadmap
 
-Last updated: 2026-09-10
+Last updated: 2026-09-26
+
+Track the next three planning steps in the [Development Readiness Checklist](development-readiness-checklist.md): reconcile readiness, define the SQLite spike, and plan the minimum end-to-end application.
 
 ## Established foundation
 
