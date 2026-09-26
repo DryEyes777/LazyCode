@@ -90,6 +90,8 @@ A Task is a definable, testable, and verifiable subdivision of a Feature.
 
 Tasks remain inspectable by the user. Their detailed persistence and lifecycle mechanics are refined with delegation and worker lifecycle.
 
+The roles and Delivery-planning pages also allow Delivery-specific assignments. Their mapping to this Feature/Task parent rule, and ownership of corrections after a Feature is integrated, remain unresolved under [readiness R-06](development-readiness.md#ownership-questions-requiring-explicit-resolution). Do not infer an additional Task parent type from a worker's commissioning role.
+
 ## Component
 
 A Component is a software building block described by architecture, such as a service, module, or adapter.

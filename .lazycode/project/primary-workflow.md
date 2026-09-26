@@ -1,7 +1,7 @@
 # Primary End-to-End Workflow
 
 Status: established
-Last updated: 2026-09-03
+Last updated: 2026-09-26
 
 ## Purpose
 
@@ -181,7 +181,7 @@ LazyCode presents a review package containing:
 - known limitations and unresolved risks;
 - exact instructions for checking out and testing the Delivery branch.
 
-All Delivery changes must be available together on one branch so the user can test the combined result.
+All Delivery changes must be available together on its candidate branch in each affected repository so the user can test the combined result. The first dogfooding milestone uses one repository.
 
 The established candidate-review workspace is defined in [Interaction Surface — Delivery candidate review](interaction-surface.md#delivery-candidate-review).
 
@@ -210,13 +210,14 @@ After the merge:
 
 - post-merge checks run;
 - the Delivery is marked Merged;
-- included Features are marked complete;
-- affected Epics record which Features are complete;
-- the roadmap reflects implemented product areas;
-- Delivery-level knowledge is promoted into project documentation where necessary;
+- included Features retain their already-Completed state, with Delivery integration recorded;
+- approved Epic, roadmap, and Project-documentation changes prepared in the candidate become part of the target branch;
+- final integration facts and Report completion are recorded;
 - the user receives a final completion report.
 
 A Delivery is not Merged merely because implementation has stopped or every Feature reached the Delivery branch. It must be verified, approved, integrated into the configured target branch, reconciled with project memory, and closed.
+
+Project-documentation authoring and approval occur before merge through the Project Manager's branch, as described above; merge is not permission to author unreviewed Project changes. The exact checkpoint mechanics for final merge facts remain an open technical contract in [Development Readiness](development-readiness.md#ownership-questions-requiring-explicit-resolution).
 
 ## Ongoing requests and planning
 
@@ -260,13 +261,4 @@ Detailed autonomy and approval mechanics are established in [Human Control and A
 
 ## Deferred mechanics
 
-This workflow establishes the product experience while deferring:
-
-- exact artifact schemas;
-- Feature and Delivery readiness checks;
-- worker scheduling and retry policy;
-- worktree and branching implementation;
-- independent review and testing contracts;
-- failure recovery after process interruption;
-- permission and escalation policy;
-- quantitative quality gates.
+The linked topic pages now establish readiness, scheduling/retry, review/testing, recovery, and permission policies. Their executable schemas, state transitions, Git operations, enforcement mechanisms, and acceptance checks still require technical Feature planning. See the [readiness decision register](development-readiness.md#decisions-required-by-upcoming-work).

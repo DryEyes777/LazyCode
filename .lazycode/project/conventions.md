@@ -5,7 +5,8 @@
 The paths below describe this repository's current planning artifacts. For the intended product, [Persistence and Schemas](persistence-and-schemas.md) places structured knowledge and planning in controlled worktree databases, with Git-tracked snapshots and evidence files. The existing files are not automatically converted by this policy.
 
 - `.lazycode/project/project-definition.md` is the canonical high-level definition of LazyCode's purpose, boundaries, current state, and success criteria.
-- `.lazycode/project/project-definition-workbook.md` contains unresolved definition questions and the order in which they should be decided; it does not override established project documents.
+- `.lazycode/project/project-definition-workbook.md` preserves product-definition questions and their recorded decision summaries; it does not override established project documents.
+- `.lazycode/project/development-readiness-checklist.md` tracks the three immediate planning steps; `development-readiness.md` records the reconciled baseline and open technical decisions without treating them as approved Features.
 - `.lazycode/project/primary-workflow.md` is the canonical end-to-end user journey and approval-gate definition.
 - `.lazycode/project/human-control-and-autonomy.md` is the canonical worker intervention, pause, resume, cancellation, and continuous-execution contract.
 - `.lazycode/project/interaction-surface.md` is the canonical first-version information architecture and user interaction contract.

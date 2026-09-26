@@ -19,7 +19,7 @@ See [D001 status](../deliveries/D001-foundation/status.md). A live API smoke tes
 
 ## Before implementation
 
-The user has a pending design tweak to discuss before any implementation, including the SQLite spike. Do not begin implementation until it has been incorporated.
+The prerequisite orchestration-plugin and agent-profile improvements are complete. The [readiness reconciliation](development-readiness.md) records the current baseline and remaining technical decisions; this tooling work is not implementation of the LazyCode runtime.
 
 Complete documentation reconciliation and resolve the technical contracts needed by the next Feature. Established product topics do not substitute for implementation-ready specifications. See [Evaluation and Implementation Roadmap](evaluation-and-implementation-roadmap.md).
 
@@ -27,7 +27,7 @@ Complete documentation reconciliation and resolve the technical contracts needed
 
 This is a dogfooding milestone, not a release. Initial scope is one repository and one active Delivery with the real web-based planning, delegation, persistence, permissions, review, testing, and approval/integration workflow.
 
-The sequence after the prerequisite is satisfied is:
+The implementation sequence, after the relevant Feature definitions, technical plans, and Delivery start are approved, is:
 
 1. **SQLite validation:** consistent snapshots, authorized branch integration, ownership, replication, and restoration using deterministic tests.
 2. **Minimum application contracts:** specify and implement the backend/host, execution interface, controlled commands, data operations, and web workflow needed for dogfooding.

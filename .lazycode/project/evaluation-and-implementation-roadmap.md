@@ -1,7 +1,7 @@
 # Evaluation and Implementation Roadmap
 
 Status: established
-Last updated: 2026-09-10
+Last updated: 2026-09-26
 
 ## Purpose
 
@@ -9,9 +9,9 @@ This reference defines the first dogfooding milestone, automated acceptance, eva
 
 ## Prerequisite before implementation
 
-The user has an upcoming design tweak to discuss and incorporate before any implementation begins, including the SQLite spike. Its substance has not yet been specified and must not be inferred.
+The user's prerequisite was improving the Codex orchestration plugin and agent profiles before building LazyCode. That work is [completed and installed](research/worktree-orchestrator-build-readiness-implementation.md). It improves the development workflow; it does not implement LazyCode's runtime or waive its approval gates.
 
-After that prerequisite, the relevant Feature plans must resolve outstanding technical contracts before dependent implementation begins. Product-topic approval does not mean every schema, API, or execution mechanism is already specified.
+The relevant Feature plans must still resolve outstanding technical contracts before dependent implementation begins. Product-topic approval does not mean every schema, API, or execution mechanism is already specified. The [readiness decision register](development-readiness.md#decisions-required-by-upcoming-work) assigns these questions to upcoming work; the [checklist](development-readiness-checklist.md) tracks planning progress.
 
 ## Dogfooding milestone
 
@@ -58,7 +58,7 @@ Quality remains the first priority, affordability second, and speed third. Usage
 
 The [Jev decision lookup research note](research/jev-decision-lookup.md) records a candidate for later testing: check whether approved Decisions or documentation already answer an agent's question before escalating to someone with sufficient authority, potentially the user. It is not a selected dependency or milestone prerequisite; implementation and live evaluation remain pending.
 
-After the user's pending tweak has been incorporated:
+With the tooling prerequisite complete, proceed through the following sequence, retaining Feature approval and explicit Delivery-start gates:
 
 1. Reconcile stale documentation and conflicting rules, and identify decisions that would otherwise require implementation guesses.
 2. Validate SQLite snapshots, branch integration, ownership, replication, and restoration with deterministic tests.
@@ -82,6 +82,8 @@ New implementation still follows LazyCode's test rules, including executable par
 The initial consistency pass identified and reconciled stale D001 roadmap status, Implementation Worker completion wording, Waiting parents whose children await allocation, pre-merge Feature correction, and unconditional live-smoke wording.
 
 The project summary distinguishes established product policies from their still-unimplemented mechanisms. Historical, dated research and current spike limitations remain evidence rather than promises of the intended system's capabilities.
+
+The 2026-09-26 [readiness reconciliation](development-readiness.md) closes stale prerequisite wording and makes unresolved ownership, correction, checkpoint, and runtime contracts explicit. It does not resolve those technical choices by assumption.
 
 Before dependent implementation, technical Feature plans still need to specify:
 

@@ -1,7 +1,7 @@
 # Feature Definition
 
 Status: established
-Last updated: 2026-09-03
+Last updated: 2026-09-26
 
 ## Purpose
 
@@ -285,7 +285,7 @@ Restoration requires:
 - updating against the current base and Delivery state;
 - identifying conflicts and obsolete work;
 - creating a new implementation and integration plan;
-- obtaining reapproval where definitions or specifications changed.
+- obtaining user reapproval before returning the Feature to approved or scheduled work, even when its definitions are unchanged. Product or specification changes additionally follow their normal approval-invalidation rules.
 
 A previously Active or Scheduled Feature does not immediately resume execution. It remains non-running until reconciliation is complete and its valid state and Delivery relationship are restored.
 

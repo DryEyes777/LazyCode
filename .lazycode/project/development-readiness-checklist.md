@@ -1,17 +1,19 @@
 # Development Readiness Checklist
 
 Last updated: 2026-09-26
-Current focus: Step 1 — readiness reconciliation
+Current focus: Step 2 — define the SQLite persistence spike
 
 Quick progress tracker for moving from product definition to implementation-ready Features. Detailed contracts belong in the resulting Feature plans, not this checklist. Completing this checklist does not automatically authorize implementation.
 
 ## 1. Reconcile readiness
 
-- [ ] Record the completed orchestration-plugin work as the previously pending prerequisite.
-- [ ] Reconcile stale or conflicting project guidance and separate established decisions from open technical questions.
-- [ ] Summarize the remaining decisions and which upcoming Feature needs each one.
+- [x] Record the completed orchestration-plugin work as the previously pending prerequisite.
+- [x] Reconcile stale or conflicting project guidance and separate established decisions from open technical questions.
+- [x] Summarize the remaining decisions and which upcoming Feature needs each one.
 
 Done when: the documentation gives one consistent starting point, with no hidden implementation assumptions.
+
+Completed 2026-09-26. See the [reconciled baseline and open-decision register](development-readiness.md). Unresolved ownership questions are explicitly flagged for technical planning, not silently decided.
 
 ## 2. Define the SQLite persistence spike
 

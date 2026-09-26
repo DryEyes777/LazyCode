@@ -1,7 +1,7 @@
 # Delivery Planning
 
 Status: established
-Last updated: 2026-09-03
+Last updated: 2026-09-26
 
 ## Purpose
 
@@ -38,6 +38,8 @@ Every Delivery has a Delivery Manager responsible for:
 - preparing the approved merge.
 
 The user approves, starts, pauses, resumes, abandons, reviews, and authorizes the final merge.
+
+Delivery-specific Task ownership is not yet reconciled with the Feature/Task parent constraint in the terminology page. Resolve the mapping before implementing it; see [readiness R-06](development-readiness.md#ownership-questions-requiring-explicit-resolution). Permission to commission a worker does not itself settle its work object's schema.
 
 ## Lean Delivery definition
 
@@ -190,12 +192,13 @@ When multiple repositories are affected, every required local target-branch merg
 After successful merge and reconciliation:
 
 - post-merge checks run;
-- Feature and Epic progress is updated;
-- roadmap history is updated;
-- affected project documentation is updated;
+- Feature integration and Delivery merge facts are recorded;
+- approved Epic, roadmap, and Project-documentation changes prepared in the candidate become part of the target branch;
 - a Project-level Delivery summary is persisted.
 
 Merged is terminal. A Merged Delivery cannot become Abandoned.
+
+Project-documentation changes are authored by a Project Manager and reviewed with the candidate before merge. Exact persistence of final merge facts remains a technical checkpoint/recovery decision, not permission for unreviewed post-merge edits.
 
 ### Abandoned
 

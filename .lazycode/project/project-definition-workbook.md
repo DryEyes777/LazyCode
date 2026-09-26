@@ -1,11 +1,11 @@
 # Project Definition Workbook
 
-Status: in progress
-Last updated: 2026-09-10
+Status: product topics established; technical Feature planning next
+Last updated: 2026-09-26
 
 ## Purpose
 
-This workbook is the ordered discussion guide for refining LazyCode from its highest-level product use down to implementation architecture. It contains questions, not settled answers.
+This workbook preserves the ordered product-definition questions and recorded decision summaries. All listed product topics have established answers; concrete technical Feature plans remain to be defined and approved.
 
 The current answers belong in [Project Definition](project-definition.md) and its linked detail pages. As each topic is resolved, update the relevant project document and record significant architectural decisions in `decisions/`.
 
@@ -363,7 +363,7 @@ Decision summary:
 - Product-definition changes invalidate the full approval chain and return to Draft. Technical-specification changes preserve product approval and return to Specced. In-scope implementation corrections need reconciliation but no reapproval.
 - As clarified in PD-25, Completed Features may return Active for approved-contract corrections before Delivery integration. Merged Features remain closed; further fixes use new tracked work and a new branch. Newly desired behavior remains a new linked Feature.
 - Splitting or combining creates new Draft Features requiring full reapproval; originals retain history, become Abandoned, and link to replacements.
-- Abandoned Features are soft-deleted and restorable only after definition, approval, branch, conflict, and implementation-plan reconciliation.
+- Abandoned Features are soft-deleted and restorable only after definition, approval, branch, conflict, and implementation-plan reconciliation, with user reapproval required even when definitions are unchanged.
 
 Output: recorded in [Feature Definition](feature-definition.md).
 
@@ -896,11 +896,11 @@ Decision summary:
 - The initial executor must still enforce its supported permissions and secret boundaries before sandbox-provider integration; deferral does not waive those contracts.
 - Completed Features may return Active for approved-contract corrections before Delivery integration. Once merged, the original Feature remains closed and fixes use new tracked work and a branch; detailed post-merge organization remains for Feature planning.
 - Missing legacy tests may pass a gate with No tests available. New implementation still follows test-first delegation rules, and existing applicable suites run. Coverage can be added through ordinary Features/Deliveries without a separate test-preparation assignment category.
-- The user has a pending design tweak that must be discussed and incorporated before any implementation, including the SQLite spike. Its content is not yet specified.
+- The user's prerequisite was improving the Codex orchestration plugin and agent profiles; this is completed as of 2026-09-26. It is development tooling, not LazyCode runtime implementation. Technical Feature approval and explicit Delivery start remain necessary.
 - Remaining readiness items include earliest test authoring under managers, precise correction records, checkpoint/commit coordination, pre-sandbox controls, application hosting, and safely testing a new LazyCode build while an existing instance manages development.
 
 Output: recorded in [Evaluation and Implementation Roadmap](evaluation-and-implementation-roadmap.md), with the updated [Roadmap](roadmap.md).
 
 ## Next planning checkpoint
 
-All listed product-definition topics have recorded decisions. Implementation has not been authorized by completing the workbook. Discuss the user's pending tweak first, then resolve the readiness items in [Evaluation and Implementation Roadmap](evaluation-and-implementation-roadmap.md) and define the initial technical Features and Deliveries.
+All listed product-definition topics have recorded decisions. Implementation has not been authorized by completing the workbook. With the tooling prerequisite complete and [readiness reconciliation](development-readiness.md) recorded, define the SQLite persistence spike, then plan the minimum application. Resolve each Feature's applicable technical questions before approval and Delivery start. Follow the [Development Readiness Checklist](development-readiness-checklist.md).

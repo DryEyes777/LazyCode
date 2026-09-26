@@ -3,6 +3,8 @@
 Research date: 2026-08-19
 Target version: `0.1.0-rc.8`
 
+Historical research note. Its upstream facts describe the 2026-08-19 investigation, not a fresh compatibility check. Subsequent product decisions selected [SQLite worktree storage](../persistence-and-schemas.md) and an [internal execution interface](../deepseek-harness-boundary.md), superseding those questions below. Required runtime hooks and current upstream compatibility still need validation before dependent implementation; see [readiness R-04](../development-readiness.md#decisions-required-by-upcoming-work).
+
 ## Verified upstream facts
 
 DeepSeek Harness is an MIT-licensed developer preview that explicitly warns of compatibility-breaking changes. Its architecture treats the model adapter, tool registry, session log, and agent loop as replaceable Cordis plugins. See the [official README](https://github.com/deepseek-ai/deepseek-harness), [architecture guide](https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/architecture.md), and [Cordis project](https://github.com/cordiverse/cordis).

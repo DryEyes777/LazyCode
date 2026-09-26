@@ -1,7 +1,7 @@
 # LazyCode Project Definition
 
 Status: product definition established; implementation planning pending
-Last updated: 2026-09-10
+Last updated: 2026-09-26
 
 ## Project name
 
@@ -368,7 +368,7 @@ The project currently has:
 - a native DeepSeek Harness bundle;
 - automated tests, type checking, build verification, and profile-composition verification.
 
-All listed product-definition topics have recorded decisions in the [Project Definition Workbook](project-definition-workbook.md). The next checkpoint is the user's pending design tweak, followed by the technical readiness items in [Evaluation and Implementation Roadmap](evaluation-and-implementation-roadmap.md). No implementation, including the SQLite spike, begins before that tweak is incorporated. The [Roadmap](roadmap.md) sequences a one-repository, one-active-Delivery dogfooding milestone with mocked-agent automated acceptance and later sandbox integration.
+All listed product-definition topics have recorded decisions in the [Project Definition Workbook](project-definition-workbook.md). The prerequisite orchestration-plugin improvements are complete, and the [readiness reconciliation](development-readiness.md) identifies the technical questions still requiring Feature planning and approval. Next is defining the SQLite persistence spike, not starting implementation automatically. The [Roadmap](roadmap.md) sequences a one-repository, one-active-Delivery dogfooding milestone with mocked-agent automated acceptance and later sandbox integration.
 
 ## Decision state
 
@@ -420,4 +420,4 @@ Product-level lifecycle, delegation, permission, model-policy, promotion, and hu
 - UI operations, durable events, and recovery mechanisms;
 - safe development and testing of LazyCode while another instance manages that work.
 
-The user's pending tweak remains a prerequisite before implementing any of these.
+The tooling prerequisite is complete. These mechanisms still require implementation-ready Feature specifications, user approval, and an explicitly started Delivery before product implementation begins.
