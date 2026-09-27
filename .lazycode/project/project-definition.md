@@ -202,7 +202,7 @@ A Delivery may group independently testable Features or overlapping Features tha
 
 The roadmap combines a historical implementation timeline, a decided future timeline, and an unscheduled backlog with dependencies and priorities. Informal requests do not automatically become work objects; LazyCode helps the user identify their kind and checks that the description fits.
 
-A Task belongs to a Feature or another Task and forms a verifiable contract between workers. Each Task has a worker; further subdivision creates child Tasks with new workers. The complete reference is [Work Hierarchy and Terminology](work-hierarchy-and-terminology.md).
+A Task belongs to a Feature, another Task, or a Delivery for approved integration and Delivery-specific work. It forms a verifiable contract between workers. Each Task has a worker; further subdivision creates child Tasks with new workers. Delivery-owned Tasks cannot introduce new product behavior without Feature approval. The complete reference is [Work Hierarchy and Terminology](work-hierarchy-and-terminology.md).
 
 Feature definition uses separate product and technical approval gates. The Project Manager helps the user define and specify the Feature; after approval, a Feature Lead orchestrates Implementation Workers, Reviewers, and integration without coding. Delivery Managers alone commission tightly scoped Tester workers for isolated QA. Feature completion requires recorded verification before Delivery integration, with permitted pre-existing or transient external-service exceptions explicit for user review. The Delivery runs its own full suite before completion. See [Feature Definition](feature-definition.md) and [Review, Testing, Integration, and Completion](review-testing-and-completion.md).
 
@@ -414,7 +414,7 @@ Product-level lifecycle, delegation, permission, model-policy, promotion, and hu
 
 - execution-interface and application-hosting contracts;
 - physical state schemas, SQLite merge/replication algorithms, and code-checkpoint coordination;
-- earliest test authoring and post-merge correction organization;
+- executable test-bootstrap and correction records under the confirmed [Step 3 workflow rules](minimum-application-plan.md);
 - local command enforcement and secret protection before sandbox integration;
 - executable role, delegation, permission, and model-configuration schemas;
 - UI operations, durable events, and recovery mechanisms;

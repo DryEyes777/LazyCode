@@ -33,6 +33,12 @@ All underlying tools must obey LazyCode authorization. Upgrade checks include en
 
 Automated acceptance must consume no real AI usage. End-to-end verification uses scripted models with actual application and integration mechanisms in fixtures. Live AI smoke tests are optional and require explicit user request; they are not mandatory adoption or milestone gates. See [Evaluation and Implementation Roadmap](../evaluation-and-implementation-roadmap.md).
 
+## Step 3 hosting refinement — 2026-09-26
+
+The user selected a separate local LazyCode backend serving the web interface and owning state, scheduling, permissions, databases, and Git. DSH remains the first execution integration behind an internal adapter, using the out-of-tree native integration without a Harness fork. This resolves the hosting choice left open in PD-22; it does not select another agent runtime.
+
+Browser refresh/disconnection does not pause work while the backend runs. Routine coordination is event-driven, activating agents for reasoning and decisions rather than repeated polling. Unexpected backend restart retains reconciliation and user-resume gates. Concrete interfaces and enforcement still need technical validation. See the [minimum application plan](../minimum-application-plan.md#confirmed-hosting-and-coordination-decisions).
+
 ## Alternatives considered at the original decision
 
 - **Independent control-plane process:** stronger harness portability, but adds a protocol and lifecycle boundary before the organizational contracts are proven.

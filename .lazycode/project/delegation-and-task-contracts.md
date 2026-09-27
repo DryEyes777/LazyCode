@@ -40,7 +40,9 @@ Before starting a child, the parent provides a contract containing:
 - expected deliverables and verification evidence;
 - the escalation route.
 
-The parent is responsible for ensuring executable tests exist before new implementation is delegated. Test authoring is ordinary implementation work within Features and Deliveries, not a separate assignment category. Responsibility and ordering for the earliest tests under non-coding managers must be specified in the relevant technical Feature plan.
+The parent is responsible for ensuring executable tests exist before target implementation is delegated. Test authoring is ordinary Implementation Worker work within Features and Deliveries, not a separate assignment category.
+
+When those executable contracts do not yet exist, a non-coding manager may bootstrap them through an ordinary test-authoring Task based on approved written requirements and interfaces. That worker may author tests and necessary test scaffolding, but not implement the target behavior. Independent review validates the tests against the approved contract; the parent accepts them before delegating implementation with those tests outside the implementer's write scope. This narrowly bounded test-authoring Task does not itself require pre-existing executable tests for the behavior it is specifying. Coding parents continue authoring tests for their delegated helpers normally. Feature plans must specify the concrete ordering and ownership; managers still do not code.
 
 The child reviews the contract, tours the relevant context and repository state, and creates an implementation plan before changing code. It may add tests for discovered edge cases, but it may not remove, weaken, or replace the tests supplied by the parent merely to make its implementation pass.
 

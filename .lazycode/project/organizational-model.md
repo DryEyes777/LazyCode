@@ -63,7 +63,7 @@ Owns one Task and is the only core role permitted to change implementation code.
 
 ## Delegation contract
 
-A Task belongs to a Feature or another Task and is the definable, testable, and verifiable contract between assigning and receiving workers. Each Task has an assigned worker. If that worker subdivides the Task, every new child Task receives a new worker. Task planning is ordinarily between workers, while Feature definition is agreed with the user.
+A Task belongs to a Feature, another Task, or a Delivery for approved integration and Delivery-specific work. It is the definable, testable, and verifiable contract between assigning and receiving workers. Each Task has an assigned worker. If that worker subdivides the Task, every new child Task receives a new worker. Task planning is ordinarily between workers, while Feature definition is agreed with the user. Delivery-owned Tasks cannot bypass Feature approval for new product behavior.
 
 Components describe software building blocks rather than work assignments. A Task may implement or modify a Component; Delegation assigns the Task and its contract. See [Work Hierarchy and Terminology](work-hierarchy-and-terminology.md).
 

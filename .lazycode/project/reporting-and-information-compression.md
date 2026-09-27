@@ -181,6 +181,8 @@ A Completed Report is immutable.
 
 If a later review discovers a problem after that integration boundary, LazyCode creates a corrective Task with a new Report. The new Report references the earlier Report and the Finding that caused the correction. Completed historical Reports are not rewritten to represent later code or conclusions.
 
+After Feature integration but before Delivery merge, an in-scope correction Task belongs to the Delivery and links the original Feature and its evidence. After Delivery merge, corrective Tasks belong to a new linked Feature in a subsequent Delivery. Changed desired behavior requires normal Feature approval at either point. See [Feature correction ownership](feature-definition.md#further-changes-to-completed-features).
+
 ## Validation ownership
 
 Verification records distinguish passed checks, failed checks, and unverified criteria. Permitted pre-existing or transient external-service exceptions retain classification evidence, affected behavior, consequences, and the user's retest or acceptance decision under [Review, Testing, Integration, and Completion](review-testing-and-completion.md). These unresolved limitations remain visible through compression and promotion.

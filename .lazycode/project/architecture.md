@@ -2,7 +2,7 @@
 
 ## Decision status
 
-The initial integration remains an out-of-tree DeepSeek Harness bundle composed from native Cordis plugins. PD-22 establishes a small internal execution interface and application state independent of individual agent sessions. Hosting the larger application inside the plugin host versus a separate local process remains open. The full contract is [DeepSeek Harness Boundary](deepseek-harness-boundary.md).
+The initial integration remains an out-of-tree DeepSeek Harness bundle composed from native Cordis plugins. PD-22 establishes a small internal execution interface and application state independent of individual agent sessions. Step 3 selects a separate local LazyCode backend, with DSH behind its execution adapter rather than hosting the whole application inside the plugin runtime. The full contract is [DeepSeek Harness Boundary](deepseek-harness-boundary.md).
 
 ## System boundary
 
@@ -47,6 +47,12 @@ The intended persistence model is [Persistence and Schemas](persistence-and-sche
 The initial LazyCode runtime executes completely on the operator's machine. It does not require a hosted LazyCode control plane, persistence service, or collaboration server.
 
 The initial user-facing surface is a web application served by that local runtime and opened in a browser. A separate interactive CLI is not part of the first product interface.
+
+The separate backend owns the application lifecycle. Closing or refreshing the browser does not pause active work; reconnecting reads current backend state. Work continues only while the backend is running. Unexpected restart still requires reconciliation and user authorization before interrupted work resumes.
+
+For dogfooding, that backend runs from a clean bundled/compiled application artifact, not the changing source checkout it manages. Initial version changes are manual with no active execution: the user runs the new version against the same repository, subject to compatibility and migration safeguards. In-place updates and an optional pause–update–resume convenience are later work. See [Minimum Application Plan](minimum-application-plan.md#confirmed-dogfooding-and-version-switch-boundary).
+
+Backend coordination is event-driven: command completions, child results, and ready-work admission are processed under approved plans without model polling. Agents are activated for reasoning, evaluation, or decisions, with logical parent authority and user control preserved. Concrete transport and execution-process layout remain technical planning work.
 
 Reusable workflow definitions, role behavior, model/provider configuration, and other non-project-specific LazyCode state belong to the local LazyCode installation. Project definitions, architecture, conventions, commands, deliveries, features, decisions, and operating instructions belong in the repository alongside the product they govern.
 

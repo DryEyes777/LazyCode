@@ -1,7 +1,7 @@
 # Permissions and Escalation
 
 Status: established
-Last updated: 2026-09-05
+Last updated: 2026-09-26
 
 ## Purpose
 
@@ -55,6 +55,16 @@ Starting a Delivery authorizes routine capabilities within its approved plan and
 Project settings define standing authorization for resources and actions such as network access, approved dependency registries, development databases, credentials, and external services. Requests outside that authorization escalate before execution.
 
 For example, a user-approved test command may become available to future eligible workers whose assignments require it, without granting unrelated commands or access to unrelated environments.
+
+## Network and research access
+
+Implementation commands are denied network access by default. Explicit scoped grants may permit approved dependency installation or external-service tests. Model API communication is managed by the backend separately; it does not confer network access on commands.
+
+Eligible workers may receive controlled internet search/fetch capabilities for their assignments. An Explorer doing external research can receive such a grant without gaining permission to run tests or unrestricted commands. Research access and command network access are distinct capabilities, both checked against role, resource scope, and current grants on each use. Standing research permissions retain the existing user-approval requirement.
+
+An authorized research worker may search and fetch public pages within its assigned question without per-URL approval. Projects may restrict domains, but domain restrictions are not enabled by default. The initial capability is public and unauthenticated: it does not inherit browser sessions or access local/private network services. Authenticated/private research integrations remain deferred.
+
+Research requests must not contain secrets. Sending private project content to an external research service requires explicit authorization; permission to read that content locally is not permission to transmit it. Concrete destination validation, outward-data controls, and source provenance still require technical definition. Research access is not a grant of arbitrary network operations.
 
 ## Command approvals
 

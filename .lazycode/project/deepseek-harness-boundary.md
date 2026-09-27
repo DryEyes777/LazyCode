@@ -1,7 +1,7 @@
 # DeepSeek Harness Boundary
 
 Status: established
-Last updated: 2026-09-09
+Last updated: 2026-09-26
 
 ## Purpose
 
@@ -21,6 +21,8 @@ LazyCode owns:
 DeepSeek Harness supplies agent execution mechanics: the agent loop, model communication, underlying tool invocation, and raw session logging. Those mechanics operate within the controls assigned by LazyCode.
 
 LazyCode remains independent of individual agent sessions. Its application and Project state continue to exist while activations finish, wait, compact, or restart. This does not waive user restart authorization or other recovery requirements from [Scheduling, Failure, and Recovery](scheduling-failure-and-recovery.md).
+
+Step 3 selects a separate local LazyCode backend that serves the web interface and owns the application lifecycle. Browser disconnection does not stop work while that backend runs. The backend handles routine scheduling and execution events deterministically within approved plans; it activates the appropriate worker when reasoning or decisions are needed instead of polling through model turns. DSH remains behind the execution interface, and parent authority, pauses, and approval gates continue to apply.
 
 ## Internal execution interface
 
@@ -94,6 +96,6 @@ The out-of-tree bundle decision in [ADR-0001](decisions/ADR-0001-native-dsh-plug
 
 The exact execution-interface schema and required DSH hooks need technical validation. This policy does not assert that the pinned Harness version already supports every required control.
 
-Whether the long-running LazyCode application lives inside the plugin host or in a separate local process remains open. Either arrangement must preserve the same ownership boundary, remain local initially, and support the established worker lifecycle and permission rules.
+The separate-backend decision is established. Exact packaging, DSH process/transport layout, event delivery and reconciliation, local web security, and startup/shutdown mechanisms remain open; none may weaken the established lifecycle or permission rules.
 
 The current runtime implementation and its limits are described in [Architecture](architecture.md); this document establishes the intended boundary for subsequent implementation work.

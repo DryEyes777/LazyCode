@@ -79,9 +79,9 @@ Canonical states are Draft, Active, Paused, Completed, Merged, and Abandoned. Co
 
 ## Task
 
-A Task is a definable, testable, and verifiable subdivision of a Feature.
+A Task is a definable, testable, and verifiable unit of delegated work within a Feature, another Task, or a Delivery's approved integration scope.
 
-- Its parent is a Feature or another Task.
+- Its parent is a Feature, another Task, or a Delivery for integration and Delivery-specific work.
 - Each Task has an assigned worker.
 - Each Task belongs to exactly one repository, even when its Feature spans several.
 - The Task serves as the contract between the assigning and receiving workers.
@@ -90,7 +90,7 @@ A Task is a definable, testable, and verifiable subdivision of a Feature.
 
 Tasks remain inspectable by the user. Their detailed persistence and lifecycle mechanics are refined with delegation and worker lifecycle.
 
-The roles and Delivery-planning pages also allow Delivery-specific assignments. Their mapping to this Feature/Task parent rule, and ownership of corrections after a Feature is integrated, remain unresolved under [readiness R-06](development-readiness.md#ownership-questions-requiring-explicit-resolution). Do not infer an additional Task parent type from a worker's commissioning role.
+Delivery-owned Tasks do not introduce new product behavior without Feature approval. Corrections after Feature integration and before Delivery merge may use a Delivery-owned Task linked to the original Feature and Finding; fixes after Delivery merge require a new linked Feature. See [Feature correction ownership](feature-definition.md#further-changes-to-completed-features).
 
 ## Component
 

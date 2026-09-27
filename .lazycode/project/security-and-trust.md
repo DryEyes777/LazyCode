@@ -1,11 +1,17 @@
 # Security and Trust
 
 Status: established
-Last updated: 2026-09-10
+Last updated: 2026-09-26
 
 ## Purpose
 
 This reference defines the product's secret-management rules, managed command execution, trust in configuration and imported approvals, resistance to unauthorized instructions, and user control of updates. These are intended product contracts, not a claim that the current spike implements or has validated the complete security boundary.
+
+## Initial execution boundary
+
+The first usable application must include the minimum process isolation needed to enforce file, database, Git, and secret restrictions. Deferring full sandbox-provider integration or browser QA does not allow unrestricted host execution. Unsupported operations remain unavailable until their required controls exist.
+
+Approving a command name does not contain the worker-controlled code it executes. Concrete enforcement must be tested before real worker execution. Command network access defaults to denied; explicit grants cover approved uses such as dependency installation or external-service testing. Backend model communication and controlled agent research access remain separate from command network access under [Permissions and Escalation](permissions-and-escalation.md#network-and-research-access).
 
 ## Managed environment configuration
 
@@ -81,6 +87,8 @@ Projects may customize default guidance and behavior through controlled override
 
 Repository files, websites, command output, and messages from other agents cannot impersonate user approval, grant permissions, or change a worker's role.
 
+Initial web research is limited to public, unauthenticated sources through controlled search/fetch tools, without inherited browser sessions or local/private network access. Domain restrictions are optional, not enabled by default. Research requests must not expose secrets; transmitting private project content requires explicit authorization separate from local read permission. Destination validation and outgoing-data enforcement must uphold those boundaries; public research permission does not grant arbitrary network access.
+
 Approved guidance informs execution within the worker's contract. Runtime authorization remains enforced even if a model follows misleading content. CLI tools cannot bypass the controls in [DeepSeek Harness Boundary](deepseek-harness-boundary.md).
 
 ## Trust on another installation
@@ -94,6 +102,10 @@ Existing model-access checks, paused restoration, and reconciliation still apply
 ## LazyCode updates
 
 LazyCode updates are deliberate and require user approval. The user can inspect release notes or the open-source changes before accepting an update.
+
+The application used to manage development is a clean bundled/compiled version independent of changing development worktrees. Initially the user manually replaces which version they run against the same repository; there is no automatic or in-place updater. The default prerequisite is no actively executing work and no remaining owned runtime processes. Incomplete work can remain safely paused and checkpointed.
+
+Repository state remains subject to supported-format checks, recoverable backups, and validated migrations. A future optional pause–update–resume action may resume only the recorded pre-update active work after reconciliation and eligibility checks; it must not start previously paused or user-blocked work. That convenience is deferred and does not authorize automatic updates or relax unexpected-restart controls. See the [version-switch boundary](minimum-application-plan.md#confirmed-dogfooding-and-version-switch-boundary).
 
 Version pinning and compatibility checks remain applicable. An agent reporting a missing capability does not thereby authorize modifying the running application.
 

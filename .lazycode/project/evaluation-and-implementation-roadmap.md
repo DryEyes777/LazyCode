@@ -71,7 +71,7 @@ The SQLite spike is the first technical validation priority. OpenSandbox remains
 
 ## Clarified Feature and test rules
 
-A Completed Feature may return to Active for corrections to its approved contract before Delivery integration. Once merged, the original Feature remains closed; fixes use new tracked work and a new branch. The precise organization of that post-merge corrective work must be specified in the relevant Feature plan rather than reopening accepted history silently.
+A Completed Feature may return to Active for corrections to its approved contract before Delivery integration. Once integrated, the original Feature remains closed. Before Delivery merge, repairs to approved behavior use traceable Delivery-owned corrective Tasks and new branches; after Delivery merge, fixes require a new linked Feature in a subsequent Delivery. Desired-behavior changes retain normal Feature approvals. See the confirmed [Step 3 workflow rules](minimum-application-plan.md).
 
 Existing projects may adopt test coverage progressively. A missing legacy suite may pass its gate with the explicit reason **No tests available**; this does not claim that behavior was tested or bypass review and user approval.
 

@@ -19,6 +19,10 @@ See [D001 status](../deliveries/D001-foundation/status.md). A live API smoke tes
 
 ## Before implementation
 
+### D002 — SQLite validation (Draft)
+
+[Delivery definition](../deliveries/D002-sqlite-validation/delivery.md): F002 only, using its already-approved specification and S0–S5 order, followed by fresh Delivery verification and user candidate review. Definition approval, assignment, runtime preflight, and explicit start remain pending. This is the newly scoped validation Delivery, not a revival of earlier roadmap placeholders.
+
 The prerequisite orchestration-plugin and agent-profile improvements are complete. The [readiness reconciliation](development-readiness.md) records the current baseline and remaining technical decisions; this tooling work is not implementation of the LazyCode runtime.
 
 Complete documentation reconciliation and resolve the technical contracts needed by the next Feature. Established product topics do not substitute for implementation-ready specifications. See [Evaluation and Implementation Roadmap](evaluation-and-implementation-roadmap.md).
@@ -35,6 +39,8 @@ The implementation sequence, after the relevant Feature definitions, technical p
 4. **Ordinary dogfooding:** the user elects to develop subsequent LazyCode Features through LazyCode. Inspect actual usage, runtime, interventions, and review-driven rework to improve instructions without duplicate benchmark runs.
 
 These phases are sequencing guidance, not approved Delivery records. The earlier D002–D005 headings were provisional planning placeholders; they are superseded by this sequence and are not silently assigned new scope here.
+
+Step 3 has an [application Feature sequence](minimum-application-feature-sequence.md) whose order the user approved on 2026-09-26: three foundation-validation gates followed by eight application candidates. Individual specifications and the detailed scripted end-to-end acceptance proposal remain under planning; ordering approval does not replace Feature approval or explicit Delivery start.
 
 ## Later capabilities
 

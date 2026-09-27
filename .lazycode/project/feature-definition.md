@@ -249,7 +249,9 @@ A Completed Feature may return to Active for corrections to its approved contrac
 
 Any newly desired behavior becomes a new linked Feature with its own definition, specification, approvals, Delivery membership, and acceptance criteria.
 
-Once merged, the original Feature remains closed. Further fixes use new tracked work and a new branch rather than reopening accepted history. Exact post-merge corrective-work organization is a technical-planning prerequisite under [Evaluation and Implementation Roadmap](evaluation-and-implementation-roadmap.md).
+Once integrated into its Delivery, the original Feature remains closed. Before that Delivery merges, repairs to already-approved behavior use a new Delivery-owned corrective Task and branch. The Task links the original Feature, Finding, prior Report, corrective commits, tests, review, and new Report. It remains within approved intent and does not require a new Feature solely because the original Feature was integrated.
+
+After Delivery merge, fixes require a new linked Feature in a subsequent Delivery. Newly desired behavior always follows the normal Feature definition and approval process, regardless of when it is requested. Accepted history and Completed Reports are not rewritten. These correction boundaries are confirmed in the [minimum application plan](minimum-application-plan.md#correction-ownership-and-traceability).
 
 ## Splitting and combining Features
 

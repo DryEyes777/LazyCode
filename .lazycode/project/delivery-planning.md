@@ -39,7 +39,7 @@ Every Delivery has a Delivery Manager responsible for:
 
 The user approves, starts, pauses, resumes, abandons, reviews, and authorizes the final merge.
 
-Delivery-specific Task ownership is not yet reconciled with the Feature/Task parent constraint in the terminology page. Resolve the mapping before implementing it; see [readiness R-06](development-readiness.md#ownership-questions-requiring-explicit-resolution). Permission to commission a worker does not itself settle its work object's schema.
+Deliveries may directly own integration and Delivery-specific Tasks within approved scope, including corrections to approved behavior after Feature integration but before Delivery merge. The Delivery Manager commissions Implementation Workers, review, and integration; it does not code. New product behavior still requires a Feature. Corrective Tasks retain explicit links to the original Feature, Finding, branch, tests, review, and Reports.
 
 ## Lean Delivery definition
 

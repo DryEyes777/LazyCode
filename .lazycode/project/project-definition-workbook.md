@@ -253,7 +253,7 @@ Decision summary:
 - A Feature may have several Epic parents but retains one canonical identity and definition.
 - A scheduled Feature belongs to one Delivery. Work spanning Deliveries becomes separate, linked Features.
 - Deliveries are coherent batches of work without a timebox.
-- A Task belongs to a Feature or another Task and is a verifiable contract between workers. Each Task has a worker; child Tasks receive new workers.
+- A Task belongs to a Feature or another Task; Step 3 additionally permits Delivery-owned integration and Delivery-specific Tasks within approved scope. Each Task is a verifiable contract between workers and has a worker; child Tasks receive new workers. New product behavior still requires a Feature.
 - Components are architectural building blocks, while Delegation assigns a Task and its contract.
 - Findings are evidence-backed observations, Decisions are accepted choices, Escalations are unresolved questions or authority requests, and Reports describe progress or results.
 - Decisions persist with their rationale, alternatives, evidence, and affected scope.
@@ -776,7 +776,7 @@ Decision summary:
 - Controlled actions must pass LazyCode authorization even through underlying tools. Shell and CLI routes may not bypass database, Git, scope, or permission controls. Integration may restrict, wrap, or replace capabilities to enforce this.
 - Missing functionality or enforcement support is reported with the operation, justification, and affected scope. Affected work cannot bypass the gap; functionality may be added through normal LazyCode development while unrelated work continues.
 - Harness versions remain pinned. Upgrades require plugin/profile, model/tool, permissions, session-event, cancellation, reconstruction, and end-to-end delegation compatibility checks.
-- The out-of-tree bundle and no-fork decision remains. Exact hooks and interface schemas need validation; hosting the long-running application inside the plugin host versus a separate local process remains open.
+- The out-of-tree bundle and no-fork decision remains. Step 3 selects a separate local backend serving the web UI, with browser-independent, event-driven coordination and DSH behind an execution adapter. Exact hooks, interface schemas, and execution-process layout still need validation.
 
 Output: recorded in [DeepSeek Harness Boundary](deepseek-harness-boundary.md).
 
