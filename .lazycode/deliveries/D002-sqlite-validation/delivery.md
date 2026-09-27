@@ -1,10 +1,12 @@
 # D002: SQLite Persistence Validation
 
-State: Draft
+State: Active — approved start; preflight and Feature setup pending
 Definition revision: 1
 Last updated: 2026-09-26
-Definition approval: pending
-Explicit start: not authorized
+Definition approval: revision 1 approved by the user on 2026-09-26
+Explicit start: authorized on 2026-09-26, subject to runtime and managed-workflow preflight
+
+The user approved this Delivery and requested F002 execution in a separate task with GPT-6 Sol / High as its main agent, explicitly requiring the installed Worktree Orchestrator plugin. This task retains Delivery ownership, final verification/candidate review, and the user merge gate. The Feature task may prepare and execute the approved scope after preflight; it must not promote into `main` or push. The explicit main-agent model overrides the plugin's default Astra role wording, not its workflow safeguards or bounded subagent routing.
 
 ## Outcome and scope
 

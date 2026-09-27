@@ -1,11 +1,12 @@
 # F002: SQLite Persistence Validation
 
-State: Approved — product definition and technical specification revision 1 approved; not scheduled or started
+State: Scheduled — assigned to approved D002; preflight/implementation pending
 Product-definition revision: 1
 Last updated: 2026-09-26
 Parent Epics: none assigned; no Epic inferred or created
-Delivery: not assigned
-Proposed Delivery: [D002 — SQLite validation](../../deliveries/D002-sqlite-validation/delivery.md), Draft; no assignment/start approval yet
+Delivery: [D002 — SQLite validation](../../deliveries/D002-sqlite-validation/delivery.md), approved and started on 2026-09-26; implementation awaits preflight
+
+Execution assignment: a separate GPT-6 Sol / High main task using the installed Worktree Orchestrator plugin, as explicitly requested by the user. Original task retains Delivery ownership and main-branch promotion remains a separate user approval. Historical approval/planning notes below record the earlier planning boundary, not a revocation of this later start authorization.
 Product-definition approval: revision 1 explicitly approved by the user on 2026-09-26 ("yes I approve")
 Technical-specification approval: revision 1 explicitly approved by the user on 2026-09-26 ("yeah this looks good") in response to the complete technical-approval request
 

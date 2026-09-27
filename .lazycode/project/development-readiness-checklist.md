@@ -41,7 +41,7 @@ Product-definition revision 1 for [F003 — DSH execution validation](../feature
 
 F003/F004 technical directions were confirmed on 2026-09-26: application-owned activation processes, native sandbox evaluation, and restricted secret helpers. Low resource use is now an explicit selection gate, including combined/idle overhead and measured capacity recommendations. Detailed specifications remain under review; no experiment or installation has started.
 
-Next execution-planning boundary: [D002 — SQLite validation](../deliveries/D002-sqlite-validation/delivery.md), a Draft F002-only Delivery. Its definition/start approvals and runtime preflight remain pending. Preparing it does not complete Step 3 or start the spike.
+Execution boundary: [D002 — SQLite validation](../deliveries/D002-sqlite-validation/delivery.md) was approved and started on 2026-09-26. F002 is Scheduled for a separate GPT-6 Sol / High task using Worktree Orchestrator; runtime/workflow preflight must pass before implementation. The original task retains Delivery ownership. This does not complete Step 3 or authorize main-branch promotion.
 
 ## References
 

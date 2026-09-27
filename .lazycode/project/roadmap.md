@@ -19,9 +19,9 @@ See [D001 status](../deliveries/D001-foundation/status.md). A live API smoke tes
 
 ## Before implementation
 
-### D002 — SQLite validation (Draft)
+### D002 — SQLite validation (Active: preflight pending)
 
-[Delivery definition](../deliveries/D002-sqlite-validation/delivery.md): F002 only, using its already-approved specification and S0–S5 order, followed by fresh Delivery verification and user candidate review. Definition approval, assignment, runtime preflight, and explicit start remain pending. This is the newly scoped validation Delivery, not a revival of earlier roadmap placeholders.
+[Delivery definition](../deliveries/D002-sqlite-validation/delivery.md): F002 only, using its approved specification and S0–S5 order, followed by fresh Delivery verification and user candidate review. The user approved/start-authorized D002 on 2026-09-26 and assigned F002 to a separate GPT-6 Sol / High task using Worktree Orchestrator. Runtime/workflow preflight remains pending; promotion and push are not authorized. This is the newly scoped validation Delivery, not a revival of earlier roadmap placeholders.
 
 The prerequisite orchestration-plugin and agent-profile improvements are complete. The [readiness reconciliation](development-readiness.md) records the current baseline and remaining technical decisions; this tooling work is not implementation of the LazyCode runtime.
 
